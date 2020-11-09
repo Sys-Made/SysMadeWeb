@@ -81,25 +81,55 @@
     max-height: 200px;
     height: 100%;
 }
+.testeFundo2{
+    background-image: url(../Img/imagens/visao.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    
+}
 .testeFundo{
     background-image: url(../Img/imagens/parallax03.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    background-color: rgba(255,233,227,0.3);
+    /*background-color: rgba(255,233,227,0.3);*/
     
 }
 /*fimParallaz*/
 
 /*comoTrabalhamos*/
+.info{
+    background-color: rgba(255,233,227,0.3);
+}
+.infoWork{
+    height: 370px;
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 2px 6px #333;
+    background-color: rgba(255,255,255,1);
+}
+
 .icone{
     height: 100px;
     width: 100px;
+    border: 1px solid #ddd;
+    margin-left: auto;
+    margin-right: auto;
     background-image: url(../Img/Icones/approve-invoice.png);
     background-color: rgb(255, 255, 255);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+/*fimComotrabalhamos*/
+
+/*tabelaDePreco*/
+.tabela{
+    box-shadow: 2px 2px 6px #333;
+    background-color: rgba(255,255,255,1);
 }
 
