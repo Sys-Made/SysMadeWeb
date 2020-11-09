@@ -92,5 +92,14 @@
 }
 /*fimParallaz*/
 
-/**/
+/*comoTrabalhamos*/
+.icone{
+    height: 100px;
+    width: 100px;
+    background-image: url(../Img/Icones/approve-invoice.png);
+    background-color: rgb(255, 255, 255);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 
