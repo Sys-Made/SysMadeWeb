@@ -3,8 +3,30 @@
 }
 
 /*cabecario*/
+/*.cabecario .logoTipo{
+    max-height: 180px;
+    max-width: 200px;
+    height: 50%;
+    width: 100%;
+     
+}*/
+.cabecario .logoTipo img{
+    max-height: 180px;
+    max-width: 200px;
+    height: 50%;
+    width: 100%;
+}
 .buton{
     text-decoration: none;
     list-style: none;
+}
+.cabecario .lenguagem{
+    height: 40px;
+    width: 55px;
+    background-image: url(../Img/Icones/alterandoALinguagem.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
