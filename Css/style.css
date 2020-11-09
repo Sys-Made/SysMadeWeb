@@ -3,25 +3,19 @@
 }
 
 /*cabecario*/
-/*.cabecario .logoTipo{
-    max-height: 180px;
-    max-width: 200px;
-    height: 50%;
-    width: 100%;
-     
-}*/
 .cabecario{
     max-height: 400px;
     min-height: 140px;
     height: 100%;
     padding: 5%;
+    /*background-color: #dad5de;*/
     background-image: url(../Img/imagens/cabecario.jpg);
     background-position: center;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 .cabecario .logoTipo{
- background-color: rgba(255,233,227,0.3);
+ background-color: rgba(209,208,209,0.5);
 }
 .cabecario .logoTipo img{
     max-height: 220px;
@@ -102,7 +96,7 @@
 
 /*comoTrabalhamos*/
 .info{
-    background-color: rgba(255,233,227,0.3);
+    background-color: rgba(209,208,209,0.8);
 }
 .infoWork{
     height: 370px;
@@ -127,9 +121,28 @@
 }
 /*fimComotrabalhamos*/
 
-/*tabelaDePreco*/
+/*servico*/
 .tabela{
     box-shadow: 2px 2px 6px #333;
     background-color: rgba(255,255,255,1);
 }
+/*fim*/
+
+/*Contato*/
+
+.contato .iconeContato{
+    overflow: auto;
+    height: 20px;
+    width: 20px; 
+    display: inline-block;
+    border: none;
+    background-image: url(../Img/Icones/email.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/*fim*/
+
+
 
