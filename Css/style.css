@@ -10,15 +10,44 @@
     width: 100%;
      
 }*/
+.cabecario{
+    max-height: 400px;
+    min-height: 140px;
+    height: 100%;
+    padding: 5%;
+    background-image: url(../Img/imagens/cabecario.jpg);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.cabecario .logoTipo{
+ background-color: rgba(255,233,227,0.3);
+}
 .cabecario .logoTipo img{
-    max-height: 180px;
-    max-width: 200px;
+    max-height: 220px;
+    max-width: 240px;
     height: 50%;
     width: 100%;
+}
+.menuNavegacao{
+    width: 100%;
+    max-width: 700px;
+    margin-left: 8%;
+}
+.menuNavegacao ul{
+    text-align: center;
+}
+.login{
+    position: absolute;
+    /*top: 10px;*/
+    top: 1.5%;
+    right: 1.6%;
+    /*right: 8px;*/
 }
 .buton{
     text-decoration: none;
     list-style: none;
+    background-color: aliceblue;
 }
 .cabecario .lenguagem{
     height: 40px;
@@ -29,4 +58,39 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
+/*fimCabecario/
+
+/*paralax*/
+.parallax{
+    background-image: url(../Img/imagens/visao.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    min-height: 120px;
+    max-height: 200px;
+    height: 100%;
+}
+.parallax2{
+    background-image: url(../Img/imagens/parallax03.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    min-height: 120px;
+    max-height: 200px;
+    height: 100%;
+}
+.testeFundo{
+    background-image: url(../Img/imagens/parallax03.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(255,233,227,0.3);
+    
+}
+/*fimParallaz*/
+
+/**/
 
