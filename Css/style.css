@@ -129,6 +129,22 @@
 /*fim*/
 
 /*Contato*/
+.localidadeIframe{
+    max-height: 300px;
+    max-width: 450px;
+    height: 100%; 
+    width: 100%; 
+    box-shadow: 2px 2px 6px #333;
+}
+
+.fundoContato{
+    max-height: 400px;
+    max-width: 450px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 2px 2px 6px #333;
+    background-color: white;
+}
 
 .contato .iconeContato{
     overflow: auto;
