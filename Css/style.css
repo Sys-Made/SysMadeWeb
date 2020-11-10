@@ -1,9 +1,13 @@
-.teste{
+.bg-halfLight {
+    background-color: #dcdfe1;
+}
+
+.teste {
     border: 1px solid #000;
 }
 
 /*cabecario*/
-.cabecario{
+.cabecario {
     max-height: 400px;
     min-height: 140px;
     height: 100%;
@@ -14,36 +18,43 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-.cabecario .logoTipo{
- background-color: rgba(209,208,209,0.5);
+
+.cabecario .logoTipo {
+    background-color: rgba(209, 208, 209, 0.5);
 }
-.cabecario .logoTipo img{
+
+.cabecario .logoTipo img {
     max-height: 220px;
     max-width: 240px;
     height: 50%;
     width: 100%;
 }
-.menuNavegacao{
+
+.menuNavegacao {
     width: 100%;
     max-width: 700px;
     margin-left: 8%;
 }
-.menuNavegacao ul{
+
+.menuNavegacao ul {
     text-align: center;
 }
-.login{
+
+.login {
     position: absolute;
     /*top: 10px;*/
     top: 1.5%;
     right: 1.6%;
     /*right: 8px;*/
 }
-.buton{
+
+.buton {
     text-decoration: none;
     list-style: none;
     background-color: aliceblue;
 }
-.cabecario .lenguagem{
+
+.cabecario .lenguagem {
     height: 40px;
     width: 55px;
     background-image: url(../Img/Icones/alterandoALinguagem.png);
@@ -52,10 +63,11 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
+
 /*fimCabecario/
 
 /*paralax*/
-.parallax{
+.parallax {
     background-image: url(../Img/imagens/visao.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -65,7 +77,8 @@
     max-height: 200px;
     height: 100%;
 }
-.parallax2{
+
+.parallax2 {
     background-image: url(../Img/imagens/parallax03.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -75,39 +88,43 @@
     max-height: 200px;
     height: 100%;
 }
-.testeFundo2{
+
+.testeFundo2 {
     background-image: url(../Img/imagens/visao.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    
+
 }
-.testeFundo{
+
+.testeFundo {
     background-image: url(../Img/imagens/parallax03.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     /*background-color: rgba(255,233,227,0.3);*/
-    
+
 }
+
 /*fimParallaz*/
 
 /*comoTrabalhamos*/
-.info{
-    background-color: rgba(209,208,209,0.8);
+.info {
+    background-color: rgba(209, 208, 209, 0.8);
 }
-.infoWork{
+
+.infoWork {
     height: 370px;
     width: 280px;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 2px 2px 6px #333;
-    background-color: rgba(255,255,255,1);
+    background-color: rgba(255, 255, 255, 1);
 }
 
-.icone{
+.icone {
     height: 100px;
     width: 100px;
     border: 1px solid #ddd;
@@ -119,25 +136,27 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+
 /*fimComotrabalhamos*/
 
 /*servico*/
-.tabela{
+.tabela {
     box-shadow: 2px 2px 6px #333;
-    background-color: rgba(255,255,255,1);
+    background-color: rgba(255, 255, 255, 1);
 }
+
 /*fim*/
 
 /*Contato*/
-.localidadeIframe{
+.localidadeIframe {
     max-height: 300px;
     max-width: 450px;
-    height: 100%; 
-    width: 100%; 
+    height: 100%;
+    width: 100%;
     box-shadow: 2px 2px 6px #333;
 }
 
-.fundoContato{
+.fundoContato {
     max-height: 400px;
     max-width: 450px;
     height: 100%;
@@ -146,10 +165,10 @@
     background-color: white;
 }
 
-.contato .iconeContato{
+.contato .iconeContato {
     overflow: auto;
     height: 20px;
-    width: 20px; 
+    width: 20px;
     display: inline-block;
     border: none;
     background-image: url(../Img/Icones/email.png);
@@ -157,15 +176,19 @@
     background-repeat: no-repeat;
     background-position: center;
 }
-.formLogin{
-    color: white; 
-    background-color:rgba(2,127,214,0.5)/* #027fd6*/; 
+
+.formLogin {
+    color: white;
+    background-color: rgba(2, 127, 214, 0.5)
+        /* #027fd6*/
+    ;
     box-shadow: 2px 2px 6px #333;
 }
+
 /*fimContatoLocalização*/
 
 /*rodape*/
-.membros .membrosLista{
+.membros .membrosLista {
     list-style: none;
     display: inline-block;
     padding: 1%;
@@ -173,7 +196,8 @@
     /*    color: #f6f6f6;*/
     border-radius: 2px;
 }
-.membros span{
+
+.membros span {
     padding: 1%;
     font-weight: bold;
     background-color: #31313b;
@@ -181,14 +205,24 @@
     border-radius: 2px;
 }
 
-.membros li{
+.membros li {
     height: 30px;
     width: 80px;
     background-color: #f6f6f6;
     color: #31313b;
     border-radius: 2px;
 }
+
 /*fim*/
 
+/*navegacaoPortfolio*/
+.navegacaoPortEqui {
+    background-color: #dcdfe1;
+}
 
+/*fim*/
 
+/*projetoFeito*/
+.cardShadow {
+    box-shadow: 2px 2px 8px #333;
+}
