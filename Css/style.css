@@ -260,3 +260,81 @@
 }
 
 /*fim*/
+
+/* empresaSobre */
+.infoEmpresa {
+    width: 90%;
+    margin-top: 1.5%;
+    margin-right: auto;
+    margin-bottom: 1.5%;
+    margin-left: auto;
+    border-radius: 2px;
+    background-color: #31313b;
+
+}
+
+.infoEmpresa .subTitulo{
+    border: none;
+    text-align: center;
+    background-color: #fff;
+    color: #31313b;
+    padding: 1.5%;
+}
+
+.infoEmpresa .figuraEmpresa {
+    width: 100%;
+    margin: 1.5% 0;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.infoEmpresa .figuraEmpresa img {
+    max-height: 550px;
+    min-height: 325px;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+
+}
+
+.infoEmpresa .figuraEmpresa figcaption {
+    margin: 1% auto 1% auto;
+    width: 90%;
+    padding: 2% 2%;
+    text-align: center;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.infoEmpresa p {
+    text-align: justify;
+    text-justify: initial;
+    width: 90%;
+    margin: 0 auto 1.5% auto;
+    padding: 3% 5%;
+    background-color: #fff;
+    border-bottom: 4px solid #31313b;
+}
+
+/* fim */
+
+/*version do sistema*/
+.versao{
+    position: fixed;
+    bottom: 2px;
+    right: 5px;
+    padding: 0.4%;
+    width: 110px;
+    height: 30px;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px #111;
+    background-color: rgba(245, 51, 51, 0.5);
+    visibility: visible;
+}
+.versao b{
+    font-weight: bold;
+}
+
+/* fim */
