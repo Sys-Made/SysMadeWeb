@@ -226,3 +226,37 @@
 .cardShadow {
     box-shadow: 2px 2px 8px #333;
 }
+/*fim*/
+
+/*sustentabilidade*/
+
+.sustenInfo {
+    width: 90%;
+    margin: 2% auto;
+    padding: 2% 1%;
+    border-bottom: 6px solid #31313b;
+    border-top: 6px solid #31313b;
+}
+
+.sustenInfo figure {
+    margin: 2% 0;
+}
+
+.sustenInfo figure img {
+    max-height: 500px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.sustenInfo figure figcaption {
+    padding: 2% 1.5%;
+    text-align: center;
+    color: #f6f6f6;
+    background-color: #31313b;
+}
+
+.sustenInfo .estrategia {
+    list-style: none;
+}
+
+/*fim*/
