@@ -75,11 +75,74 @@
     <!-- fimUserDados -->
 
     <!-- funcaoUsuario -->
+    <section class="container-fluid bg-light">
 
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                    aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                    aria-controls="profile" aria-selected="false">Profile</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab"
+                    aria-controls="messages" aria-selected="false">Messages</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab"
+                    aria-controls="settings" aria-selected="false">Settings</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="name@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Example select</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <h1 class="text-center my-4" style="color: #185ea4;">Em Desenvolvimento</h1>
+            </div>
+
+            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                <h1 class="text-center my-4" style="color: #185ea4;">Em Desenvolvimento</h1>
+            </div>
+
+            <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                <h1 class="text-center my-4" style="color: #185ea4;">Em Desenvolvimento</h1>
+            </div>
+        </div>
+
+    </section>
     <!-- fimFuncaoUsuario -->
 
     <!--rodapé-->
-    <footer class="container-fluid bg-light userBoxShadowTop">
+    <footer class="container-fluid bg-light userBoxShadowTop mt-4">
         <div class="row justify-content-center">
             <div class="col-6 text-center">
                 <img class="#" src="../Img/logo/LogotipoNew.png" alt="logo_da_empresa" width="150" height="100">
