@@ -369,3 +369,22 @@
 
 /*fim*/
 
+/*cabecarioUsuarioCliente*/
+.userBoxShadow{
+    box-shadow: 2px 2px 8px #000
+}
+.userBoxShadowTop{
+    box-shadow: -2px -2px 8px #000
+}
+.btnSair{
+    height: 30px;
+    width: 30px;
+    /*background-image: url(../Img/Icones/sair.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;*/
+}
+.btnSair img{
+    height: 100%;
+    width: 100%;
+}
+/*fim*/
