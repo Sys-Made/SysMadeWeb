@@ -402,7 +402,7 @@
 }
 
 .textColorPadrao {
-    color: #185ea4;
+    color: #43528A;
 }
 
 .fotoUser {
@@ -438,19 +438,28 @@
 
 /*fimDadosPedidos*/
 
-/*datasocio*/
+/*socioDados*/
 .dataSocio {
-    max-width: 600px;
-    max-height: 600px;
+    max-width: 450px;
+    max-height: 450px;
     height: 100%;
     width: 100%;
 }
 
 .fotoUserSocio{
-    height: 50%;
+    height: 300px;
     width: 100%;
     background-image: url(../Img/portfolio/patric.jpeg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.dadosProjeto{
+    max-width: 750px;
+    max-height: 500px;
+    height: 100%;
+    width: 100%;
+}
+/*fimSocioDados*/
+

@@ -46,27 +46,80 @@
     <section class="container-fluid my-4">
         <div class="row">
             <div class="col-6">
-                <article class="dataSocio p-0 shadow teste">
+                <article class="dataSocio border shadow">
 
-                    <div class="fotoUserSocio text-center border"></div>
+                    <div class="fotoUserSocio text-center"></div>
 
-                    <div class="dadosUserSocio border p-2 textColorPadrao bg-light">
-                        <h6>Nome Do Cliente</h6>
+                    <div class="dadosUserSocio p-2 textColorPadrao bg-light">
+                        <h6>Nome Do Socio</h6>
 
-                        <h6>Microsolft Brasil</h6>
+                        <h6>Lider, Analista de sitema e front-end</h6>
 
                         <h6>microsolftoficial2020@outlook.com</h6>
+
+                        <h6>(11) 98745-0123</h6>
                     </div>
                 </article>
             </div>
 
             <div class="col-6">
-                <article class="dadosPedidos border shadow">
-                    <h2 class="text-center textColorPadrao">Pedidos em Desenvolvimento</h2>
+                <article class="dadosProjeto border shadow">
+                    <h2 class="text-center textColorPadrao">Projetos Em Andamento</h2>
 
-                    <div class="listaPedidos my-4 text-center">
-                        <img src="../Img/Icones/web-development.png" alt="emDesenvolvimento">
-                        <h1 class="text-center textColorPadrao">Em Desenvolvimento</h1>
+                    <div class="listaProjeto my-4 text-center">
+                        <table class="table">
+                            <thead class="#" style="background-color: #43528A; color: white;">
+                                <tr>
+                                    <th scope="col">Projeto</th>
+                                    <th scope="col">Data entrega</th>
+                                    <th scope="col">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody class="textColorPadrao">
+
+                                <tr>
+                                    <td>Projeto Nome</td>
+                                    <td>10/08/20</td>
+                                    <td><button type="submit"
+                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Projeto Nome</td>
+                                    <td>10/08/20</td>
+                                    <td><button type="submit"
+                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Projeto Nome</td>
+                                    <td>10/08/20</td>
+                                    <td><button type="submit"
+                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Projeto Nome</td>
+                                    <td>10/08/20</td>
+                                    <td><button type="submit"
+                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Projeto Nome</td>
+                                    <td>10/08/20</td>
+                                    <td><button type="submit"
+                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Projeto Nome</td>
+                                    <td>10/08/20</td>
+                                    <td><button type="submit"
+                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                 </article>
@@ -82,57 +135,91 @@
                 <!-- tablist -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#addProjeto" role="tab"
                             aria-controls="home" aria-selected="true">Adicionar Projeto</a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                            aria-controls="profile" aria-selected="false">Projeto Concluido</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#complProjeto" role="tab"
+                            aria-controls="profile" aria-selected="false">Projetos Concluidos</a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                            aria-controls="profile" aria-selected="false">Pedido Cancelados</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#cancelProjeto" role="tab"
+                            aria-controls="profile" aria-selected="false">Projetos Cancelados</a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#esperaPedido" role="tab"
                             aria-controls="profile" aria-selected="false">Pedido Em espera</a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#updateProjeto" role="tab"
                             aria-controls="contact" aria-selected="false">Aletrar Projetos</a>
                     </li>
                 </ul>
+
+                <!-- adicionarProjeto -->
                 <div class="tab-content shadow border-top-0 p-3 textColorPadrao" id="myTabContent">
 
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="addProjeto" role="tabpanel" aria-labelledby="home-tab">
                         <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Email address</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
-                                    placeholder="name@example.com">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="exampleFormControlInput1">Nome Do Projeto</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="exemplo name: adminiscar">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="exampleFormControlInput1">Data Entrega</label>
+                                    <input type="date" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="name@example.com">
+                                </div>
                             </div>
 
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="exampleFormControlInput1">Horas Estimadas</label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="exemplo name: adminiscar">
+                                </div>
+                            </div>    
+
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Example textarea</label>
+                                <label for="exampleFormControlTextarea1">Descrição Do Projeto</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-light border textColorPadrao">Submit</button>
-
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-md-1">
+                                    <button type="submit" class="btn btn-light border textColorPadrao">Registrar</button>
+                                </div>    
+                            </div>    
                         </form>
                     </div>
 
-                    <div class="tab-pane fade p-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <h1 class="text-center">Em Desenvolvimento</h1>
+                    <!-- ProjetoCompleto -->
+                    <div class="tab-pane fade p-3" id="complProjeto" role="tabpanel" aria-labelledby="profile-tab">
+                        <h1 class="text-center">Em Desenvolvimento1</h1>
                     </div>
 
-                    <div class="tab-pane fade p-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <h1 class="text-center">Em Desenvolvimento</h1>
+                    <!-- ProjetoCancelados -->
+                    <div class="tab-pane fade p-3" id="cancelProjeto" role="tabpanel" aria-labelledby="contact-tab">
+                        <h1 class="text-center">Em Desenvolvimento2</h1>
                     </div>
+
+                    <!-- PedidosEmEspera -->
+                    <div class="tab-pane fade p-3" id="esperaPedido" role="tabpanel" aria-labelledby="contact-tab">
+                        <h1 class="text-center">Em Desenvolvimento3</h1>
+                    </div>
+
+                    <!-- PedidosUpdate -->
+                    <div class="tab-pane fade p-3" id="updateProjeto" role="tabpanel" aria-labelledby="contact-tab">
+                        <h1 class="text-center">Em Desenvolvimento4</h1>
+                    </div>
+
                 </div>
                 <!-- fimTablist -->
             </div>
