@@ -388,3 +388,41 @@
     width: 100%;
 }
 /*fim*/
+
+/*userDados*/
+.dataUsuario{
+    max-width: 648px; 
+    max-height: 350px;
+    height: 100%;
+    width: 100%;
+}
+.textColorPadrao{
+    color: #185ea4;
+}
+.fotoUser{
+    width: 100%;
+    height: 50%;
+    background-color: #62b0fe;
+}
+.fotoUser img{
+    width: 110px; 
+    height: 110px;
+}
+.dadosUser{
+    height: 50%;
+    width: 100%;
+}
+/*fimUserDados*/
+
+/*dadosPedido*/
+.dadosPedidos{
+    max-width: 648px; 
+    max-height: 350px;
+    height: 100%;
+    width: 100%;
+}
+.listaPedidos img{
+    width:150px; 
+    height:150px;
+}
+/*fimDadosPedidos*/

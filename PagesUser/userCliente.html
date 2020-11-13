@@ -45,14 +45,13 @@
     <!-- userDados -->
     <section class="container-fluid my-4">
         <div class="row my-3">
-            <div class="col-6 teste">
-                <article class="dataUsuario teste p-2" style="width: 648px; height: 350px;">
-                    <div class="fotoUser teste">
-                        <img class="bg-light rounded-circle" src="../Img/portfolio/patric.jpeg" alt="fotoUsuario"
-                            width="100" height="100">
+            <div class="col-6">
+                <article class="dataUsuario p-0 shadow">
+                    <div class="fotoUser p-2 text-center border">
+                        <img class="bg-light rounded-circle" src="../Img/portfolio/patric.jpeg" alt="fotoUsuario">
                     </div>
 
-                    <div class="dadosUser teste">
+                    <div class="dadosUser p-3 border textColorPadrao">
                         <h6>Nome Do Cliente</h6>
 
                         <h6>Microsolft Brasil</h6>
@@ -62,13 +61,13 @@
                 </article>
             </div>
 
-            <div class="col-6 teste">
-                <article class="dadosPedidos teste" style="width: 648px; height: 350px;">
-                    <h2 class="text-center" style="color: #185ea4;">Pedidos em Desenvolvimento</h2>
+            <div class="col-6">
+                <article class="dadosPedidos border shadow">
+                    <h2 class="text-center textColorPadrao">Pedidos em Desenvolvimento</h2>
 
                     <div class="listaPedidos my-4 text-center">
-                        <img src="../Img/Icones/web-development.png" alt="emDesenvolvimento" width="150" height="150">
-                        <h1 class="text-center" style="color: #185ea4;">Em Desenvolvimento</h1>
+                        <img src="../Img/Icones/web-development.png" alt="emDesenvolvimento">
+                        <h1 class="text-center textColorPadrao">Em Desenvolvimento</h1>
                     </div>
 
                 </article>
@@ -79,7 +78,7 @@
 
     <!-- funcaoUsuario -->
     <section class="container-fluid bg-light">
-        
+
         <!-- tablist -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -95,31 +94,32 @@
                     aria-controls="contact" aria-selected="false">Configuração</a>
             </li>
         </ul>
-        <div class="tab-content p-3" id="myTabContent">
-            
+        <div class="tab-content shadow border-top-0 p-3 textColorPadrao" id="myTabContent">
+
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <form>
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Email address</label>
-                      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="name@example.com">
                     </div>
-                    
+
                     <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Example textarea</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-light border textColorPadrao">Submit</button>
 
-                  </form>
+                </form>
             </div>
 
             <div class="tab-pane fade p-3" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <h1 class="text-center" style="color: #185ea4;">Em Desenvolvimento</h1>
+                <h1 class="text-center">Em Desenvolvimento</h1>
             </div>
 
             <div class="tab-pane fade p-3" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                <h1 class="text-center" style="color: #185ea4;">Em Desenvolvimento</h1>
+                <h1 class="text-center">Em Desenvolvimento</h1>
             </div>
         </div>
         <!-- fimTablist -->
