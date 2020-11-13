@@ -370,59 +370,87 @@
 /*fim*/
 
 /*cabecarioUsuarioCliente*/
-.userBoxShadow{
+.userBoxShadow {
     box-shadow: 2px 2px 8px #000
 }
-.userBoxShadowTop{
+
+.userBoxShadowTop {
     box-shadow: -2px -2px 8px #000
 }
-.btnSair{
+
+.btnSair {
     height: 30px;
     width: 30px;
     /*background-image: url(../Img/Icones/sair.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;*/
 }
-.btnSair img{
+
+.btnSair img {
     height: 100%;
     width: 100%;
 }
+
 /*fim*/
 
 /*userDados*/
-.dataUsuario{
-    max-width: 648px; 
+.dataUsuario {
+    max-width: 648px;
     max-height: 350px;
     height: 100%;
     width: 100%;
 }
-.textColorPadrao{
+
+.textColorPadrao {
     color: #185ea4;
 }
-.fotoUser{
+
+.fotoUser {
     width: 100%;
     height: 50%;
     background-color: #62b0fe;
 }
-.fotoUser img{
-    width: 110px; 
-    height: 110px;
+
+.fotoUser img {
+    width: 1px;
+    height: 120px;
 }
-.dadosUser{
+
+.dadosUser {
     height: 50%;
     width: 100%;
 }
+
 /*fimUserDados*/
 
 /*dadosPedido*/
-.dadosPedidos{
-    max-width: 648px; 
+.dadosPedidos {
+    max-width: 648px;
     max-height: 350px;
     height: 100%;
     width: 100%;
 }
-.listaPedidos img{
-    width:150px; 
-    height:150px;
+
+.listaPedidos img {
+    width: 150px;
+    height: 150px;
 }
+
 /*fimDadosPedidos*/
+
+/*datasocio*/
+.dataSocio {
+    max-width: 600px;
+    max-height: 600px;
+    height: 100%;
+    width: 100%;
+}
+
+.fotoUserSocio{
+    height: 50%;
+    width: 100%;
+    background-image: url(../Img/portfolio/patric.jpeg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
