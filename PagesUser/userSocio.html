@@ -135,7 +135,7 @@
                 <!-- tablist -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#addProjeto" role="tab"
+                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#addProjeto" role="tab"
                             aria-controls="home" aria-selected="true">Adicionar Projeto</a>
                     </li>
 
@@ -155,7 +155,7 @@
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#updateProjeto" role="tab"
+                        <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#updateProjeto" role="tab"
                             aria-controls="contact" aria-selected="false">Aletrar Projetos</a>
                     </li>
                 </ul>
@@ -163,7 +163,7 @@
                 <!-- adicionarProjeto -->
                 <div class="tab-content shadow border-top-0 p-3 textColorPadrao" id="myTabContent">
 
-                    <div class="tab-pane fade show active" id="addProjeto" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade" id="addProjeto" role="tabpanel" aria-labelledby="home-tab">
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -185,7 +185,7 @@
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="exemplo name: adminiscar">
                                 </div>
-                            </div>    
+                            </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Descrição Do Projeto</label>
@@ -194,30 +194,461 @@
 
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-1">
-                                    <button type="submit" class="btn btn-light border textColorPadrao">Registrar</button>
-                                </div>    
-                            </div>    
+                                    <button type="submit"
+                                        class="btn btn-light border textColorPadrao">Registrar</button>
+                                </div>
+                            </div>
                         </form>
                     </div>
 
                     <!-- ProjetoCompleto -->
                     <div class="tab-pane fade p-3" id="complProjeto" role="tabpanel" aria-labelledby="profile-tab">
-                        <h1 class="text-center">Em Desenvolvimento1</h1>
+
+                        <!-- buscaProjeto -->
+                        <form>
+                            <div class="form-row justify-content-center">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                </div>
+                                <div class="col-1">
+                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- fimBuscaProjeto -->
+
+                        <!-- resultados-->
+                        <div class="listaProjeto my-4 text-center">
+                            <table class="table">
+                                <thead class="#" style="background-color: #43528A; color: white;">
+                                    <tr>
+                                        <th scope="col">Projeto</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="textColorPadrao">
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-success">Finalizado: 12/09/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-success">Finalizado: 12/09/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-success">Finalizado: 12/09/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-success">Finalizado: 12/09/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-success">Finalizado: 12/09/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-success">Finalizado: 12/09/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- fimResultados -->
+
+                        <!-- paginacao -->
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- fimPaginacao -->
                     </div>
 
                     <!-- ProjetoCancelados -->
                     <div class="tab-pane fade p-3" id="cancelProjeto" role="tabpanel" aria-labelledby="contact-tab">
-                        <h1 class="text-center">Em Desenvolvimento2</h1>
+                        <!-- buscaProjeto -->
+                        <form>
+                            <div class="form-row justify-content-center">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                </div>
+                                <div class="col-1">
+                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- fimBuscaProjeto -->
+
+                        <!-- resultados-->
+                        <div class="listaProjeto my-4 text-center">
+                            <table class="table">
+                                <thead class="#" style="background-color: #43528A; color: white;">
+                                    <tr>
+                                        <th scope="col">Projeto</th>
+                                        <th scope="col">Motivo</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="textColorPadrao">
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-danger">Falta de Recurso</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-danger">Falta de Recurso</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-danger">Falta de Recurso</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-danger">Falta de Recurso</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-danger">Falta de Recurso</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td class="text-danger">Falta de Recurso</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- fimResultados -->
+
+                        <!-- paginacao -->
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- fimPaginacao -->
                     </div>
 
                     <!-- PedidosEmEspera -->
-                    <div class="tab-pane fade p-3" id="esperaPedido" role="tabpanel" aria-labelledby="contact-tab">
-                        <h1 class="text-center">Em Desenvolvimento3</h1>
+                    <div class="tab-pane p-3" id="esperaPedido" role="tabpanel" aria-labelledby="contact-tab">
+                        <!-- buscaProjeto -->
+                        <form>
+                            <div class="form-row justify-content-center">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                </div>
+                                <div class="col-1">
+                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- fimBuscaProjeto -->
+
+                        <!-- resultados-->
+                        <div class="listaProjeto my-4 text-center">
+                            <table class="table">
+                                <thead class="#" style="background-color: #43528A; color: white;">
+                                    <tr>
+                                        <th scope="col">Projeto</th>
+                                        <th scope="col">Data entrega</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="textColorPadrao">
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Aceitar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Recusar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Aceitar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Recusar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Aceitar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Recusar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Aceitar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Recusar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Aceitar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Recusar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Aceitar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Recusar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- fimResultados -->
+
+                        <!-- paginacao -->
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- fimPaginacao -->
                     </div>
 
                     <!-- PedidosUpdate -->
-                    <div class="tab-pane fade p-3" id="updateProjeto" role="tabpanel" aria-labelledby="contact-tab">
-                        <h1 class="text-center">Em Desenvolvimento4</h1>
+                    <div class="tab-pane fade show active p-3" id="updateProjeto" role="tabpanel"
+                        aria-labelledby="contact-tab">
+                        <!-- buscaProjeto -->
+                        <form>
+                            <div class="form-row justify-content-center">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                </div>
+                                <div class="col-1">
+                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- fimBuscaProjeto -->
+
+                        <!-- resultados-->
+                        <div class="listaProjeto my-4 text-center">
+                            <table class="table">
+                                <thead class="#" style="background-color: #43528A; color: white;">
+                                    <tr>
+                                        <th scope="col">Projeto</th>
+                                        <th scope="col">Data entrega</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="textColorPadrao">
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit" class="btn btn-light border textColorPadrao"
+                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Deletar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit" class="btn btn-light border textColorPadrao"
+                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Deletar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit" class="btn btn-light border textColorPadrao"
+                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Deletar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit" class="btn btn-light border textColorPadrao"
+                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Deletar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit" class="btn btn-light border textColorPadrao"
+                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Deletar</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>Data entrega: 10/11/20</td>
+                                        <td>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button>
+                                            <button type="submit" class="btn btn-light border textColorPadrao"
+                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
+                                            <button type="submit"
+                                                class="btn btn-light border textColorPadrao">Deletar</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- fimResultados -->
+
+                        <!-- paginacao -->
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- fimPaginacao -->
                     </div>
 
                 </div>
@@ -226,6 +657,60 @@
         </div>
     </section>
     <!-- fimFuncaoUsuario -->
+
+    <!--Modal-->
+    <div class="modal fade textColorPadrao" id="alterarProjeto" tabindex="-1" aria-labelledby="alterarProjeto" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alterarProjeto">Alterar Projeto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleFormControlInput1">Nome Do Projeto</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="exemplo name: adminiscar">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="exampleFormControlInput1">Data Entrega</label>
+                                <input type="date" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="name@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleFormControlInput1">Horas Estimadas</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                    placeholder="exemplo name: adminiscar">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Descrição Do Projeto</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- fim -->
 
     <!--rodapé-->
     <footer class="container-fluid bg-light userBoxShadowTop mt-4">
