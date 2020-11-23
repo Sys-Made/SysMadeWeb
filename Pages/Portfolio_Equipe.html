@@ -50,15 +50,14 @@
     <!-- navegacaoPortfolio -->
     <nav class="navbar navbar-dark justify-content-center">
         <form class="form-inline p-1">
-            <button class="btn btn-outline-secondary buton mx-2 btn-lg active" type="button"
-                style="cursor:not-allowed;">Projeto</button>
-            <button class="btn btn-outline-secondary buton mx-2 btn-lg" type="button">Equipe</button>
+            <button class="btn btn-outline-secondary buton mx-2 btn-lg butonActvie botaoOne" type="button" onclick="navegacaoInfo(0);">Projeto</button>
+            <button class="btn btn-outline-secondary buton mx-2 btn-lg botaoOne" type="button" onclick="navegacaoInfo(1);">Equipe</button>
         </form>
     </nav>
     <!--fimNavegacaoPortfolio-->
 
     <!--projetoFeito-->
-    <section class="container-fluid mb-2 bg-light">
+    <section class="container-fluid mb-2 bg-light secaoInfo">
         <div class="row p-3">
             <div class="col my-2">
                 <article class="card cardShadow" style="width: 18rem;">
@@ -130,7 +129,7 @@
     <!-- fimProjetosFeito -->
 
     <!-- Equipe -->
-    <section class="container-fluid my-3 bg-light">
+    <section class="container-fluid mb-2 bg-light secaoInfo noVisive">
         <div class="row">
             <div class="col my-3">
                 <article class="card cardShadow" style="width: 22rem;">
@@ -298,6 +297,7 @@
 </body>
 
 <!-- Script bootstrap and Jquery -->
+<script type="text/javascript" src="../Js/script.js"></script>
 <script type="text/javascript" src="../Js/bootstrap.js"></script>
 <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../Js/jquery-3.5.1.min.js"></script>
