@@ -25,11 +25,9 @@ function navegacaoInfo(value){
 
     //Fazendo a mudança de conteudo
     if(listClassDiv == -1){
-        //alert("Ele não existe " + secaoInfoClass[value]);
-        //botaoClass[value].classList.add("butonActvie");
+        
         switch(value){
             case 0:
-                //alert("Projeto " + value);
                 botaoClass[value].classList.add("butonActvie");
                 secaoInfoClass[1].classList.add("noVisive");
                 botaoClass[1].classList.remove("butonActvie");
@@ -37,7 +35,6 @@ function navegacaoInfo(value){
             break;
             
             case 1:
-                //alert("Portfolio" + value);
                 botaoClass[value].classList.add("butonActvie");
                 secaoInfoClass[0].classList.add("noVisive");
                 botaoClass[0].classList.remove("butonActvie");
@@ -52,7 +49,4 @@ function navegacaoInfo(value){
     }
 
 }
-
-
-
 /*fim*/
