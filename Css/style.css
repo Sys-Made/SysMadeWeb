@@ -163,9 +163,7 @@
 
 .formLogin {
     color: white;
-    background-color: rgba(2, 127, 214, 0.5)
-        /* #027fd6*/
-    ;
+    background-color: rgba(2, 127, 214, 0.5);
     box-shadow: 2px 2px 6px #333;
 }
 
