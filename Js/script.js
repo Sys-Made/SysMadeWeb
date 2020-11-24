@@ -50,3 +50,42 @@ function navegacaoInfo(value){
 
 }
 /*fim*/
+
+/*trocaDeIconesAndOfParallax*/
+function iconesAndParallax(){
+
+    //declarando variaveis locais
+    var icone, paralax, contato, fundo;
+
+    icone = document.getElementsByClassName("icone");
+    paralax = document.getElementsByClassName("parallax");
+    contato = document.getElementsByClassName("iconeContato");
+    fundo = document.getElementsByClassName("testeFundo");
+
+    //informações
+    icone[1].style.backgroundImage = "url('./Img/Icones/document.png')";
+    icone[2].style.backgroundImage = "url('./Img/Icones/scriptDesen.png')";
+
+    //Paralax
+    paralax[0].style.backgroundImage = "url(./Img/imagens/parallax01.jpg)";
+    paralax[1].style.backgroundImage = "url(./Img/imagens/parallax01.jpg)";
+    paralax[2].style.backgroundImage = "url(./Img/imagens/parallax03.jpg)";
+    paralax[3].style.backgroundImage = "url(./Img/imagens/parallax03.jpg)";
+
+    //testeFundo
+    fundo[2].style.backgroundImage = "url(./Img/imagens/parallax03.jpg)";
+    
+    //Contato
+    contato[0].style.backgroundImage = "url(./Img/Icones/call.png)";
+    contato[1].style.backgroundImage = "url(./Img/Icones/email.png)";
+    contato[2].style.backgroundImage = "url(./Img/Icones/whatsapp.png)";
+    contato[3].style.backgroundImage = "url(./Img/Icones/facebook.png)";
+    contato[4].style.backgroundImage = "url(./Img/Icones/instagram.png)";
+
+
+}
+
+//adicionando o evento onload
+//document.getElementsByClassName("iconesPg")[0].addEventListener("load", iconesAndParallax());
+
+/*fimTrocaDeIconesAndOfParallax*/
