@@ -38,12 +38,12 @@
 
                     <form class="#">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
+                            <label for="exampleInputEmail1">CPF:</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
+                            <label for="exampleInputPassword1">Senha:</label>
                             <input type="password" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="form-group form-check">
@@ -51,9 +51,9 @@
 
                             <br><br>
 
-                            <a href="#">Criar uma conta -></a>
+                            <a href="#" data-toggle="modal" data-target="#exampleModal">Criar uma conta -></a>
                         </div>
-                        <button type="submit" class="btn btn-outline-secondary buton">Submit</button>
+                        <button type="submit" class="btn btn-outline-secondary buton">Entrar</button>
                     </form>
 
                 </div>
@@ -72,11 +72,36 @@
     </footer>
     <!-- fimRodapé -->
 
+    <!-- modalCadastro -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Em breve Cadastro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1>EM BREVE</h1>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--fimModalCadastro-->
+
     <!-- version do sistema -->
     <div class="versao">
         <p><b>ALPHA</b>V0.2.1</p>
     </div>
     <!-- fim -->
 </body>
+
+<script type="text/javascript" src="../Js/bootstrap.js"></script>
+<script type="text/javascript" src="../Js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../Js/jquery-3.5.1.min.js"></script>
 
 </html>
