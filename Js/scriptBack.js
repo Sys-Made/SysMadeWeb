@@ -83,13 +83,6 @@ function Login() {
         }
 
     }
-    /*if(validaCpf(login) == true){
-        alert("Cpf valido");
-    }else{
-        alert("Cpf falso e negado!");
-    }*/
-
-
 }
 
 /*fim*/
