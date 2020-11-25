@@ -6,9 +6,11 @@
     $login = $_POST['loginCpf'];
     $senha = $_POST['loginSenha'];
 
+    echo "Esse são os valores " . $login . " " . $senha; 
+
     //Script Mysql com php
     /*comando sql*/
-    $sqlSlect = "SELECT Cliente.nomeCliente, Cliente.cpfCliente, Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$login' AND Login.senhaSocio = '$senha' ";
+    /*$sqlSlect = "SELECT Cliente.nomeCliente, Cliente.cpfCliente, Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$login' AND Login.senhaSocio = '$senha' ";
 
     //$sqlSlect = "SELECT Cliente.nomeCliente, Cliente.cpfCliente, Login.loginUser FROM Cliente, Login WHERE Cliente.codigoCliente = Login.codigoLogin";
     $sqlResult = $conn->query($sqlSlect);    //Executando no banco
@@ -24,7 +26,7 @@
     }*/
 
     //se vai tem resultado ou não
-    if($numberLinhas > 0){
+    /*if($numberLinhas > 0){
         //Loop se tiver resultado
         while($resultado = $sqlResult->fetch_assoc()):
             
@@ -34,7 +36,7 @@
         
     }else{
         echo "resultado 0";
-    }
+    }*/
 
 
 
