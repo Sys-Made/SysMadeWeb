@@ -59,7 +59,9 @@ function Login() {
                 serverHttp.onreadystatechange = function () {
                     //verificando o status e se esta pronto para responder
                     if(this.readyState == 4 && this.status == 200){
-                        alert(this.responseText);
+                        //alert(this.responseText);
+
+                        location.href= this.responseText;
                     }
 
                 };
@@ -86,3 +88,12 @@ function Login() {
 }
 
 /*fim*/
+
+function sairLogin(){
+    var exitSessao;
+
+    //valor que vai ser usado para acionar a funcao php
+    exitSessao = parseInt(0);
+
+    
+}

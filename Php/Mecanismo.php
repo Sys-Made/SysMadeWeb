@@ -114,7 +114,7 @@
                     $_SESSION['nomeRealUser'] = $testeValor[0];
                     $_SESSION['nomeLoginUser'] = $testeValor[1];
 
-                    echo $_SESSION['nomeRealUser'] . " " . $_SESSION['nomeLoginUser'];
+                    echo "../PagesUser/userCliente.php";
                 }
 
             }else{
@@ -128,6 +128,8 @@
         endif;    
 
     }
+
+    //função deslogar
 
     //Executando a função
     SessaoLogar($_POST['loginCpf'], $_POST['loginSenha']);

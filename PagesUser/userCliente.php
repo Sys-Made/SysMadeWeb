@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html>
 
@@ -29,11 +31,10 @@
                     <img class="d-inline-block shadow rounded-circle" src="../Img/Icones/user.png" alt="foto_usuario"
                         width="80" height="80">
 
-                    <h6 class="d-inline-block mx-5 textColorPadrao">Nome Do Cliente</h6>
+                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['nomeLoginUser'];?></h6>
 
-                    <div class="btnSair d-inline-block shadow">
-                        <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario"
-                            style="cursor: pointer;">
+                    <div class="btnSair d-inline-block shadow teste" style="cursor: pointer;" onclick="sairLogin();">
+                        <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario">
                     </div>
                 </div>
 
@@ -52,7 +53,7 @@
                     </div>
 
                     <div class="dadosUser p-3 border textColorPadrao">
-                        <h6>Nome Do Cliente</h6>
+                        <h6><?php echo $_SESSION['nomeRealUser'];?></h6>
 
                         <h6>Microsolft Brasil</h6>
 
@@ -141,6 +142,8 @@
         <p><b>ALPHA</b>V0.2.1</p>
     </div>
     <!-- fim -->
+
+    <script type="text/javascript" src="../Js/scriptBack.js"></script>
 </body>
 
 </html>
