@@ -3,6 +3,7 @@
  * antes de enviar para o php fazendo uma validação dos dados
  * 
  **/
+
 /*validandoCpf*/
 function validaCpf(cpf) {
     //declarando variaveis locais
