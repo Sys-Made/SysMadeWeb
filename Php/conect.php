@@ -1,8 +1,8 @@
 <?php
-    $server = "localhost";
-    $userDb = "admin";
-    $passDb = "40028922+pokpok";
-    $bancoDb = "bancoSite";
+    $server = "seuServidor";
+    $userDb = "usuario";
+    $passDb = "senha";
+    $bancoDb = "seubanco";
 
     $conn = new mysqli($server, $userDb, $passDb, $bancoDb);
 
