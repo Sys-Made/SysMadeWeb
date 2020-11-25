@@ -4,7 +4,12 @@
         //Chamando a pagina de conexao
         require_once("conect.php");
 
+        //criando um lugar para guardar os dados do cliente
+        $valoresUserArray = "";
+
         /*Desenvolvendo scrip sql com php*/
+
+        //Fazendo a Busca busca do cliente
         $sqlSlect = "SELECT Cliente.nomeCliente, Cliente.cpfCliente, Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc' ";
         
         $sqlResult = $conn->query($sqlSlect);       //Executando o comando sql no banco
@@ -16,16 +21,26 @@
         if($numberLinhas > 0){
             //Loop se tiver resultado
             while($resultado = $sqlResult->fetch_assoc()):
+                //guardando
+                $nome = $resultado['nomeCliente'];
+                $user = $resultado['loginUser'];
                 
-                echo"Nome: " . $resultado['nomeCliente'] . " Cpf: " . $resultado['cpfCliente'] . " Login: " . $resultado['loginUser'];
 
-            endwhile;    
+                //guardando os valores do usuario em uma array
+                $valoresUserArray = array($nome, $user);
+    
+            endwhile;
             
         }else{
-            echo "resultado 0";
+
+            $valoresUserArray = false;
         }
-            
-        }
+
+        $conn->close();
+
+        return $valoresUserArray;
+        
+    }
 
     //Funcao validaCpf
     function validaSenha($senha){
@@ -79,7 +94,28 @@
             //validando a senha
             if(validaSenha($senha) === true){
 
-                BuscaUsuario($login, $senha);
+                //verificando se a funcao veio com array
+                $testeValor = BuscaUsuario($login, $senha);
+                if($testeValor === false){
+
+                    echo"Erro no login ou usuario";
+
+                }else{
+                    /**
+                     * 
+                     * Foreach é só usado em variaveis de matriz traduzindo arrays
+                     * 
+                     */
+                    /*foreach($testeValor as $resultUser):
+                        echo "$resultUser[0]";
+                    endforeach;*/
+                    //criando a session
+                    session_start();
+                    $_SESSION['nomeRealUser'] = $testeValor[0];
+                    $_SESSION['nomeLoginUser'] = $testeValor[1];
+
+                    echo $_SESSION['nomeRealUser'] . " " . $_SESSION['nomeLoginUser'];
+                }
 
             }else{
                 echo "Não foi a senha";
@@ -90,9 +126,6 @@
             echo "Não Foi o Cpf";
 
         endif;    
-
-        
-        //echo "Esse são os valores " . $login . " " . $senha;
 
     }
 
