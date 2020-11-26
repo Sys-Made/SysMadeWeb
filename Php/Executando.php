@@ -15,7 +15,12 @@
         //Executando a função
         DesLogar($_POST['outSign']);
 
-    }else{
+    }elseif(isset($_POST['activeSession'])){
+
+        //Executando a função
+        ExisteSesson($_POST['activeSession']);
+    }
+    else{
         echo "nenhum dos dois";
     }
 
