@@ -59,14 +59,15 @@ function Login() {
                 serverHttp.onreadystatechange = function () {
                     //verificando o status e se esta pronto para responder
                     if(this.readyState == 4 && this.status == 200){
-                        //alert(this.responseText);
 
                         location.href= this.responseText;
+                        //alert(this.responseText);
+
                     }
 
                 };
 
-                serverHttp.open("POST", "../Php/Mecanismo.php", true);
+                serverHttp.open("POST", "../Php/Executando.php", true);
 
                 serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -90,10 +91,31 @@ function Login() {
 /*fim*/
 
 function sairLogin(){
-    var exitSessao;
+    var exitSessao, serverHttp;
 
     //valor que vai ser usado para acionar a funcao php
     exitSessao = parseInt(0);
+
+    //Desenvolvendo o ajax
+    serverHttp = new XMLHttpRequest();      //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if(this.readyState == 4 && this.status == 200){
+            //alert(this.responseText);
+
+            alert(this.responseText);
+
+        }
+
+    };
+
+    serverHttp.open("POST", "../Php/Executando.php", true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("outSign="+exitSessao);
+
 
     
 }

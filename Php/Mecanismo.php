@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Busca de usuario
     function BuscaUsuario($loginBusc, $senhaBusc){
         //Chamando a pagina de conexao
@@ -110,7 +111,6 @@
                         echo "$resultUser[0]";
                     endforeach;*/
                     //criando a session
-                    session_start();
                     $_SESSION['nomeRealUser'] = $testeValor[0];
                     $_SESSION['nomeLoginUser'] = $testeValor[1];
 
@@ -130,8 +130,13 @@
     }
 
     //função deslogar
+    function DesLogar($sair){
 
-    //Executando a função
-    SessaoLogar($_POST['loginCpf'], $_POST['loginSenha']);
+        unset($_SESSION['nomeRealUser']);
+        unset($_SESSION['nomeLoginUser']);
+
+        echo"Você foi deslogado!";
+
+    }
 
 ?>
