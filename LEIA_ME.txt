@@ -1,0 +1,29 @@
+O banco de dados esta na pasta de banco de dados na raiz do index.html
+
+
+vocês só vão ter que alterar o arquivo "connect.php" que esta na pasta Php/conect.php
+
+variaveis que vcs vão ter que alterar são essa
+    
+    $server = "seuServidorLocal";
+    $userDb = "seuUsuario";
+    $passDb = "suaSenha";
+    $bancoDb = "bancoSite";     //bom aqui só altera se vc mudou nome do banco de dados.
+
+vocês só tem que pegar o arquivo e jogar no htdocs do xampp ("se eu me lembro direito") se for o wamp vc sabe aonde joga, pois faz tempo que não mexo
+
+//alertas dos possiveis bugs
+na tela (link dela se vc fez tudo certo http://localhost/SysMade(2.0)/Pages/Login.html)
+
+quando ele não contra usuario ele vaio ficar desse jeito http://localhost/SysMade(2.0)/Pages/Verifique%20se%20o%20usuario%20o%20a%20senha%20est%C3%A3o%20certos!
+
+só volta pra atela de login e tenta de novo, mas com um usuario no banco de dados.
+
+você loga com um CPF e a Senha.
+Os usuarios que existe são:
+CPF: 234.567.890-11
+Senha:12345678910
+
+CPF: 456.789.123-00
+Senha: 0123456789
+
