@@ -122,3 +122,8 @@ function sairLogin(){
 
 }
 /*fim*/
+
+/* funcao */
+function EmDesenvolvimento(){
+    alert("Está em desenvolvimento!!! E não desliga caixa de alerta !!!");
+}
