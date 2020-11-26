@@ -59,9 +59,10 @@ function Login() {
                 serverHttp.onreadystatechange = function () {
                     //verificando o status e se esta pronto para responder
                     if(this.readyState == 4 && this.status == 200){
+                        
+                        //alert(this.responseText);
 
                         location.href= this.responseText;
-                        //alert(this.responseText);
 
                     }
 
@@ -90,6 +91,7 @@ function Login() {
 
 /*fim*/
 
+/*função deslogar*/
 function sairLogin(){
     var exitSessao, serverHttp;
 
@@ -104,8 +106,10 @@ function sairLogin(){
         if(this.readyState == 4 && this.status == 200){
             //alert(this.responseText);
 
-            alert(this.responseText);
+            alert("Você foi deslogado");
 
+            //voltando a tela de login
+            location.href = this.responseText;
         }
 
     };
@@ -116,6 +120,5 @@ function sairLogin(){
 
     serverHttp.send("outSign="+exitSessao);
 
-
-    
 }
+/*fim*/

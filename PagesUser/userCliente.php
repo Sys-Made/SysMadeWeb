@@ -1,4 +1,20 @@
-<?php session_start();?>
+<?php
+    //iniciando sessão
+    session_start();
+
+    /**
+     * 
+     * Fazendo ele voltar para a tela de login caso essa sessões não foram inciadas
+     * 
+     * */
+
+    if(!isset($_SESSION["DataUser"])){
+        
+        header("Location: ../Pages/Login.html");        //Header com location direciona a pagina
+        
+        exit;   //Ele pode enviar mensagem e terminar o script
+    }  
+?>
 
 <!DOCTYPE html>
 <html>
@@ -31,7 +47,7 @@
                     <img class="d-inline-block shadow rounded-circle" src="../Img/Icones/user.png" alt="foto_usuario"
                         width="80" height="80">
 
-                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['nomeLoginUser'];?></h6>
+                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['DataUser'][0];?></h6>
 
                     <div class="btnSair d-inline-block shadow teste" style="cursor: pointer;" onclick="sairLogin();">
                         <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario">
@@ -53,11 +69,11 @@
                     </div>
 
                     <div class="dadosUser p-3 border textColorPadrao">
-                        <h6><?php echo $_SESSION['nomeRealUser'];?></h6>
+                        <h6><?php echo $_SESSION['DataUser'][1];?></h6>
 
-                        <h6>Microsolft Brasil</h6>
+                        <h6><?php echo $_SESSION['DataUser'][2];?></h6>
 
-                        <h6>microsolftoficial2020@outlook.com</h6>
+                        <h6><?php echo $_SESSION['DataUser'][3];?></h6>
                     </div>
                 </article>
             </div>
@@ -110,7 +126,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-light border textColorPadrao">Submit</button>
+                    <button type="submit" class="btn btn-light border textColorPadrao">Realizar</button>
 
                 </form>
             </div>

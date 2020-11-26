@@ -11,7 +11,7 @@
         /*Desenvolvendo scrip sql com php*/
 
         //Fazendo a Busca busca do cliente
-        $sqlSlect = "SELECT Cliente.nomeCliente, Cliente.cpfCliente, Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc' ";
+        $sqlSlect = "SELECT Cliente.nomeCliente, Cliente.emailCliente, Cliente.nomeDaEmpresaCliente,Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc'";
         
         $sqlResult = $conn->query($sqlSlect);       //Executando o comando sql no banco
 
@@ -25,10 +25,13 @@
                 //guardando
                 $nome = $resultado['nomeCliente'];
                 $user = $resultado['loginUser'];
+                $email = $resultado['emailCliente'];
+                $empresa = $resultado['nomeDaEmpresaCliente'];
+
                 
 
                 //guardando os valores do usuario em uma array
-                $valoresUserArray = array($nome, $user);
+                $valoresUserArray = array($nome, $user, $email, $empresa);
     
             endwhile;
             
@@ -97,24 +100,28 @@
 
                 //verificando se a funcao veio com array
                 $testeValor = BuscaUsuario($login, $senha);
+
                 if($testeValor === false){
 
-                    echo"Erro no login ou usuario";
+                    echo"Verifique se o usuario o a senha estão certos!";
 
                 }else{
+                    //criando uma sessão que vai possuir os dados do usuaraio
                     /**
                      * 
                      * Foreach é só usado em variaveis de matriz traduzindo arrays
                      * 
-                     */
-                    /*foreach($testeValor as $resultUser):
-                        echo "$resultUser[0]";
-                    endforeach;*/
-                    //criando a session
-                    $_SESSION['nomeRealUser'] = $testeValor[0];
-                    $_SESSION['nomeLoginUser'] = $testeValor[1];
+                     **/
+                    /*$_SESSION["DataUser"] = $testeValor;
 
-                    echo "../PagesUser/userCliente.php";
+                    foreach($_SESSION["DataUser"] as $resultUser):
+                        echo $resultUser . " ";
+                    endforeach;*/
+
+                    //criando a session,
+                    $_SESSION["DataUser"] = $testeValor;
+
+                    echo "../PagesUser/userCliente.php";        //enviando ao ajax pra ele poder mudar de pagina
                 }
 
             }else{
@@ -129,13 +136,18 @@
 
     }
 
+    //função se vc esta logado
+    /*function ExisteSesson($status){
+        echo "funfou ExisteSesson";
+    }*/
+
     //função deslogar
     function DesLogar($sair){
+        
+        session_unset();        //apagando os dados da sessão mas ela existe
+        session_destroy();      // destruindo a sessão
 
-        unset($_SESSION['nomeRealUser']);
-        unset($_SESSION['nomeLoginUser']);
-
-        echo"Você foi deslogado!";
+        echo"../Pages/Login.html";
 
     }
 
