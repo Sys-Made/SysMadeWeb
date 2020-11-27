@@ -16,6 +16,7 @@ function validaCpf(cpf) {
      * */
 
     //verificando cpf
+    cpf = cpf.trim();
     cpf = cpf.replace(/[^\d]+/g, ""); //expressão regular para tirar . e o - do cpf
     cpf = cpf.length;
 
@@ -96,6 +97,62 @@ function Login() {
 }
 
 /*fim*/
+
+/*funcao validacao*/
+function validaDados(nome, cpf, cnpj, empresa, rua, bairro, cep, cidade, uf, tel){
+    var dadoValida;
+
+    //nome = nome.trim().length;
+    //cpf = cpf.trim().length;
+    cnpj = cnpj.trim().length;
+    empresa = empresa.trim().length;
+    rua = rua.trim().length;
+    bairro = bairro.trim().length;
+    cep = cep.trim().length;
+    cidade = cidade.trim().length;
+    uf = uf.trim().length;
+    tel = tel.trim().length;
+
+    if(nome.trim().length <= 150 && nome.trim().length >= 3){
+        
+        if(validaCpf(cpf) === true){
+
+            alert("Tem que ser um nome valido");
+
+        }else{
+            
+            alert("Tem que ser um nome valido");
+        }
+
+    }else{
+        alert("Tem que ser um nome valido");
+    }
+
+    dadoValida = new Array(nome, cpf, empresa, rua, bairro, cep, uf, tel);
+
+    alert(dadoValida.toString());
+    
+}
+/*fim*/
+
+/*funcao cadastro*/
+function registrarUser(){
+    var nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg;
+
+    //dadosCadastro
+    nomeReg = document.getElementById('nomeCliente').value;
+    cpfReg = document.getElementById('cpfCliente').value;
+    cnpjReg = document.getElementById('cnpjCliente').value;
+    empresaReg = document.getElementById('empresaCliente').value;
+    ruaReg = document.getElementById('ruaCliente').value;
+    bairroReg = document.getElementById('bairroCliente').value;
+    cepReg = document.getElementById('cepCliente').value;
+    cidadeReg = document.getElementById('cidadeCliente').value;
+    ufReg = document.getElementById('ufCliente').value;
+    telReg = document.getElementById('telefoneCliente').value;
+
+    validaDados(nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg);
+}
 
 /*função deslogar*/
 function sairLogin(){

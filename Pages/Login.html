@@ -39,10 +39,11 @@
                     <form method="POST" class="#">
                         <div class="form-group">
                             <label for="exampleInputEmail1">CPF:</label>
-                            <input type="text" id="LoginCpf" pattern="(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)" class="form-control"
-                            title="Coloque um cpf nesse formato: 000.000.000-00" placeholder="Exemplo: 159.951.789-00" aria-describedby="emailHelp" autofocus required>
+                            <input type="text" id="LoginCpf" pattern="(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)"
+                                class="form-control" title="Coloque um cpf nesse formato: 000.000.000-00"
+                                placeholder="Exemplo: 159.951.789-00" aria-describedby="emailHelp" autofocus required>
                             <!--<input type="text" class="form-control" aria-describedby="emailHelp" id="LoginCpf">-->
-        
+
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Senha:</label>
@@ -78,22 +79,138 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
+
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Em breve Cadastro</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
-                    <h1>EM BREVE</h1>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <!-- lugar que vai receber os dados -->
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Nome Completo: </label>
+                            <input type="text" class="form-control" id="nomeCliente"
+                                placeholder="Example input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">CPF:</label>
+                            <input type="text" class="form-control" id="cpfCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">CNPJ:</label>
+                            <input type="text" class="form-control" id="cnpjCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Empresa: </label>
+                            <input type="text" class="form-control" id="empresaCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Rua:</label>
+                            <input type="text" class="form-control" id="ruaCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Bairro:</label>
+                            <input type="text" class="form-control" id="bairroCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Cep:</label>
+                            <input type="text" class="form-control" id="cepCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Cidade:</label>
+                            <input type="text" class="form-control" id="cidadeCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Uf:</label>
+                            <input type="text" class="form-control" id="ufCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Telefone/Celular:</label>
+                            <input type="text" class="form-control" id="telefoneCliente"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Login:</label>
+                            <input type="text" class="form-control" id="loginUser"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Senha:</label>
+                            <input type="text" class="form-control" id="senhaUser"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Repetir senha:</label>
+                            <input type="text" class="form-control" id="senhaTeste"
+                                placeholder="Another input placeholder">
+                        </div>
+
+                        <div class="form-group">
+                            <a href="#" data-toggle="modal" data-target="#termos">Ler os termos!</a>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Li eu aceito o pacto!</label>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="registrarUser()">Cadastrar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <!--fimModalCadastro-->
+
+    <!-- modalDostermos -->
+    <!--<div class="modal fade modal-dialog modal-dialog-scrollable" id="termos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                ...
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+        </div>
+    </div>-->
+    <!--fimModal-->
 
     <!-- version do sistema -->
     <div class="versao">
