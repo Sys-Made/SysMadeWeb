@@ -60,9 +60,15 @@ function Login() {
                     //verificando o status e se esta pronto para responder
                     if(this.readyState == 4 && this.status == 200){
                         
-                        //alert(this.responseText);
+                        //verificando se tem cadastro
+                        if(parseInt(this.responseText) === 1){
 
-                        location.href= this.responseText;
+                            alert("Essa conta é invalida!!!");
+
+                        }else{
+
+                            location.href= this.responseText;  
+                        }
 
                     }
 

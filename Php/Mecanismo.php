@@ -11,7 +11,8 @@
         /*Desenvolvendo scrip sql com php*/
 
         //Fazendo a Busca busca do cliente
-        $sqlSlect = "SELECT Cliente.nomeCliente, Cliente.emailCliente, Cliente.nomeDaEmpresaCliente,Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc'";
+        $sqlSlect = "SELECT Cliente.codigoCliente, Cliente.nomeCliente, Cliente.emailCliente, Cliente.nomeDaEmpresaCliente, Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc' AND Login.codigoLogin = Cliente.codigoCliente";
+        //$sqlSlect = "SELECT Cliente.nomeCliente, Cliente.emailCliente, Cliente.nomeDaEmpresaCliente,Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc'";
         
         $sqlResult = $conn->query($sqlSlect);       //Executando o comando sql no banco
 
@@ -103,7 +104,7 @@
 
                 if($testeValor === false){
 
-                    echo"Verifique se o usuario o a senha estão certos!";
+                    echo 1;
 
                 }else{
                     //criando uma sessão que vai possuir os dados do usuaraio
