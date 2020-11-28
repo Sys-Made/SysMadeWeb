@@ -200,7 +200,17 @@ function validaDados(nome, cpf, cnpj, empresa, rua, bairro, cep, cidade, uf, tel
 
                                         if(validaTel(tel) === true){
 
-                                            dadoValida = new Array(nome, cpf, cnpj,empresa, rua, bairro, cep, cidade, uf, tel);
+                                            dadoValida = new Array(nome, 
+                                                cpf, 
+                                                cnpj,
+                                                empresa, 
+                                                rua, 
+                                                bairro, 
+                                                cep, 
+                                                cidade, 
+                                                uf, 
+                                                tel
+                                            );
                                             
 
                                         }else{
@@ -261,7 +271,7 @@ function validaDados(nome, cpf, cnpj, empresa, rua, bairro, cep, cidade, uf, tel
 
 /*funcao cadastro*/
 function registrarUser(){
-    var nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg;
+    var nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg, dadosReg;
 
     //dadosCadastro
     nomeReg = document.getElementById('nomeCliente').value;
@@ -275,7 +285,17 @@ function registrarUser(){
     ufReg = document.getElementById('ufCliente').value;
     telReg = document.getElementById('telefoneCliente').value;
 
-    validaDados(nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg);
+    //verificando se é string
+
+    dadosReg = validaDados(nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg);
+
+    if(typeof dadosReg === "string"){
+
+        alert(dadosReg);
+
+    }else{
+        alert(dadosReg.toString());
+    }
 }
 
 /*função deslogar*/
