@@ -20,10 +20,6 @@
         //Executando a função
         ExisteSesson($_POST['activeSession']);
     }
-    else{
-        echo "nenhum dos dois";
-    }
-
 
 
 ?>

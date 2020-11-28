@@ -4,6 +4,57 @@
  * 
  **/
 
+ /*validando o cnpj*/
+function validaCnpj(cnpj){
+    var valido;
+
+    /**
+     * 
+     * expressão regular do cnpj
+     * 
+     */
+    ///^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/
+
+    //verificando o cnpj
+    cnpj = cnpj.trim();
+    cnpj = cnpj.replace(/[^\d]+/g, "");
+    cnpj = cnpj.length;
+    cnpj = parseInt(cnpj);
+
+    if(cnpj == 14){
+
+        valido = true;
+
+    }else{
+        valido = false;
+    }
+
+    return valido;
+}
+/*fim*/
+
+/*validandoTelefone*/
+function validaTel(tel){
+    var valido;
+
+    tel = tel.trim();
+    tel = tel.replace(/[^\d]+/g, "");
+    tel = tel.length;
+
+    if(tel == 10 || tel == 11){
+
+        valido = true;
+
+    }else{
+
+        valido = false;
+
+    }
+
+    return valido;
+
+}
+
 /*validandoCpf*/
 function validaCpf(cpf) {
     //declarando variaveis locais
@@ -19,6 +70,7 @@ function validaCpf(cpf) {
     cpf = cpf.trim();
     cpf = cpf.replace(/[^\d]+/g, ""); //expressão regular para tirar . e o - do cpf
     cpf = cpf.length;
+    cpf = parseInt(cpf);
 
     //vendo se o cpf tem 11 caracteres
     if (cpf == 11) {
@@ -32,6 +84,32 @@ function validaCpf(cpf) {
     return valido;
 
 }
+/*fim*/
+
+/*valida cep*/
+function validaCep(cep){
+    var valido;
+
+    //verificando o cep
+    cep = cep.trim();
+    cep = cep.replace(/[^\d]+/g, ""); //expressão regular para tirar . e o - do cpf
+    cep = cep.length;
+    cep = parseInt(cep);
+
+    //vendo se o cep tem 8 caracteres
+    if(cep == 8){
+
+        valido = true;
+
+    }else{
+
+        valido = false;
+
+    }
+
+    return valido;
+}
+
 /*fim*/
 
 /*funcãoDeLogin*/
@@ -102,35 +180,81 @@ function Login() {
 function validaDados(nome, cpf, cnpj, empresa, rua, bairro, cep, cidade, uf, tel){
     var dadoValida;
 
-    //nome = nome.trim().length;
-    //cpf = cpf.trim().length;
-    cnpj = cnpj.trim().length;
-    empresa = empresa.trim().length;
-    rua = rua.trim().length;
-    bairro = bairro.trim().length;
-    cep = cep.trim().length;
-    cidade = cidade.trim().length;
-    uf = uf.trim().length;
-    tel = tel.trim().length;
-
     if(nome.trim().length <= 150 && nome.trim().length >= 3){
         
         if(validaCpf(cpf) === true){
 
-            alert("Tem que ser um nome valido");
+            if(validaCnpj(cnpj) === true){
+                
+                if(empresa.trim().length <= 200 && empresa.trim().length >= 3){
+
+                    if(rua.trim().length <= 110 && rua.trim().length >= 3){
+
+                        if(bairro.trim().length <= 50 && bairro.trim().length >= 3){
+
+                            if(validaCep(cep) === true){
+
+                                if(cidade.trim().length <= 100 && cidade.trim().length >= 3){
+
+                                    if(uf.trim().length == 2){
+
+                                        if(validaTel(tel) === true){
+
+                                            dadoValida = new Array(nome, cpf, cnpj,empresa, rua, bairro, cep, cidade, uf, tel);
+                                            
+
+                                        }else{
+                                            dadoValida = "telefone invalido";
+                                        }
+
+                                    }else{
+                                        dadoValida = "tem que ser um UF valido";
+                                    }
+
+                                }else{
+
+                                    dadoValida = "tem q ser uma cidade valida";
+
+                                }
+
+                            }else{
+
+                                dadoValida = "tem que ser um cep valido";
+
+                            }
+
+                        }else{
+
+                            dadoValida = "tem que ser um nome de bairro valido";
+
+                        }
+
+                    }else{
+                        dadoValida = "tem que ser um nome de rua valido";
+                    }
+
+                }else{
+
+                    dadoValida = "Tem que ser um nome de empresa valido!";
+
+                }
+
+            }else{
+
+                dadoValida = "Tem que ser cnpj valido!!!";
+
+            }
 
         }else{
             
-            alert("Tem que ser um nome valido");
+            dadoValida = "Tem que ser um cpf valido";
         }
 
     }else{
-        alert("Tem que ser um nome valido");
+        dadoValida = "Tem que ser um nome valido";
     }
 
-    dadoValida = new Array(nome, cpf, empresa, rua, bairro, cep, uf, tel);
-
-    alert(dadoValida.toString());
+    return dadoValida;
     
 }
 /*fim*/
