@@ -4,8 +4,8 @@
  * 
  **/
 
- /*validando o cnpj*/
-function validaCnpj(cnpj){
+/*validando o cnpj*/
+function validaCnpj(cnpj) {
     var valido;
 
     /**
@@ -21,11 +21,11 @@ function validaCnpj(cnpj){
     cnpj = cnpj.length;
     cnpj = parseInt(cnpj);
 
-    if(cnpj == 14){
+    if (cnpj == 14) {
 
         valido = true;
 
-    }else{
+    } else {
         valido = false;
     }
 
@@ -34,18 +34,18 @@ function validaCnpj(cnpj){
 /*fim*/
 
 /*validandoTelefone*/
-function validaTel(tel){
+function validaTel(tel) {
     var valido;
 
     tel = tel.trim();
     tel = tel.replace(/[^\d]+/g, "");
     tel = tel.length;
 
-    if(tel == 10 || tel == 11){
+    if (tel == 10 || tel == 11) {
 
         valido = true;
 
-    }else{
+    } else {
 
         valido = false;
 
@@ -87,7 +87,7 @@ function validaCpf(cpf) {
 /*fim*/
 
 /*valida cep*/
-function validaCep(cep){
+function validaCep(cep) {
     var valido;
 
     //verificando o cep
@@ -97,11 +97,11 @@ function validaCep(cep){
     cep = parseInt(cep);
 
     //vendo se o cep tem 8 caracteres
-    if(cep == 8){
+    if (cep == 8) {
 
         valido = true;
 
-    }else{
+    } else {
 
         valido = false;
 
@@ -110,6 +110,30 @@ function validaCep(cep){
     return valido;
 }
 
+/*fim*/
+
+/*comparando as senhas*/
+function igualSenha(senha1, senha2) {
+    var senhaValida;
+
+    if (senha1 != "" && senha2 != "" && senha1 === senha2) {
+        if (senha1.length <= 15 && senha1.length >= 6 || senha2.length <= 15 && senha2.length >= 6) {
+            //alert('Suas senha estao no padrao');
+            senhaValida = senha1;
+        } else {
+            //alert('suas senha não estao no padrao');
+
+            senhaValida = parseInt(1);
+        }
+    } else {
+        //alert('senhas diferentes');
+        senhaValida = parseInt(0);
+    }
+
+    return senhaValida;
+
+    //alert("Senha 1: " + senha1 + " senha 2: " + senha2 );
+}
 /*fim*/
 
 /*funcãoDeLogin*/
@@ -133,20 +157,20 @@ function Login() {
             if (senha.length <= 15 && senha.length >= 6) {
 
                 //Desenvolvendo o ajax
-                serverHttp = new XMLHttpRequest();      //Criando um objeto xml
+                serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
                 serverHttp.onreadystatechange = function () {
                     //verificando o status e se esta pronto para responder
-                    if(this.readyState == 4 && this.status == 200){
-                        
+                    if (this.readyState == 4 && this.status == 200) {
+
                         //verificando se tem cadastro
-                        if(parseInt(this.responseText) === 1){
+                        if (parseInt(this.responseText) === 1) {
 
                             alert("Essa conta é invalida!!!");
 
-                        }else{
+                        } else {
 
-                            location.href= this.responseText;  
+                            location.href = this.responseText;
                         }
 
                     }
@@ -157,7 +181,7 @@ function Login() {
 
                 serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-                serverHttp.send("loginCpf="+login+"&loginSenha="+senha);
+                serverHttp.send("loginCpf=" + login + "&loginSenha=" + senha);
 
 
 
@@ -167,7 +191,7 @@ function Login() {
 
                 alert("sua senha não esta aceitavel");
             }
-        }else{
+        } else {
             alert("Cpf invalido!!!");
         }
 
@@ -177,101 +201,101 @@ function Login() {
 /*fim*/
 
 /*funcao validacao*/
-function validaDados(nome, cpf, cnpj, empresa, rua, bairro, cep, cidade, uf, tel){
+function validaDados(nome, cpf, cnpj, empresa, rua, bairro, cep, cidade, uf, tel) {
     var dadoValida;
 
-    if(nome.trim().length <= 150 && nome.trim().length >= 3){
-        
-        if(validaCpf(cpf) === true){
+    if (nome.trim().length <= 150 && nome.trim().length >= 3) {
 
-            if(validaCnpj(cnpj) === true){
-                
-                if(empresa.trim().length <= 200 && empresa.trim().length >= 3){
+        if (validaCpf(cpf) === true) {
 
-                    if(rua.trim().length <= 110 && rua.trim().length >= 3){
+            if (validaCnpj(cnpj) === true) {
 
-                        if(bairro.trim().length <= 50 && bairro.trim().length >= 3){
+                if (empresa.trim().length <= 200 && empresa.trim().length >= 3) {
 
-                            if(validaCep(cep) === true){
+                    if (rua.trim().length <= 110 && rua.trim().length >= 3) {
 
-                                if(cidade.trim().length <= 100 && cidade.trim().length >= 3){
+                        if (bairro.trim().length <= 50 && bairro.trim().length >= 3) {
 
-                                    if(uf.trim().length == 2){
+                            if (validaCep(cep) === true) {
 
-                                        if(validaTel(tel) === true){
+                                if (cidade.trim().length <= 100 && cidade.trim().length >= 3) {
 
-                                            dadoValida = new Array(nome, 
-                                                cpf, 
+                                    if (uf.trim().length == 2) {
+
+                                        if (validaTel(tel) === true) {
+
+                                            dadoValida = new Array(nome,
+                                                cpf,
                                                 cnpj,
-                                                empresa, 
-                                                rua, 
-                                                bairro, 
-                                                cep, 
-                                                cidade, 
-                                                uf, 
+                                                empresa,
+                                                rua,
+                                                bairro,
+                                                cep,
+                                                cidade,
+                                                uf,
                                                 tel
                                             );
-                                            
 
-                                        }else{
+
+                                        } else {
                                             dadoValida = "telefone invalido";
                                         }
 
-                                    }else{
+                                    } else {
                                         dadoValida = "tem que ser um UF valido";
                                     }
 
-                                }else{
+                                } else {
 
                                     dadoValida = "tem q ser uma cidade valida";
 
                                 }
 
-                            }else{
+                            } else {
 
                                 dadoValida = "tem que ser um cep valido";
 
                             }
 
-                        }else{
+                        } else {
 
                             dadoValida = "tem que ser um nome de bairro valido";
 
                         }
 
-                    }else{
+                    } else {
                         dadoValida = "tem que ser um nome de rua valido";
                     }
 
-                }else{
+                } else {
 
                     dadoValida = "Tem que ser um nome de empresa valido!";
 
                 }
 
-            }else{
+            } else {
 
                 dadoValida = "Tem que ser cnpj valido!!!";
 
             }
 
-        }else{
-            
+        } else {
+
             dadoValida = "Tem que ser um cpf valido";
         }
 
-    }else{
+    } else {
         dadoValida = "Tem que ser um nome valido";
     }
 
     return dadoValida;
-    
+
 }
 /*fim*/
 
 /*funcao cadastro*/
-function registrarUser(){
-    var nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg, dadosReg;
+function registrarUser() {
+    var nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg, dadosReg, senhaOne, senhaTwo;
 
     //dadosCadastro
     nomeReg = document.getElementById('nomeCliente').value;
@@ -284,33 +308,66 @@ function registrarUser(){
     cidadeReg = document.getElementById('cidadeCliente').value;
     ufReg = document.getElementById('ufCliente').value;
     telReg = document.getElementById('telefoneCliente').value;
+    loginReg = document.getElementById('loginUser').value;
+    senhaOne = document.getElementById('senhaUser').value;
+    senhaTwo = document.getElementById('senhaRepeat').value;
 
     //verificando se é string
 
     dadosReg = validaDados(nomeReg, cpfReg, cnpjReg, empresaReg, ruaReg, bairroReg, cepReg, cidadeReg, ufReg, telReg);
 
-    if(typeof dadosReg === "string"){
+    if (typeof dadosReg === "string") {
 
         alert(dadosReg);
 
-    }else{
-        alert(dadosReg.toString());
+    } else {
+        //alert(dadosReg.toString());
+
+        senhaOne = igualSenha(senhaOne, senhaTwo);
+
+        if (senhaOne === 0) {
+            alert("senhas diferentes");
+        } else if (senhaOne === 1) {
+            alert("suas senha não estao no padrao");
+        } else {
+
+            //Desenvolvendo o ajax
+            var serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+            serverHttp.onreadystatechange = function () {
+                //verificando o status e se esta pronto para responder
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.responseText);
+
+                }
+
+            };
+
+            serverHttp.open("POST", "../Php/Executando.php", true);
+
+            serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            serverHttp.send("dataUserCad=" + dadosReg.toString() + "&senhaCad=" + senhaOne + "&loginCad=" + loginReg);
+        }
+
+
     }
 }
 
 /*função deslogar*/
-function sairLogin(){
+function sairLogin() {
     var exitSessao, serverHttp;
 
     //valor que vai ser usado para acionar a funcao php
     exitSessao = parseInt(0);
 
     //Desenvolvendo o ajax
-    serverHttp = new XMLHttpRequest();      //Criando um objeto xml
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
     serverHttp.onreadystatechange = function () {
         //verificando o status e se esta pronto para responder
-        if(this.readyState == 4 && this.status == 200){
+        if (this.readyState == 4 && this.status == 200) {
             //alert(this.responseText);
 
             alert("Você foi deslogado");
@@ -325,12 +382,12 @@ function sairLogin(){
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    serverHttp.send("outSign="+exitSessao);
+    serverHttp.send("outSign=" + exitSessao);
 
 }
 /*fim*/
 
 /* funcao */
-function EmDesenvolvimento(){
+function EmDesenvolvimento() {
     alert("Está em desenvolvimento!!! E não desliga caixa de alerta !!!");
 }

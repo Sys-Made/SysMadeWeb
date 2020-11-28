@@ -19,6 +19,13 @@
 
         //Executando a função
         ExisteSesson($_POST['activeSession']);
+
+    }elseif(isset($_POST['dataUserCad']) && isset($_POST['senhaCad']) && isset($_POST['loginCad'])){
+
+        //Executando a funcao
+        cadastroClient($_POST['dataUserCad'], $_POST['loginCad'], $_POST['senhaCad']);
+
+
     }
 
 

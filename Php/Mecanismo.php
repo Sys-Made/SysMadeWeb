@@ -87,6 +87,13 @@
 
     }
 
+    //funcao cadastro
+    function cadastroClient($dataCad, $loginCad, $senhaCad){
+
+        echo $dataCad . " login: " . $loginCad . " senha: " . $senhaCad;
+        
+    }
+
     //desenvolvendo o script de insercao sql ou busca
     function SessaoLogar($loginValue, $senhaValue){
         //variaveis locais
