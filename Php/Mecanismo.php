@@ -11,7 +11,7 @@
         /*Desenvolvendo scrip sql com php*/
 
         //Fazendo a Busca busca do cliente
-        $sqlSlect = "SELECT Cliente.codigoCliente, Cliente.nomeCliente, Cliente.emailCliente, Cliente.nomeDaEmpresaCliente, Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc' AND Login.codigoLogin = Cliente.codigoCliente";
+        $sqlSlect = "SELECT CLIENTE.CODIGOCLIENTE, CLIENTE.NOMECLIENTE, CLIENTE.EMAILCLIENTE, CLIENTE.EMPRESACLIENTE, LOGIN.LOGINUSER FROM CLIENTE, LOGIN WHERE CLIENTE.CPFCLIENTE = '$loginBusc' AND LOGIN.SENHASOCIO = '$senhaBusc' AND LOGIN.CODIGOLOGIN = CLIENTE.CODIGOCLIENTE";
         //$sqlSlect = "SELECT Cliente.nomeCliente, Cliente.emailCliente, Cliente.nomeDaEmpresaCliente,Login.loginUser FROM Cliente, Login WHERE Cliente.cpfCliente = '$loginBusc' AND Login.senhaSocio = '$senhaBusc'";
         
         $sqlResult = $conn->query($sqlSlect);       //Executando o comando sql no banco
@@ -24,10 +24,10 @@
             //Loop se tiver resultado
             while($resultado = $sqlResult->fetch_assoc()):
                 //guardando
-                $nome = $resultado['nomeCliente'];
-                $user = $resultado['loginUser'];
-                $email = $resultado['emailCliente'];
-                $empresa = $resultado['nomeDaEmpresaCliente'];
+                $nome = $resultado['NOMECLIENTE'];
+                $user = $resultado['LOGINUSER'];
+                $email = $resultado['EMAILCLIENTE'];
+                $empresa = $resultado['EMPRESACLIENTE'];
 
                 
 
@@ -89,8 +89,150 @@
 
     //funcao cadastro
     function cadastroClient($dataCad, $loginCad, $senhaCad){
+        //Chamando a pagina de conexao
+        require_once("conect.php");
 
-        echo $dataCad . " login: " . $loginCad . " senha: " . $senhaCad;
+        //para aramzenar
+        $arrayDataUser = "";
+        $respostaCadastro = "";
+        
+        //transformando $dataCad em array
+        $arrayDataUser = explode(',', $dataCad);
+
+        //obejetos sql guardando cmd sql
+        $sqlSlectLg = "SELECT MAX(CODIGOLOGIN) FROM LOGIN";
+        $sqlSlectEd = "SELECT MAX(CODIGOENDERECO) FROM ENDERECO";
+        $sqlSlectTel= "SELECT MAX(CODIGOTELEFONE) FROM TELEFONE";
+        $sqlIsertLg = "INSERT INTO LOGIN(LOGINUSER, SENHASOCIO)VALUES('$loginCad', '$senhaCad')";
+        $sqlIsertEd = "INSERT INTO ENDERECO(
+            RUA,
+            BAIRRO,
+            CIDADE,
+            ESTADO,
+            CEP,
+            UF
+        )VALUES(
+            '$arrayDataUser[4]',
+            '$arrayDataUser[5]',
+            '$arrayDataUser[6]',
+            'Sao Paulo',
+            '$arrayDataUser[7]',
+            '$arrayDataUser[8]'
+        )";
+        $sqlIsertTel = "INSERT INTO TELEFONE(TELEFONE1)VALUES('$arrayDataUser[9]')";
+        $sqlIsertCli = "";
+
+        //insert login
+        if($conn->query($sqlIsertLg) === true){
+
+            $respostaCadastro = "Foi cadastrado com sucesso login e a senha";
+
+        }/*else{
+
+            echo "Error: " . $sqlIsert . "<br>" . $conn->error;
+        }*/
+
+        //insert endereco
+        if($conn->query($sqlIsertEd) === true){
+
+            $respostaCadastro = "Foi cadastrado com sucesso endereco";
+
+        }/*else{
+
+            echo "Error: " . $sqlIsertEd . "<br>" . $conn->error;
+        }*/
+
+        //insert telefone
+        if($conn->query($sqlIsertTel) === true){
+
+            $respostaCadastro = "Foi cadastrado com sucesso Telefone";
+
+        }/*else{
+
+            echo "Error: " . $sqlIsertTel . "<br>" . $conn->error;
+        }*/
+
+        //puxando as chaves estrangeiras
+        $resultLastIdLg = $conn->query($sqlSlectLg);
+        $resultLastIdEd = $conn->query($sqlSlectEd);
+        $resultLastIdTel = $conn->query($sqlSlectTel);
+        
+        if ($resultLastIdLg->num_rows > 0){
+            
+            //echo $resultLastIdLg;
+            while($resultadoLg = $resultLastIdLg->fetch_assoc()){
+
+                 $lgId = intval($resultadoLg['MAX(CODIGOLOGIN)']);
+
+            } 
+
+        }else{
+
+            $respostaCadastro = "Error No SELECT Ultimo registro feito no login";
+
+        }
+
+        if($resultLastIdEd->num_rows > 0){
+
+           //echo $resultLastIdLg;
+            while($resultadoEd = $resultLastIdEd->fetch_assoc()){
+
+                $edId = intval($resultadoEd['MAX(CODIGOENDERECO)']);
+            
+            }
+        }else{
+
+            $respostaCadastro = "Error No SELECT Ultimo registro feito no Endereco";
+        }
+
+        if($resultLastIdTel->num_rows > 0){
+
+            //echo $resultLastIdLg;
+             while($resultadoTel = $resultLastIdTel->fetch_assoc()){
+ 
+                 $telId = intval($resultadoTel['MAX(CODIGOTELEFONE)']);
+             
+             }
+         }else{
+ 
+             $respostaCadastro = "Error No SELECT Ultimo registro feito no Telefone";
+         }
+         /*fim*/
+
+         //Registrando o cliente
+         $sqlIsertCli = "INSERT INTO CLIENTE(
+             CPFCLIENTE,
+             CNPJCLIENTE,
+             EMPRESACLIENTE,
+             NOMECLIENTE,
+             CODIGOFKSLOGIN,
+             CODIGOFKSENDERECO,
+             CODIGOFKSTELEFONE
+         )VALUES(
+            '$arrayDataUser[1]',
+            '$arrayDataUser[2]',
+            '$arrayDataUser[3]',
+            '$arrayDataUser[0]',
+             $lgId,
+             $edId,
+             $telId
+         )";
+
+        
+        //echo $sqlIsertCli;
+
+        if($conn->query($sqlIsertCli) === true){
+
+            $respostaCadastro = "Foi cadastrado com sucesso o Cliente";
+
+        }/*else{
+
+            echo "Error: " . $sqlIsertCli . "<br>" . $conn->error;
+        }*/
+
+        $conn->close();
+
+        return $respostaCadastro;
         
     }
 
