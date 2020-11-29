@@ -32,3 +32,6 @@ SELECT PEDIDO.CODIGOFKSCLIENTE, CLIENTE.NOMECLIENTE, CLIENTE.CPFCLIENTE, PEDIDO.
 
 //INSERINDO PEDIDO
 INSERT INTO PEDIDO( CODIGOFKSCLIENTE, NOMEDOPEDIDO, DESCRICAOPEDIDO)VALUES( 1, 'BEM estar familia', 'gostaria de um sistema web para despositar e exibir projeto fitness');
+
+//puxando Sc 
+SELECT Socio.codigoSocio, Socio.nomeDoSocio, Cargo.nomeDoCargo,Socio.emailSocio, Telefone.telefoneOne, Login.loginSocio FROM Socio INNER JOIN Cargo on Socio.codigoFKCargo = Cargo.codigoCargo INNER JOIN Login on Socio.codigoFKLogin = Login.codigoLogin INNER JOIN Telefone on Socio.codigoFKtelefone = Telefone.codigoTelefone WHERE loginSocio = "LiderDoProjeto" AND senhaSocio = "12345678910"

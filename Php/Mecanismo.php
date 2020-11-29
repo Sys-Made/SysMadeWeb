@@ -1,5 +1,46 @@
 <?php
     session_start();
+
+    //Busca SC
+    function BuscaSc($lg, $snh){
+        //chamando conexao
+        require_once("conectBM.php");
+
+        //guardando comando sql
+        $sqlSlectSC = "SELECT Socio.codigoSocio, Socio.nomeDoSocio, Cargo.nomeDoCargo,Socio.emailSocio, Telefone.telefoneOne, Login.loginSocio FROM Socio INNER JOIN Cargo on Socio.codigoFKCargo = Cargo.codigoCargo INNER JOIN Login on Socio.codigoFKLogin = Login.codigoLogin INNER JOIN Telefone on Socio.codigoFKtelefone = Telefone.codigoTelefone WHERE loginSocio = '$lg' AND senhaSocio = '$snh'";
+        $arrayValueSc = "";
+
+        //Desenvolvendo script de execução
+        $sqlExecut = $conn->query($sqlSlectSC);     //executando o comando sql
+
+        $numberLinhas = $sqlExecut->num_rows;   //Retorno de linhas que o select fez
+
+        //se vem algo ou não
+        if($numberLinhas > 0){
+
+            //Loop que vai percorrer todo resultado do select
+            while($result = $sqlExecut->fetch_assoc()){
+                
+                $idSc = $result['codigoSocio'];
+                $nomeSc = $result['nomeDoSocio'];
+                $cargoSc = $result['nomeDoCargo'];
+                $emailSc = $result['emailSocio'];
+                $telefoneSc = $result['telefoneOne'];
+
+                //guardando em um array
+                $arrayValueSc = array($idSc, $nomeSc, $cargoSc, $emailSc,$telefoneSc);
+
+            }
+        }else{
+            $arrayValueSc = false;
+        }
+
+        $conn->close();
+
+        return $arrayValueSc;
+
+    }
+
     //Busca de usuario
     function BuscaUsuario($loginBusc, $senhaBusc){
         //Chamando a pagina de conexao
@@ -237,7 +278,7 @@
         
     }
 
-    //desenvolvendo o script de insercao sql ou busca
+    //funcao logarUser
     function SessaoLogar($loginValue, $senhaValue){
         //variaveis locais
         $login = $loginValue;
@@ -287,6 +328,26 @@
 
     }
 
+    //funcao logarSC
+    function SocioLg($loginSc, $senhaSc){
+        $valorSc = "";
+
+        //guardando o valor da busca
+        $valorSc = BuscaSc($loginSc, $senhaSc);
+
+        //verificando se tem resultado
+        if($valorSc === false){
+            
+            echo 1;
+
+        }else{
+
+            echo "../PagesUser/userSocio.html";
+
+        }
+
+    }
+
     //função deslogar
     function DesLogar($sair){
         
@@ -329,5 +390,5 @@
 
      }
 
-
+     /*fim*/
 ?>

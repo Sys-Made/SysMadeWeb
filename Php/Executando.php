@@ -10,6 +10,11 @@
 
 
 
+    }elseif(isset($_POST['loginSC']) && isset($_POST['senhaSC'])){
+
+        //executando a funcao
+        SocioLg($_POST['loginSC'], $_POST['senhaSC']);
+
     }elseif(isset($_POST['outSign'])){
         
         //Executando a função

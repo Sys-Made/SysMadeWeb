@@ -190,9 +190,39 @@ function Login() {
             } else {
 
                 alert("sua senha não esta aceitavel");
+
             }
         } else {
-            alert("Cpf invalido!!!");
+            
+            //Desenvolvendo o ajax
+            serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+            serverHttp.onreadystatechange = function () {
+                //verificando o status e se esta pronto para responder
+                if (this.readyState == 4 && this.status == 200) {
+
+                    //verificando se tem cadastro
+                    //alert(this.responseText);
+                    
+                    if (parseInt(this.responseText) === 1) {
+
+                        alert("Essa conta é invalida!!!");
+
+                    } else {
+
+                        location.href = this.responseText;
+                    }
+
+                }
+
+            };
+
+            serverHttp.open("POST", "../Php/Executando.php", true);
+
+            serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            serverHttp.send("loginSC=" + login + "&senhaSC=" + senha);
+            
         }
 
     }
