@@ -26,6 +26,10 @@
         cadastroClient($_POST['dataUserCad'], $_POST['loginCad'], $_POST['senhaCad']);
 
 
+    }elseif(isset($_POST['projNome']) && isset($_POST['projDescricao']) && isset($_POST['codCli'])){
+
+        //executando a funcao
+        RealizaPedido($_POST['codCli'],$_POST['projNome'], $_POST['projDescricao']);
     }
 
 

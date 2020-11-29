@@ -28,11 +28,12 @@
                 $user = $resultado['LOGINUSER'];
                 $email = $resultado['EMAILCLIENTE'];
                 $empresa = $resultado['EMPRESACLIENTE'];
+                $idClient = $resultado['CODIGOCLIENTE'];
 
                 
 
                 //guardando os valores do usuario em uma array
-                $valoresUserArray = array($nome, $user, $email, $empresa);
+                $valoresUserArray = array($idClient,$nome, $user, $email, $empresa);
     
             endwhile;
             
@@ -286,11 +287,6 @@
 
     }
 
-    //função se vc esta logado
-    /*function ExisteSesson($status){
-        echo "funfou ExisteSesson";
-    }*/
-
     //função deslogar
     function DesLogar($sair){
         
@@ -300,5 +296,38 @@
         echo"../Pages/Login.html";
 
     }
+
+
+    /**
+     * 
+     * Funcao do cliente
+     * 
+     */
+
+     function RealizaPedido($codCli,$nome, $descricao){
+         //requerindo a apgina de conexao
+         require_once("conect.php");
+
+         //convertendo os valores dos tipos
+         $codCli = intval($codCli);
+         $nome = strval($nome);
+         $descricao = strval($descricao);
+
+         //guardando os comandos sql
+         $oSqlInsert = "INSERT INTO PEDIDO( CODIGOFKSCLIENTE, NOMEDOPEDIDO, DESCRICAOPEDIDO)VALUES( $codCli, '$nome', '$descricao')";
+
+         if($conn->query($oSqlInsert) === true){
+
+            echo "Pedido Cadastro com sucesso!!!";
+
+         }else{
+
+            echo "Erro ao executar o pedido!!!";
+
+         }
+
+
+     }
+
 
 ?>

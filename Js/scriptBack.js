@@ -197,7 +197,6 @@ function Login() {
 
     }
 }
-
 /*fim*/
 
 /*funcao validacao*/
@@ -390,4 +389,59 @@ function sairLogin() {
 /* funcao */
 function EmDesenvolvimento() {
     alert("Está em desenvolvimento!!! E não desliga caixa de alerta !!!");
+}
+
+
+/**
+ * 
+ * 
+ * Aqui fica a parte de função do usuario 
+ * 
+ * 
+ */
+function RealizaPedido(idCLi) {
+    var nomeProj, descricaoProj;
+
+    nomeProj = document.getElementById('nomeProjeto').value;
+    descricaoProj = document.getElementById('descricaoProjeto').value;
+
+    //validado as quantidade de caracteres
+    if (nomeProj.length <= 130 && nomeProj.length >= 5) {
+
+        if (descricaoProj.length <= 500 && descricaoProj.length >= 80) {
+
+            //desenvolvendo ajax
+            serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+            serverHttp.onreadystatechange = function () {
+                //verificando o status e se esta pronto para responder
+                if (this.readyState == 4 && this.status == 200) {
+                    
+                    //resposta do php
+                    alert(this.responseText);
+
+                }
+
+            };
+
+            serverHttp.open("POST", "../Php/Executando.php", true);
+
+            serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            serverHttp.send("projNome=" + nomeProj + "&projDescricao=" + descricaoProj + "&codCli=" + idCLi);
+
+
+        } else {
+
+            alert("ele não tem a quantidade de texto recomendavel a descricao falta " + parseInt(80 - descricaoProj.length)) + " caracteres";
+
+        }
+
+    } else {
+
+        alert("ele não tem a quantidade de texto recomendavel o titulo de projeto");
+
+    }
+    //alert("Teste nome projeto: " + nomeProj + " descricao projeto: " + descricaoProj);
+
 }

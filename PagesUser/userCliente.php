@@ -47,7 +47,7 @@
                     <img class="d-inline-block shadow rounded-circle" src="../Img/Icones/user.png" alt="foto_usuario"
                         width="80" height="80">
 
-                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['DataUser'][0];?></h6>
+                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['DataUser'][1];?></h6>
 
                     <div class="btnSair d-inline-block shadow teste" style="cursor: pointer;" onclick="sairLogin();">
                         <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario">
@@ -69,11 +69,11 @@
                     </div>
 
                     <div class="dadosUser p-3 border textColorPadrao">
-                        <h6><?php echo $_SESSION['DataUser'][1];?></h6>
+                        <h6><?php echo $_SESSION['DataUser'][2];?></h6> <!-- nome do cliente -->
 
-                        <h6><?php echo $_SESSION['DataUser'][2];?></h6>
+                        <h6><?php echo $_SESSION['DataUser'][3];?></h6> <!-- email do cliente -->
 
-                        <h6><?php echo $_SESSION['DataUser'][3];?></h6>
+                        <h6><?php echo $_SESSION['DataUser'][4];?></h6> <!-- empresa do cliente -->
                     </div>
                 </article>
             </div>
@@ -116,17 +116,17 @@
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <form>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1"
-                            placeholder="name@example.com">
+                        <label for="exampleFormControlInput1">Nome Do Projeto: </label>
+                        <input type="text" class="form-control" id="nomeProjeto"
+                            placeholder="Nome do projeto....">
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1">Descrição do projeto: </label>
+                        <textarea class="form-control" id="descricaoProjeto" rows="3"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-light border textColorPadrao">Realizar</button>
+                    <button type="button" class="btn btn-light border textColorPadrao" onclick="RealizaPedido(<?php echo $_SESSION['DataUser'][0]; ?>)">Realizar</button>
 
                 </form>
             </div>
