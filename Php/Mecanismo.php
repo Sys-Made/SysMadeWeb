@@ -342,7 +342,10 @@
 
         }else{
 
-            echo "../PagesUser/userSocio.html";
+            //criando session
+            $_SESSION['userSC'] = $valorSc;
+
+            echo "../PagesUser/userSocio.php";
 
         }
 

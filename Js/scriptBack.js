@@ -475,3 +475,71 @@ function RealizaPedido(idCLi) {
     //alert("Teste nome projeto: " + nomeProj + " descricao projeto: " + descricaoProj);
 
 }
+/*fim*/
+
+/**
+ * 
+ * 
+ * Aqui fica a parte de função do SC 
+ * 
+ * 
+ */
+function RegistraProjeto(){
+    var projName, projDate, projHour, projNameCli, descrProj, issoNumber;
+
+    projName = document.getElementById('nomeProjeto').value;
+    projDate = document.getElementById('dateEntrega').value;
+    projHour = document.getElementById('horasEstim').value;
+    projNameCli = document.getElementById('nomeCliente').value;
+    projCpfCli = document.getElementById('cpfCliente').value;
+    descrProj = document.getElementById('descricaoProjeto').value;
+    
+    //verificando se tao vazio
+    if(projName == "" || projName == null || projDate == "" || projDate == null || projHour == "" || projHour == null){
+        alert("Nome do Projeto ou date de entrega ou hora estimada estão vazio!!");
+    }else if(projNameCli == "" || projNameCli == null || projCpfCli == "" || projCpfCli == null || projCpfCli == "" || descrProj == "" || descrProj == null){
+        alert("Nome do cliente ou cpf do cliente ou a descricao estao vazia!!!");
+    }else if(validaCpf(projCpfCli) === false){
+        alert("Esse cpf é invalido");
+    }else{
+        
+        if(projName.length <= 110 && projName.length >= 5){
+
+            //guardando o valor pra ver se é numero e convertendo
+            projHour = parseFloat(projHour);
+
+            issoNumber = isNaN(projHour);
+
+
+            if(issoNumber === false){
+
+                if(projNameCli.length <= 110 && projNameCli.length >= 3){
+
+                    if(descrProj.length <= 600 && descrProj.length >= 80){
+
+                        
+
+                    }else{
+
+                        alert('campo descrição não esta respeitando o limite decaracteres');
+
+                    }
+
+
+                }else{
+
+                    alert("campo nome do cliente não esta respeitando o limite de caracteres");
+
+                }
+
+            }else{
+                alert("Nada de letras aqui!!!");
+            }
+            
+        }else{
+            alert("Ele deve ter no minimo 5 caracteres e no maximo 110 caracteres!!");
+        }
+
+    }
+
+}

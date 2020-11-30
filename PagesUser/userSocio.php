@@ -1,3 +1,20 @@
+<?php
+    //iniciando sessão
+    session_start();
+
+    /**
+     * 
+     * Fazendo ele voltar para a tela de login caso essa sessões não foram inciadas
+     * 
+     * */
+
+    if(!isset($_SESSION["userSC"])){
+        
+        header("Location: ../Pages/Login.html");        //Header com location direciona a pagina
+        
+        exit;   //Ele pode enviar mensagem e terminar o script
+    }  
+?>
 <!DOCTYPE html>
 <html>
 
@@ -29,11 +46,10 @@
                     <img class="d-inline-block shadow rounded-circle" src="../Img/Icones/user.png" alt="foto_usuario"
                         width="80" height="80">
 
-                    <h6 class="d-inline-block mx-5 textColorPadrao">Nome Do Usuario</h6>
+                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['userSC'][1];?></h6> <!-- nome do login -->
 
-                    <div class="btnSair d-inline-block shadow">
-                        <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario"
-                            style="cursor: pointer;">
+                    <div class="btnSair d-inline-block shadow" style="cursor: pointer;" onclick="sairLogin();">
+                        <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario">
                     </div>
                 </div>
 
@@ -51,13 +67,13 @@
                     <div class="fotoUserSocio text-center"></div>
 
                     <div class="dadosUserSocio p-2 textColorPadrao bg-light">
-                        <h6>Nome Do Socio</h6>
+                        <h6><?php echo $_SESSION['userSC'][1];?></h6><!-- nome do socio -->
 
-                        <h6>Lider, Analista de sitema e front-end</h6>
+                        <h6><?php echo $_SESSION['userSC'][2];?></h6><!-- cargo -->
 
-                        <h6>microsolftoficial2020@outlook.com</h6>
+                        <h6><?php echo $_SESSION['userSC'][3];?></h6><!-- email -->
 
-                        <h6>(11) 98745-0123</h6>
+                        <h6><?php echo $_SESSION['userSC'][4];?></h6><!-- telefone -->
                     </div>
                 </article>
             </div>
@@ -135,7 +151,7 @@
                 <!-- tablist -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="home-tab" data-toggle="tab" href="#addProjeto" role="tab"
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#addProjeto" role="tab"
                             aria-controls="home" aria-selected="true">Adicionar Projeto</a>
                     </li>
 
@@ -155,7 +171,7 @@
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#updateProjeto" role="tab"
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#updateProjeto" role="tab"
                             aria-controls="contact" aria-selected="false">Aletrar Projetos</a>
                     </li>
                 </ul>
@@ -163,39 +179,51 @@
                 <!-- adicionarProjeto -->
                 <div class="tab-content shadow border-top-0 p-3 textColorPadrao" id="myTabContent">
 
-                    <div class="tab-pane fade" id="addProjeto" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="addProjeto" role="tabpanel" aria-labelledby="home-tab">
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="exampleFormControlInput1">Nome Do Projeto</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="exemplo name: adminiscar">
+                                    <label for="exampleFormControlInput1">Nome Do Projeto:</label>
+                                    <input type="text" class="form-control" id="nomeProjeto"
+                                        placeholder="exemplo nome: Adminiscar">
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label for="exampleFormControlInput1">Data Entrega</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="name@example.com">
+                                    <label for="exampleFormControlInput1">Data Entrega:</label>
+                                    <input type="date" class="form-control" id="dateEntrega">
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="exampleFormControlInput1">Horas Estimadas</label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="exemplo name: adminiscar">
+                                    <input type="text" class="form-control" id="horasEstim" placeholder="17500">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="exampleFormControlInput1">Nome do Cliente:</label>
+                                    <input type="text" class="form-control" id="nomeCliente"
+                                        placeholder="exemplo nome: Carlos Pereira Silva">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="exampleFormControlInput1">Cpf:</label>
+                                    <input type="text" class="form-control" id="cpfCliente"
+                                        placeholder="exemplo cpf: 123.654.789-89">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Descrição Do Projeto</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="exampleFormControlTextarea1">Descrição Do Projeto:</label>
+                                <textarea class="form-control" id="descricaoProjeto" rows="5"></textarea>
                             </div>
 
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-1">
-                                    <button type="submit"
-                                        class="btn btn-light border textColorPadrao">Registrar</button>
+                                    <button type="button"
+                                        class="btn btn-light border textColorPadrao" onclick="RegistraProjeto();">Registrar</button>
                                 </div>
                             </div>
                         </form>
@@ -521,7 +549,7 @@
                     </div>
 
                     <!-- PedidosUpdate -->
-                    <div class="tab-pane fade show active p-3" id="updateProjeto" role="tabpanel"
+                    <div class="tab-pane p-3" id="updateProjeto" role="tabpanel"
                         aria-labelledby="contact-tab">
                         <!-- buscaProjeto -->
                         <form>
@@ -721,6 +749,8 @@
         </div>
     </footer>
     <!-- fimRodapé -->
+
+    <script type="text/javascript" src="../Js/scriptBack.js"></script>
 
     <!-- version do sistema -->
     <div class="versao">
