@@ -35,6 +35,12 @@
 
         //executando a funcao
         RealizaPedido($_POST['codCli'],$_POST['projNome'], $_POST['projDescricao']);
+
+    }elseif(isset($_POST['projNameSc']) && isset($_POST['projDateSc']) && isset($_POST['projHourSc']) && isset($_POST['projCliSc']) && isset($_POST['projCpfCli']) && isset($_POST['projDescSc'])){
+
+        //executando funcao
+        CadastrarProjeto($_POST['projNameSc'],$_POST['projDateSc'],$_POST['projHourSc'], $_POST['projCliSc'], $_POST['projCpfCli'], $_POST['projDescSc']);
+
     }
 
 

@@ -193,7 +193,7 @@ function Login() {
 
             }
         } else {
-            
+
             //Desenvolvendo o ajax
             serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
@@ -203,7 +203,7 @@ function Login() {
 
                     //verificando se tem cadastro
                     //alert(this.responseText);
-                    
+
                     if (parseInt(this.responseText) === 1) {
 
                         alert("Essa conta é invalida!!!");
@@ -222,7 +222,7 @@ function Login() {
             serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             serverHttp.send("loginSC=" + login + "&senhaSC=" + senha);
-            
+
         }
 
     }
@@ -446,7 +446,7 @@ function RealizaPedido(idCLi) {
             serverHttp.onreadystatechange = function () {
                 //verificando o status e se esta pronto para responder
                 if (this.readyState == 4 && this.status == 200) {
-                    
+
                     //resposta do php
                     alert(this.responseText);
 
@@ -484,7 +484,7 @@ function RealizaPedido(idCLi) {
  * 
  * 
  */
-function RegistraProjeto(){
+function RegistraProjeto() {
     var projName, projDate, projHour, projNameCli, descrProj, issoNumber;
 
     projName = document.getElementById('nomeProjeto').value;
@@ -493,17 +493,23 @@ function RegistraProjeto(){
     projNameCli = document.getElementById('nomeCliente').value;
     projCpfCli = document.getElementById('cpfCliente').value;
     descrProj = document.getElementById('descricaoProjeto').value;
-    
+
     //verificando se tao vazio
-    if(projName == "" || projName == null || projDate == "" || projDate == null || projHour == "" || projHour == null){
+    if (projName == "" || projName == null || projDate == "" || projDate == null || projHour == "" || projHour == null) {
+
         alert("Nome do Projeto ou date de entrega ou hora estimada estão vazio!!");
-    }else if(projNameCli == "" || projNameCli == null || projCpfCli == "" || projCpfCli == null || projCpfCli == "" || descrProj == "" || descrProj == null){
-        alert("Nome do cliente ou cpf do cliente ou a descricao estao vazia!!!");
-    }else if(validaCpf(projCpfCli) === false){
-        alert("Esse cpf é invalido");
-    }else{
+
+    } else if (projNameCli == "" || projNameCli == null || projCpfCli == "" || projCpfCli == null || projCpfCli == "" || descrProj == "" || descrProj == null) {
         
-        if(projName.length <= 110 && projName.length >= 5){
+        alert("Nome do cliente ou cpf do cliente ou a descricao estao vazia!!!");
+
+    } else if (validaCpf(projCpfCli) === false) {
+        
+        alert("Esse cpf é invalido");
+
+    } else {
+
+        if (projName.length <= 110 && projName.length >= 5) {
 
             //guardando o valor pra ver se é numero e convertendo
             projHour = parseFloat(projHour);
@@ -511,32 +517,50 @@ function RegistraProjeto(){
             issoNumber = isNaN(projHour);
 
 
-            if(issoNumber === false){
+            if (issoNumber === false) {
 
-                if(projNameCli.length <= 110 && projNameCli.length >= 3){
+                if (projNameCli.length <= 110 && projNameCli.length >= 3) {
 
-                    if(descrProj.length <= 600 && descrProj.length >= 80){
+                    if (descrProj.length <= 600 && descrProj.length >= 80) {
 
-                        
+                        //desenvolvendo ajax
+                        serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
-                    }else{
+                        serverHttp.onreadystatechange = function () {
+                            //verificando o status e se esta pronto para responder
+                            if (this.readyState == 4 && this.status == 200) {
+
+                                //resposta do php
+                                alert(this.responseText);
+
+                            }
+
+                        };
+
+                        serverHttp.open("POST", "../Php/Executando.php", true);
+
+                        serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                        serverHttp.send("projNameSc=" + projName + "&projDateSc=" + projDate + "&projHourSc=" + projHour + "&projCliSc=" + projNameCli + "&projCpfCli=" + projCpfCli + "&projDescSc=" + descrProj);
+
+                    } else {
 
                         alert('campo descrição não esta respeitando o limite decaracteres');
 
                     }
 
 
-                }else{
+                } else {
 
                     alert("campo nome do cliente não esta respeitando o limite de caracteres");
 
                 }
 
-            }else{
+            } else {
                 alert("Nada de letras aqui!!!");
             }
-            
-        }else{
+
+        } else {
             alert("Ele deve ter no minimo 5 caracteres e no maximo 110 caracteres!!");
         }
 

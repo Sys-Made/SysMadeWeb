@@ -394,4 +394,79 @@
      }
 
      /*fim*/
+
+     /**
+      * 
+      *funcao Sc
+      *
+      */
+      
+      //fazendo uma busca do bancos
+      function buscaCliente($cli, $cpf){
+        $arrayCliente = "";  
+
+        //chamando o banco
+        require_once("conectBM.php");
+
+
+        //comando sql
+        $sqlSlectCli = "SELECT cpfCliente, nomeDoCliente FROM Cliente WHERE cpfCliente = '$cpf'";
+        $sqlExcut = $conn->query($sqlSlectCli);
+
+        $sqlNumbRow = $sqlExcut->num_rows;      //numero de linhas que retornaram no select
+
+        //verificando se veio algo
+        if($sqlNumbRow > 0):
+            
+            while($result = $sqlExcut->fetch_assoc()){
+
+                $cpf = $result['cpfCliente'];
+                
+                //se o nome que esta no cpf bate 
+                if($result['nomeDoCliente'] != $cli){
+
+                    $cli = $result['nomeDoCliente'];
+
+                    //echo "são diferente os nomes!";
+
+                }
+
+                $arrayCliente = array($cli, $cpf);
+
+
+            }
+        
+        else:
+            
+            $arrayCliente = false;
+            //echo"Não tem registro";
+        
+        endif;
+        
+        $conn->close();
+
+        return $arrayCliente;
+        
+      }
+
+      //cadastrando projeto
+      function CadastrarProjeto($nomeProjSc, $dateProjSc, $hourProjSc, $cliProjSc, $cpfProjSc, $descProjSc){
+
+        //resposta da busca
+        $respostaCli = buscaCliente($cliProjSc, $cpfProjSc);
+
+        if( $respostaCli === false){
+
+            echo "O Cliente não existe registra ele ou pede pra se cadastrar no site!!";
+
+            exit;
+
+        }else{
+
+            echo "Falta só cadastrar o projeto";
+
+        }
+
+
+      }
 ?>
