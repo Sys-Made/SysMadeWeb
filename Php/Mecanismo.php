@@ -399,39 +399,43 @@
       * 
       *funcao Sc
       *
-      */
-      
-      //fazendo uma busca do bancos
-      function buscaCliente($cli, $cpf){
-        $arrayCliente = "";  
+      */     
 
+      //cadastrando projeto
+      function CadastrarProjeto($nomeProjSc, $dateProjSc, $hourProjSc, $cliProjSc, $cpfProjSc, $descProjSc){
         //chamando o banco
         require_once("conectBM.php");
 
+        //resposta da busca
+        $arrayCliente = "";
+
+        //convertendo as houras
+        $hourProjSc = floatval($hourProjSc);
 
         //comando sql
-        $sqlSlectCli = "SELECT cpfCliente, nomeDoCliente FROM Cliente WHERE cpfCliente = '$cpf'";
+        $sqlSlectCli = "SELECT codigoCliente,cpfCliente, nomeDoCliente FROM Cliente WHERE cpfCliente = '$cpfProjSc'";
         $sqlExcut = $conn->query($sqlSlectCli);
 
         $sqlNumbRow = $sqlExcut->num_rows;      //numero de linhas que retornaram no select
 
-        //verificando se veio algo
+        //verificando se veio algo do cliente
         if($sqlNumbRow > 0):
             
             while($result = $sqlExcut->fetch_assoc()){
 
-                $cpf = $result['cpfCliente'];
+                $cpfProjSc = $result['cpfCliente'];
+                $codCliProjSc = $result['codigoCliente'];
                 
                 //se o nome que esta no cpf bate 
-                if($result['nomeDoCliente'] != $cli){
+                if($result['nomeDoCliente'] != $cliProjSc){
 
-                    $cli = $result['nomeDoCliente'];
+                    $cliProjSc = $result['nomeDoCliente'];
 
                     //echo "são diferente os nomes!";
 
                 }
 
-                $arrayCliente = array($cli, $cpf);
+                $arrayCliente = array(intval($codCliProjSc),$cliProjSc, $cpfProjSc);
 
 
             }
@@ -439,33 +443,125 @@
         else:
             
             $arrayCliente = false;
-            //echo"Não tem registro";
         
-        endif;
+        endif; 
         
-        $conn->close();
+        //guardando o valor se existe o usuario no banco
 
-        return $arrayCliente;
+        if( $arrayCliente === false):
+
+            echo "O Cliente não existe, registra ele ou pede pra se cadastrar no site!!";
         
-      }
+        else:
 
-      //cadastrando projeto
-      function CadastrarProjeto($nomeProjSc, $dateProjSc, $hourProjSc, $cliProjSc, $cpfProjSc, $descProjSc){
+            /**
+             * 
+             * Fazendo gambirra, pois esta muito complicado de alterar o banco
+             * para colocar AUTO_INCREMENT, pois esqueci
+             * 
+             * */
+            $sqlRegLst = "SELECT MAX(codigoProjeto) FROM Projeto";      //Busaca do ultimo registro feito
+            
+            $sqlExecut = $conn->query($sqlRegLst);
+            
+            $numberLinhas = $sqlExecut->num_rows;
 
-        //resposta da busca
-        $respostaCli = buscaCliente($cliProjSc, $cpfProjSc);
+            if($numberLinhas > 0){
 
-        if( $respostaCli === false){
+                while($result = $sqlExecut->fetch_assoc()):
 
-            echo "O Cliente não existe registra ele ou pede pra se cadastrar no site!!";
+                    $regLast = $result['MAX(codigoProjeto)'];
 
-            exit;
+                    $regLast = $regLast + 1;
 
-        }else{
+                    $codProj = intval($regLast);
 
-            echo "Falta só cadastrar o projeto";
+                endwhile;     
 
-        }
+            }else{
+
+                echo "Nada de registro Erro 404!!!";
+
+            }
+            /*fim*/
+        endif; 
+
+        //Comando de inserção
+        $sqlIsertPj = "INSERT INTO Projeto(
+            codigoProjeto,
+            nomeDoProjeto,
+            codigoFKCliente,
+            dataDeTermino,
+            dataDeInicio,
+            horarioEstimadoDoProjeto,
+            descricaoDoProjeto)VALUES(
+                $codProj,
+                '$nomeProjSc',
+                $arrayCliente[0],
+                '$dateProjSc',
+                NOW(),
+                $hourProjSc,
+                '$descProjSc' )";
+        //verificando se foi cadastrado
+        if ($conn->query($sqlIsertPj) === TRUE) {
+
+            echo "Projeto cadastro na tabela Projeto ";
+
+            /**
+             * GAMBIRRA DE NOVO EU NÃO AGUENTO MAIS, PORÉM O TEMPO ESTA CURTO
+             * E TEM COISAS PRA REVER AHHAHAHAH
+             * Fazendo gambirra, pois esta muito complicado de alterar o banco
+             * para colocar AUTO_INCREMENT, pois esqueci.
+             * 
+             * */
+            $sqlRegLst = "SELECT MAX(codigoProjSoc) FROM ProjetoSocio";      //Busaca do ultimo registro feito
+            
+            $sqlExecut = $conn->query($sqlRegLst);
+            
+            $numberLinhas = $sqlExecut->num_rows;
+
+            if($numberLinhas > 0){
+
+                while($result = $sqlExecut->fetch_assoc()):
+
+                    $regLast = $result['MAX(codigoProjSoc)'];
+
+                    $regLast = $regLast + 1;
+
+                    $codPJS = intval($regLast);
+
+                endwhile;     
+
+            }else{
+
+                echo "Nada de registro Erro 404(PJS)!!!";
+
+            }
+            //inserção na tabela socio 
+            $sqlInsertPjS = "INSERT INTO ProjetoSocio(
+                codigoProjSoc,
+                codigoFKCargo,
+                codigoFKProjeto,
+                codigoFKArea)VALUES(
+                    $codPJS,
+                    1,
+                    $codProj,
+                    1)";
+
+            if($conn->query($sqlInsertPjS) === true):
+
+                echo "Registrado no ProjetoSocio";
+
+            else:
+
+                echo "Error: " . $sqlInsertPjS . " " . $conn->error;
+
+            endif;    
+
+          } else {
+            echo "Error: " . $sqlIsertPj . " " . $conn->error;
+          }
+        
 
 
       }
