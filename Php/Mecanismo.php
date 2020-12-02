@@ -614,9 +614,11 @@
         $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
 
         //selecionando o que apresentar
-        $sqlSlctItens = "SELECT nomeDoProjeto, statusProjeto FROM Projeto LIMIT $inicio, $qtdItensPg";
+        $sqlSlctItens = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto LIMIT $inicio, $qtdItensPg";
         $sqlExecutPg = $conn->query($sqlSlctItens);
-        $totalItens = $sqlExcutPg->num_rows;
+        $totalItens = $sqlExecutPg->num_rows;
+
+        //die($sqlSlctItens);
 
         if($totalItens > 0){
 
@@ -633,17 +635,67 @@
 
             echo '<tbody class="textColorPadrao">';
 
-            while($resultado = $sqlExcutPg->fetch_assoc()):
+            while($resultado = $sqlExecutPg->fetch_assoc()):
+
+                if($resultado["statusProjeto"] == null){
+
+                    $resultado["statusProjeto"] = "Em Desenvolvimento";
+
+                }
 
                 echo'<tr>
-                <td>Projeto Nome</td>
-                <td class="text-success">Finalizado: 12/09/20</td>
+                <td>' . $resultado["nomeDoProjeto"] . '</td>
+                <td class="text-success">' . $resultado["statusProjeto"] .' '. $resultado["dataDeTermino"] .' </td>
                 <td><button type="submit"
                         class="btn btn-light border textColorPadrao">Detalhes</button></td>
                 </tr>';
 
-            endwhile;    
+            endwhile; 
+            
+            echo "</tbody>";
+            echo "</table>";
 
+            //verificando a pagina posterior e anterior
+            $pg_after = $pagina - 1;
+            $pg_before = $pagina + 1;
+
+            echo'<nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">';
+
+            //button anterior
+            if($pg_after != 0):
+                echo'<li class="page-item disabled">
+                <a class="page-link" href="?pg='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>';
+            else:
+                echo'<li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>';
+            endif;
+            //fim
+            
+            //loop das page-itens
+            for($i = 1; $i < $numeroPgs + 1; $i++):
+                echo'<li class="page-item"><a class="page-link" href="?pg='.$i.'">'. $i .'</a></li>';
+            endfor;
+            //fim
+            
+            //button posterior
+            if($pg_before <= $numeroPgs):
+                echo'<li class="page-item">
+                <a class="page-link" href="'.$pg_before.'">Next</a>
+                </li>';
+            else:
+                echo'<li class="page-item disabled">
+                <a class="page-link" href="#">Next</a>
+            </li>';
+            endif;
+            
+            echo'</ul>
+            </nav>';
+
+        }else{
+            echo "Nenhum Resultado 0";
         }    
 
         /*if($numberRow > 0):
