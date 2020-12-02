@@ -406,6 +406,9 @@
         //chamando o banco
         require_once("conectBM.php");
 
+        //meta charset no banco
+        $conn->set_charset("utf8");
+
         //resposta da busca
         $arrayCliente = "";
 
