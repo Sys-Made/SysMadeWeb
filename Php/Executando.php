@@ -41,6 +41,10 @@
         //executando funcao
         CadastrarProjeto($_POST['projNameSc'],$_POST['projDateSc'],$_POST['projHourSc'], $_POST['projCliSc'], $_POST['projCpfCli'], $_POST['projDescSc']);
 
+    }elseif(isset($_POST['searchPj'])){
+
+        //executa funcao
+        SerachPj($_POST['searchPj']);
     }
 
 

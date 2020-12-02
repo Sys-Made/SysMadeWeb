@@ -567,4 +567,11 @@
 
 
       }
+
+      //busca projeto
+      function SerachPj($search){
+
+            echo $search;
+
+      }
 ?>

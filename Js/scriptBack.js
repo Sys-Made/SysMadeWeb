@@ -500,11 +500,11 @@ function RegistraProjeto() {
         alert("Nome do Projeto ou date de entrega ou hora estimada estão vazio!!");
 
     } else if (projNameCli == "" || projNameCli == null || projCpfCli == "" || projCpfCli == null || projCpfCli == "" || descrProj == "" || descrProj == null) {
-        
+
         alert("Nome do cliente ou cpf do cliente ou a descricao estao vazia!!!");
 
     } else if (validaCpf(projCpfCli) === false) {
-        
+
         alert("Esse cpf é invalido");
 
     } else {
@@ -532,7 +532,7 @@ function RegistraProjeto() {
 
                                 //resposta do php
                                 alert(this.responseText);
-                        
+
 
                             }
 
@@ -569,8 +569,37 @@ function RegistraProjeto() {
 
 }
 
-function testeInstantaneo(){
+function testeInstantaneo() {
+    var search;
 
-    //alert("funfou");
+    //guardando e tratando
+    search = document.getElementById('buscaFinal').value;
+    search = search.toLowerCase();
+
+    //teste no ajax com php
+
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            //alert(this.responseText);
+            document.getElementById('testeInstantaneo').innerHTML = this.responseText;
+
+
+        }
+
+    };
+
+    serverHttp.open("POST", "../Php/Executando.php", true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("searchPj=" + search);
+
+
 
 }

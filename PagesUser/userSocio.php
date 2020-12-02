@@ -236,10 +236,10 @@
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui...." onkeydown="testeInstantaneo()">
+                                    <input type="text" class="form-control" id="buscaFinal" placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
                                 </div>
                             </div>
                         </form>
@@ -247,7 +247,8 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <table class="table">
+                            <div id="testeInstantaneo"></div>
+                           <!-- <table class="table">
                                 <thead class="#" style="background-color: #43528A; color: white;">
                                     <tr>
                                         <th scope="col">Projeto</th>
@@ -299,7 +300,7 @@
                                                 class="btn btn-light border textColorPadrao">Detalhes</button></td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table>-->
                         </div>
 
                         <!-- fimResultados -->
