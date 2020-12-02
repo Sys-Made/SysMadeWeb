@@ -765,7 +765,7 @@
 
             }else{
 
-                $pagina = $pg;
+                $pagina = $_GET['pg'];
 
             }
             //fim
@@ -838,7 +838,7 @@
     
                 //button anterior
                 if($pg_after != 0):
-                    echo'<li class="page-item disabled">
+                    echo'<li class="page-item">
                     <a class="page-link" href="userSocio.php?pg='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
                     </li>';
                 else:

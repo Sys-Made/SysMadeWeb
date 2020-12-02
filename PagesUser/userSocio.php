@@ -14,13 +14,13 @@
         
         exit;   //Ele pode enviar mensagem e terminar o script
     }
+    
+    if(!isset($_GET['pg'])){    
 
-    //paginacao
-    if(!isset($_GET['pg'])){
-
-        $_GET['pg'] = "";
+        $_GET['pg'] = 1;
 
     }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@
     <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light" onload="testePg(<?php echo $_GET['pg']; ?>)">
+<body class="bg-light" onload="testePg(<?php echo $_GET['pg']?>)">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
         <div class="row justify-content-end">
@@ -246,7 +246,7 @@
                                     <input type="text" class="form-control" id="buscaFinal" placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="testePg(<?php echo $_GET['pg']?>)">Buscar</button>
                                 </div>
                             </div>
                         </form>
