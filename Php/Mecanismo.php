@@ -589,139 +589,165 @@
 
         }
         //fim
-        
-        //cmd sql
-        $sqlSlctPj = "SELECT nomeDoProjeto, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
-        $sqlpg = "SELECT nomeDoProjeto, statusProjeto FROM Projeto";    //chamando tudo que tem no banco
-        
-        //Executando comandos
-        $sqlExcutPg = $conn->query($sqlpg);     //para o sistema de paginacao
-        $sqlExcut = $conn->query($sqlSlctPj);   //busca especifico
-        $numberRow = $sqlExcut->num_rows;
-        $numberRowPg = $sqlExcutPg->num_rows;   //total de registros no banco
 
-        //variaveis da paginacao
-        $qtdItensPg = 6;
+        //verificando se o search esta vazio
+        if($search == "" || $search == null){
 
-        //limpando o resultado
-        $sqlExcutPg->free_result();
-        $sqlExcutPg = "";
+            //Executando comandos
+            $sqlpg = "SELECT nomeDoProjeto, statusProjeto FROM Projeto";    //chamando tudo que tem no banco
+            $sqlExcutPg = $conn->query($sqlpg);     //para o sistema de paginacao
+            $numberRowPg = $sqlExcutPg->num_rows;   //total de registros no banco
 
-        //calculando o numeros de pagina
-        $numeroPgs = ceil($numberRowPg/ $qtdItensPg);    //usando a função ou method ceil para redondar os numeros
+            //variaveis da paginacao
+            $qtdItensPg = 6;
 
-        //calculando o inicio dos itens
-        $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
+            //limpando o resultado
+            $sqlExcutPg->free_result();
+            $sqlExcutPg = "";
 
-        //selecionando o que apresentar
-        $sqlSlctItens = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto LIMIT $inicio, $qtdItensPg";
-        $sqlExecutPg = $conn->query($sqlSlctItens);
-        $totalItens = $sqlExecutPg->num_rows;
+            //calculando o numeros de pagina
+            $numeroPgs = ceil($numberRowPg/ $qtdItensPg);    //usando a função ou method ceil para redondar os numeros
 
-        //die($sqlSlctItens);
+            //calculando o inicio dos itens
+            $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
 
-        if($totalItens > 0){
+            //selecionando o que apresentar
+            $sqlSlctItens = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto LIMIT $inicio, $qtdItensPg";
+            $sqlExecutPg = $conn->query($sqlSlctItens);
+            $totalItens = $sqlExecutPg->num_rows;
 
-            //colocando table no php
-            echo '<table class="table">
-            <thead class="#" style="background-color: #43528A; color: white;">
-                <tr>
-                    <th scope="col">Projeto</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody class="textColorPadrao">';
+            if($totalItens > 0){
 
-            echo '<tbody class="textColorPadrao">';
-
-            while($resultado = $sqlExecutPg->fetch_assoc()):
-
-                if($resultado["statusProjeto"] == null){
-
-                    $resultado["statusProjeto"] = "Em Desenvolvimento";
-
-                }
-
-                echo'<tr>
-                <td>' . $resultado["nomeDoProjeto"] . '</td>
-                <td class="text-success">' . $resultado["statusProjeto"] .' '. $resultado["dataDeTermino"] .' </td>
-                <td><button type="submit"
-                        class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                </tr>';
-
-            endwhile; 
-            
-            echo "</tbody>";
-            echo "</table>";
-
-            //verificando a pagina posterior e anterior
-            $pg_after = $pagina - 1;
-            $pg_before = $pagina + 1;
-
-            echo'<nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">';
-
-            //button anterior
-            if($pg_after != 0):
-                echo'<li class="page-item disabled">
-                <a class="page-link" href="?pg='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
+                //colocando table no php
+                echo '<table class="table">
+                <thead class="#" style="background-color: #43528A; color: white;">
+                    <tr>
+                        <th scope="col">Projeto</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody class="textColorPadrao">';
+    
+                echo '<tbody class="textColorPadrao">';
+    
+                while($resultado = $sqlExecutPg->fetch_assoc()):
+    
+                    if($resultado["statusProjeto"] == null){
+    
+                        $resultado["statusProjeto"] = "Em Desenvolvimento";
+    
+                    }
+    
+                    echo'<tr>
+                    <td>' . $resultado["nomeDoProjeto"] . '</td>
+                    <td class="text-success">' . $resultado["statusProjeto"] .' '. $resultado["dataDeTermino"] .' </td>
+                    <td><button type="submit"
+                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                    </tr>';
+    
+                endwhile; 
+                
+                echo "</tbody>";
+                echo "</table>";
+    
+                //verificando a pagina posterior e anterior
+                $pg_after = $pagina - 1;
+                $pg_before = $pagina + 1;
+    
+                echo'<nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">';
+    
+                //button anterior
+                if($pg_after != 0):
+                    echo'<li class="page-item disabled">
+                    <a class="page-link" href="userSocio.php?pg='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>';
+                else:
+                    echo'<li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>';
+                endif;
+                //fim
+                
+                //loop das page-itens
+                for($i = 1; $i < $numeroPgs + 1; $i++):
+                    echo'<li class="page-item"><a class="page-link" href="userSocio.php?pg='.$i.'">'. $i .'</a></li>';
+                endfor;
+                //fim
+                
+                //button posterior
+                if($pg_before <= $numeroPgs):
+                    echo'<li class="page-item">
+                    <a class="page-link" href="userSocio.php?pg='.$pg_before.'">Next</a>
+                    </li>';
+                else:
+                    echo'<li class="page-item disabled">
+                    <a class="page-link" href="#">Next</a>
                 </li>';
-            else:
-                echo'<li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                </li>';
-            endif;
-            //fim
-            
-            //loop das page-itens
-            for($i = 1; $i < $numeroPgs + 1; $i++):
-                echo'<li class="page-item"><a class="page-link" href="?pg='.$i.'">'. $i .'</a></li>';
-            endfor;
-            //fim
-            
-            //button posterior
-            if($pg_before <= $numeroPgs):
-                echo'<li class="page-item">
-                <a class="page-link" href="'.$pg_before.'">Next</a>
-                </li>';
-            else:
-                echo'<li class="page-item disabled">
-                <a class="page-link" href="#">Next</a>
-            </li>';
-            endif;
-            
-            echo'</ul>
-            </nav>';
+                endif;
+                
+                echo'</ul>
+                </nav>';
+    
+            }else{
+                echo "Nenhum Resultado 0";
+            }
 
         }else{
-            echo "Nenhum Resultado 0";
-        }    
-
-        /*if($numberRow > 0):
-
-            while($result = $sqlExcut->fetch_assoc()):
-
-                if($result["statusProjeto"] == 0 || $result["statusProjeto"] == null){
-
-                    $result["statusProjeto"] = "Projeto em desenvolvimento";
-
-                    echo $result["nomeDoProjeto"]. " " . $result["statusProjeto"] . "<br /> <br />";
-
-
-                }else{
-
-                    echo $result["nomeDoProjeto"]. " " . $result["statusProjeto"] . "<br /> <br />";
-
-                }
-
-            endwhile;    
-        
-        else:
             
-            echo "nenhum resultado";
+            //cmd sql
+            $sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
+            
+            
+            //Executando comandos
+            
+            $sqlExcut = $conn->query($sqlSlctPj);   //busca especifico
+            $numberRow = $sqlExcut->num_rows;
+
+            //verificando se vem algo
+            if($numberRow > 0):
+
+                    //colocando table no php
+                    echo '<table class="table">
+                    <thead class="#" style="background-color: #43528A; color: white;">
+                        <tr>
+                            <th scope="col">Projeto</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody class="textColorPadrao">';
         
-        endif;*/    
+                    echo '<tbody class="textColorPadrao">';
+        
+                    while($result = $sqlExcut->fetch_assoc()): 
+        
+                        if($result["statusProjeto"] == null){
+        
+                            $result["statusProjeto"] = "Em Desenvolvimento";
+        
+                        }
+        
+                        echo'<tr>
+                        <td>' . $result["nomeDoProjeto"] . '</td>
+                        <td class="text-success">' . $result["statusProjeto"] .' '. $result["dataDeTermino"] .' </td>
+                        <td><button type="submit"
+                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                        </tr>';
+    
+                endwhile; 
+                
+                echo "</tbody>";
+                echo "</table>";   
+
+            else:
+
+                echo"Nenhum resultado";
+
+            endif;    
+
+        }        
 
       }
 ?>

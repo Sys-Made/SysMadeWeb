@@ -31,7 +31,7 @@
     <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light">
+<body class="bg-light" onload="testeInstantaneo()">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
         <div class="row justify-content-end">
