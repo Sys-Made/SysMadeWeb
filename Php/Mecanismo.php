@@ -697,7 +697,7 @@
         }else{
             
             //cmd sql
-            $sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
+            $sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto INNER JOIN Cliente ON Projeto.codigoFKCliente = Cliente.codigoCliente WHERE nomeDoProjeto LIKE '%$search%' OR cpfCliente LIKE '%$search%'";
             
             
             //Executando comandos
