@@ -236,7 +236,7 @@
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui...." onkeydown="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
                                     <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>

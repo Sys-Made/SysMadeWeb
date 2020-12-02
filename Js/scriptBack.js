@@ -568,3 +568,9 @@ function RegistraProjeto() {
     }
 
 }
+
+function testeInstantaneo(){
+
+    //alert("funfou");
+
+}
