@@ -575,15 +575,78 @@
       function SerachPj($search){
         //chamando o banco de dados  
         require_once("conectBM.php");
+
+        //valor da pagina
+        if(!isset($_GET['pg'])){
+
+            $_GET['pg'] = 1;
+
+            $pagina = $_GET['pg'];
+
+        }else{
+
+            $pagina = $_GET['pg'];
+
+        }
+        //fim
         
         //cmd sql
         $sqlSlctPj = "SELECT nomeDoProjeto, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
-
-        $sqlExcut = $conn->query($sqlSlctPj);
-
+        $sqlpg = "SELECT nomeDoProjeto, statusProjeto FROM Projeto";    //chamando tudo que tem no banco
+        
+        //Executando comandos
+        $sqlExcutPg = $conn->query($sqlpg);     //para o sistema de paginacao
+        $sqlExcut = $conn->query($sqlSlctPj);   //busca especifico
         $numberRow = $sqlExcut->num_rows;
+        $numberRowPg = $sqlExcutPg->num_rows;   //total de registros no banco
 
-        if($numberRow > 0):
+        //variaveis da paginacao
+        $qtdItensPg = 6;
+
+        //limpando o resultado
+        $sqlExcutPg->free_result();
+        $sqlExcutPg = "";
+
+        //calculando o numeros de pagina
+        $numeroPgs = ceil($numberRowPg/ $qtdItensPg);    //usando a função ou method ceil para redondar os numeros
+
+        //calculando o inicio dos itens
+        $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
+
+        //selecionando o que apresentar
+        $sqlSlctItens = "SELECT nomeDoProjeto, statusProjeto FROM Projeto LIMIT $inicio, $qtdItensPg";
+        $sqlExecutPg = $conn->query($sqlSlctItens);
+        $totalItens = $sqlExcutPg->num_rows;
+
+        if($totalItens > 0){
+
+            //colocando table no php
+            echo '<table class="table">
+            <thead class="#" style="background-color: #43528A; color: white;">
+                <tr>
+                    <th scope="col">Projeto</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="textColorPadrao">';
+
+            echo '<tbody class="textColorPadrao">';
+
+            while($resultado = $sqlExcutPg->fetch_assoc()):
+
+                echo'<tr>
+                <td>Projeto Nome</td>
+                <td class="text-success">Finalizado: 12/09/20</td>
+                <td><button type="submit"
+                        class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                </tr>';
+
+            endwhile;    
+
+        }    
+
+        /*if($numberRow > 0):
 
             while($result = $sqlExcut->fetch_assoc()):
 
@@ -606,7 +669,7 @@
             
             echo "nenhum resultado";
         
-        endif;    
+        endif;*/    
 
       }
 ?>
