@@ -588,7 +588,7 @@ function testeInstantaneo() {
 
             //resposta do php
             //alert(this.responseText);
-            document.getElementById('testeInstantaneo').innerHTML = this.responseText;
+            document.getElementById('tabelaResult').innerHTML = this.responseText;
 
 
         }
@@ -617,7 +617,7 @@ function testePg(numPg) {
 
             //resposta do php
             //alert(this.responseText);
-            document.getElementById('testeInstantaneo').innerHTML = this.responseText;
+            document.getElementById('tabelaResult').innerHTML = this.responseText;
 
 
         }
