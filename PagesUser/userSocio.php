@@ -197,7 +197,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="exampleFormControlInput1">Horas Estimadas</label>
-                                    <input type="text" class="form-control" id="horasEstim" placeholder="17500">
+                                    <input type="text" class="form-control" id="horasEstim" placeholder="1751.00">
                                 </div>
                             </div>
 

@@ -451,6 +451,8 @@
         if( $arrayCliente === false):
 
             echo "O Cliente não existe, registra ele ou pede pra se cadastrar no site!!";
+
+            exit;
         
         else:
 

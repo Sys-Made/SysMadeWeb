@@ -532,6 +532,7 @@ function RegistraProjeto() {
 
                                 //resposta do php
                                 alert(this.responseText);
+                        
 
                             }
 
