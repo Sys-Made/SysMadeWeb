@@ -570,8 +570,40 @@
 
       //busca projeto
       function SerachPj($search){
+        //chamando o banco de dados  
+        require_once("conectBM.php");
+        
+        //cmd sql
+        $sqlSlctPj = "SELECT nomeDoProjeto, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
 
-            echo $search;
+        $sqlExcut = $conn->query($sqlSlctPj);
+
+        $numberRow = $sqlExcut->num_rows;
+
+        if($numberRow > 0):
+
+            while($result = $sqlExcut->fetch_assoc()):
+
+                if($result["statusProjeto"] == 0 || $result["statusProjeto"] == null){
+
+                    $result["statusProjeto"] = "Projeto em desenvolvimento";
+
+                    echo $result["nomeDoProjeto"]. " " . $result["statusProjeto"] . "<br /> <br />";
+
+
+                }else{
+
+                    echo $result["nomeDoProjeto"]. " " . $result["statusProjeto"] . "<br /> <br />";
+
+                }
+
+            endwhile;    
+        
+        else:
+            
+            echo "nenhum resultado";
+        
+        endif;    
 
       }
 ?>
