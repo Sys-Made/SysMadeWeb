@@ -13,7 +13,14 @@
         header("Location: ../Pages/Login.html");        //Header com location direciona a pagina
         
         exit;   //Ele pode enviar mensagem e terminar o script
-    }  
+    }
+
+    //paginacao
+    if(!isset($_GET['pg'])){
+
+        $_GET['pg'] = "";
+
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +38,7 @@
     <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light" onload="testeInstantaneo()">
+<body class="bg-light" onload="testePg(<?php echo $_GET['pg']; ?>)">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
         <div class="row justify-content-end">

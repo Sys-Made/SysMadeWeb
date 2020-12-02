@@ -569,6 +569,7 @@ function RegistraProjeto() {
 
 }
 
+//busca e paginação
 function testeInstantaneo() {
     var search;
 
@@ -602,4 +603,56 @@ function testeInstantaneo() {
 
 
 
+}
+
+function testePg(numPg) {
+
+    if(numPg == undefined){
+
+        serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+        serverHttp.onreadystatechange = function () {
+
+            //verificando o status e se esta pronto para responder
+            if (this.readyState == 4 && this.status == 200) {
+
+                //resposta do php
+                //alert(this.responseText);
+                document.getElementById('testeInstantaneo').innerHTML = this.responseText;
+
+
+            }
+
+        };
+
+        serverHttp.open("GET", "../Php/Executando.php?pg=", true);
+
+        serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        serverHttp.send();
+
+    }else{
+
+        serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+        serverHttp.onreadystatechange = function () {
+
+            //verificando o status e se esta pronto para responder
+            if (this.readyState == 4 && this.status == 200) {
+
+                //resposta do php
+                //alert(this.responseText);
+                document.getElementById('testeInstantaneo').innerHTML = this.responseText;
+
+
+            }
+
+        };
+
+        serverHttp.open("GET", "../Php/Executando.php?pg=" + numPg, true);
+
+        serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        serverHttp.send();
+    }    
 }

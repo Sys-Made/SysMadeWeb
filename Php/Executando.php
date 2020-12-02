@@ -45,6 +45,11 @@
 
         //executa funcao
         SerachPj($_POST['searchPj']);
+
+    }elseif(isset($_GET['pg'])){
+
+        Paginacao($_GET['pg']);
+
     }
 
 
