@@ -17,6 +17,22 @@
  //chamando o banco do cliente
  require_once('../../Php/conectBM.php');
 
+ //guardando a valor do ajax
+     
+if(!isset($_POST['searchUpd'])):
+        
+    $_POST['searchUpd'] = "";
+
+    $search = $_POST['searchUpd'];
+
+ else:
+
+    $search = $_POST['searchUpd'];
+ 
+ endif;
+ 
+ //fim
+
  //valor da pagina
  if(!isset($_GET['pgUpd'])){
 
@@ -138,7 +154,57 @@
     }
 else:
 
-    
+    //CMD SQL
+    $sqlSlctPd = "SELECT * FROM Projeto WHERE nomeDoProjeto LIKE '%$search%'";
+          
+    //executando
+    $sqlExcut = $conn->query($sqlSlctPd);   //busca especifico
+    $numberRow = $sqlExcut->num_rows;
+
+    //verificando se há registro
+    if($numberRow > 0):
+      
+      echo'<table class="table">
+      <thead class="#" style="background-color: #43528A; color: white;">
+          <tr>
+              <th scope="col">Projeto</th>
+              <th scope="col">Data entrega</th>
+              <th scope="col">Ações</th>
+          </tr>
+      </thead>
+      <tbody class="textColorPadrao">';
+      
+      while($result = $sqlExcut->fetch_assoc()){
+
+          if($result['dataDeTermino'] == null){
+
+              $result['dataDeTermino'] = "20-11-10";
+
+          }
+
+          echo'<tr>
+          <td>' . $result['nomeDoProjeto'] . '</td>
+          <td>Data entrega: ' . $result['dataDeTermino'] . '</td>
+          <td>
+              <button type="submit"
+                  class="btn btn-light border textColorPadrao">Detalhes</button>
+              <button type="submit"
+                  class="btn btn-light border textColorPadrao">Aceitar</button>
+              <button type="submit"
+                  class="btn btn-light border textColorPadrao">Recusar</button>
+          </td>
+      </tr>';
+
+      }
+
+      echo '</tbody>
+      </table>';
+      
+    else:
+      
+      echo"Nenhum resultado";
+
+    endif;
 
 endif;
 

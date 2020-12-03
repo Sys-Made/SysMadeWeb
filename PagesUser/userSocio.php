@@ -281,10 +281,10 @@
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                    <input type="text" class="form-control" id="buscaAltera" placeholder="Faça sua busca aqui...." onkeyup="buscaUpdate()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
                                 </div>
                             </div>
                         </form>
@@ -296,6 +296,8 @@
                             <div class="listaProjeto my-4 text-center">
                                 <iframe id="tabelaCliente" src="./Bsc/alterarProjeto.php" class="buscaSearch"></iframe>
                             </div>
+
+                            <div id="tabelaUpdate"></div>
                         <!-- fimResultados -->
                         </div>
 

@@ -632,3 +632,36 @@ function buscaBdSt() {
 
     serverHttp.send("searchCliPd=" + search);
 }
+
+//busca updateProj
+function buscaUpdate() {
+    var search;
+
+    //guardando e tratando
+    search = document.getElementById('buscaAltera').value;
+    search = search.toLowerCase();
+
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            document.getElementById('tabelaUpdate').innerHTML = this.responseText;
+            document.getElementsByClassName('buscaSearch')[2].classList.add("noVisive");
+
+        }
+
+    };
+
+    serverHttp.open("POST", "../PagesUser/Bsc/alterarProjeto.php", true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("searchUpd=" + search);
+
+
+
+}
