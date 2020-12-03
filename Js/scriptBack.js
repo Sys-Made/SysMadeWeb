@@ -628,7 +628,7 @@ function testePg(numPg) {
     serverHttp.send();
 }
 
-//buscaInstantanea
+//busca Bs
 function buscaBdSt() {
     var search;
 
@@ -659,7 +659,7 @@ function buscaBdSt() {
 }
 
 //paginacao BS
-function pgCli(numPg) {
+/*function pgCli(numPg) {
 
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
@@ -677,9 +677,9 @@ function pgCli(numPg) {
 
     };
 
-    serverHttp.open("GET", "../Php/Executando.php?pgCli=" + numPg, true);
+    serverHttp.open("GET", "../Php/Executando.php?pg=" + numPg, true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     serverHttp.send();
-}
+}*/

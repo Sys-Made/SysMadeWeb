@@ -21,12 +21,6 @@
 
     }
 
-    if(!isset($_GET['pgCli'])){
-
-        $_GET['pgCli'] = 1;
-
-    }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +38,7 @@
     <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light" onload="testePg(<?php echo $_GET['pg'];?>), pgCli(<?php echo $_GET['pgCli'];?>)">
+<body class="bg-light" onload="testePg(<?php echo $_GET['pg'];?>)">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
         <div class="row justify-content-end">
@@ -239,8 +233,6 @@
 
                     <!-- ProjetoCompleto e cancelado-->
                     <div class="tab-pane fade show active p-3" id="complProjeto" role="tabpanel" aria-labelledby="profile-tab">
-
-                        <!-- buscaProjeto -->
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
@@ -271,7 +263,7 @@
                                     <input type="text" class="form-control" id="buscaPedido" placeholder="Faça sua busca aqui...." onkeyup="buscaBdSt()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="pgCli(<?php echo $_GET['pgCli'];?>)">Push All</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao">Push All</button>
                                 </div>
                             </div>
                         </form>
