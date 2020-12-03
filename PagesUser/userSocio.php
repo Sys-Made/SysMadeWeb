@@ -21,6 +21,12 @@
 
     }
 
+    if(!isset($_GET['pgCli'])){
+
+        $_GET['pgCli'] = 1;
+
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +44,7 @@
     <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light" onload="testePg(<?php echo $_GET['pg']?>)">
+<body class="bg-light" onload="testePg(<?php echo $_GET['pg'];?>), pgCli(<?php echo $_GET['pgCli'];?>)">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
         <div class="row justify-content-end">
@@ -241,7 +247,7 @@
                                     <input type="text" class="form-control" id="buscaFinal" placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="testePg(<?php echo $_GET['pg']?>)">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="testePg(<?php echo $_GET['pg'];?>)">Push All</button>
                                 </div>
                             </div>
                         </form>
@@ -249,7 +255,7 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <div id="tabelaResult"></div>
+                            <div id="tabelaResult" class="projetoConCan">Digite no campo o clica no "PUSH DATA"</div>
                         </div>
                         <!--Fimresultado-->
 
@@ -262,10 +268,10 @@
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                    <input type="text" class="form-control" id="buscaPedido" placeholder="Faça sua busca aqui...." onkeyup="buscaBdSt()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="pgCli(<?php echo $_GET['pgCli'];?>)">Push All</button>
                                 </div>
                             </div>
                         </form>
@@ -273,100 +279,11 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <table class="table">
-                                <thead class="#" style="background-color: #43528A; color: white;">
-                                    <tr>
-                                        <th scope="col">Projeto</th>
-                                        <th scope="col">Data entrega</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="textColorPadrao">
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Aceitar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Recusar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Aceitar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Recusar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Aceitar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Recusar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Aceitar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Recusar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Aceitar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Recusar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Aceitar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Recusar</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div id="tabelaCliente"></div>
                         </div>
-
                         <!-- fimResultados -->
 
-                        <!-- paginacao -->
+                        <!-- paginacao 
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center">
 
@@ -383,7 +300,7 @@
                                 </li>
                             </ul>
                         </nav>
-                        <!-- fimPaginacao -->
+                         fimPaginacao -->
                     </div>
 
                     <!-- PedidosUpdate -->
