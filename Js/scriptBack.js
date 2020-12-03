@@ -569,15 +569,13 @@ function RegistraProjeto() {
 
 }
 
-//busca e paginação
+//busca BM
 function testeInstantaneo() {
     var search;
 
     //guardando e tratando
     search = document.getElementById('buscaFinal').value;
     search = search.toLowerCase();
-
-    //teste no ajax com php
 
     //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
@@ -588,7 +586,7 @@ function testeInstantaneo() {
 
             //resposta do php
             //alert(this.responseText);
-            document.getElementById('testeInstantaneo').innerHTML = this.responseText;
+            document.getElementById('tabelaResult').innerHTML = this.responseText;
 
 
         }
@@ -604,9 +602,8 @@ function testeInstantaneo() {
 
 
 }
-
+//paginacao BM
 function testePg(numPg) {
-
 
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
@@ -617,7 +614,7 @@ function testePg(numPg) {
 
             //resposta do php
             //alert(this.responseText);
-            document.getElementById('testeInstantaneo').innerHTML = this.responseText;
+            document.getElementById('tabelaResult').innerHTML = this.responseText;
 
 
         }
@@ -630,3 +627,59 @@ function testePg(numPg) {
 
     serverHttp.send();
 }
+
+//busca Bs
+function buscaBdSt() {
+    var search;
+
+    //guardando e tratando
+    search = document.getElementById('buscaPedido').value;
+    //search = search.toLowerCase();
+
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            document.getElementById('tabelaCliente').innerHTML = this.responseText;
+
+
+        }
+
+    };
+
+    serverHttp.open("POST", "../Php/Executando.php", true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("searchCliPd=" + search);
+}
+
+//paginacao BS
+/*function pgCli(numPg) {
+
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            //alert(this.responseText);
+            document.getElementById('tabelaResult').innerHTML = this.responseText;
+
+
+        }
+
+    };
+
+    serverHttp.open("GET", "../Php/Executando.php?pg=" + numPg, true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send();
+}*/
