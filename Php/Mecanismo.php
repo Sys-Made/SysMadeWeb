@@ -580,7 +580,7 @@
           require_once('conect.php');
           
           //CMD SQL
-          $sqlSlctPd = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO INNER JOIN CLIENTE ON PEDIDO.CODIGOFKSCLIENTE = CLIENTE.CODIGOCLIENTE WHERE CPFCLIENTE LIKE '%$searchPd'";
+          $sqlSlctPd = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO INNER JOIN CLIENTE ON PEDIDO.CODIGOFKSCLIENTE = CLIENTE.CODIGOCLIENTE WHERE NOMEDOPEDIDO LIKE '%$searchPd'";
           
           //executando
           $sqlExcut = $conn->query($sqlSlctPd);   //busca especifico
