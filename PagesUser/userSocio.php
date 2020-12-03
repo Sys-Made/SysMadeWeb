@@ -21,6 +21,12 @@
 
     }
 
+    if(!isset($_GET['pgCli'])){
+
+        $_GET['pgCli'] = 1; 
+
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +44,7 @@
     <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light" onload="testePg(<?php echo $_GET['pg'];?>)">
+<body class="bg-light" onload="testePg(<?php echo $_GET['pg'];?>, <?php echo $_GET['pgCli']; ?>), pgCli(<?php echo $_GET['pg'];?>, <?php echo $_GET['pgCli']; ?>)">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
         <div class="row justify-content-end">
@@ -263,7 +269,7 @@
                                     <input type="text" class="form-control" id="buscaPedido" placeholder="Faça sua busca aqui...." onkeyup="buscaBdSt()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao">Push All</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="pgCli(<?php echo $_GET['pg'];?>, <?php echo $_GET['pgCli']; ?>)">Push All</button>
                                 </div>
                             </div>
                         </form>

@@ -636,7 +636,7 @@
       }
 
       //paginacao cliente
-      function PaginacaoCli($pg){
+      function PaginacaoCli($pg,$pgBM){
           //chamando o banco do cliente
           require_once('conect.php');
 
@@ -657,14 +657,14 @@
           //CMD SQL
           $sqlSlect = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO";
           $sqlExecut = $conn->query($sqlSlect);
-          $numberRowPg = $sqlExcut->num_rows;
+          $numberRowPg = $sqlExecut->num_rows;
           
           //variaveis da paginacao
           $qtdItensPg = 6;
 
           //limpando o resultado
-          $sqlExcut->free_result();
-          $sqlExcut = "";
+          $sqlExecut->free_result();
+          $sqlExecut = "";
 
           //calculando o numeros de pagina
           $numeroPgs = ceil($numberRowPg/ $qtdItensPg);
@@ -675,7 +675,7 @@
           //selecionando o que apresentar
           $sqlSlctItens = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO LIMIT $inicio, $qtdItensPg";
           $sqlExecut = $conn->query($sqlSlctItens);
-          $totalItens = $sqlExecutPg->num_rows;
+          $totalItens = $sqlExecut->num_rows;
 
           if($totalItens > 0){
             echo'<table class="table">
@@ -688,7 +688,7 @@
             </thead>
             <tbody class="textColorPadrao">';
 
-            while($result = $sqlExecut->fecth_assoc()){
+            while($result = $sqlExecut->fetch_assoc()){
                 
                 if($result['DATAREALIZADO'] == null){
 
@@ -723,7 +723,7 @@
             //button anterior
             if($pg_after != 0):
                 echo'<li class="page-item">
-                <a class="page-link" href="userSocio.php?pg='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
+                <a class="page-link" href="userSocio.php?pg='.$pgBM.'&pgCli='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
                 </li>';
             else:
                 echo'<li class="page-item disabled">
@@ -734,14 +734,14 @@
 
             //loop das page-itens
             for($i = 1; $i < $numeroPgs + 1; $i++):
-                echo'<li class="page-item"><a class="page-link" href="userSocio.php?pg='.$i.'">'. $i .'</a></li>';
+                echo'<li class="page-item"><a class="page-link" href="userSocio.php?pg='.$pgBM.'&pgCli='.$i.'">'. $i .'</a></li>';
             endfor;
             //fim
 
             //button posterior
             if($pg_before <= $numeroPgs):
                 echo'<li class="page-item">
-                <a class="page-link" href="userSocio.php?pg='.$pg_before.'">Next</a>
+                <a class="page-link" href="userSocio.php?pg='.$pgBM.'&pgCli='.$pg_before.'">Next</a>
                 </li>';
             else:
                 echo'<li class="page-item disabled">
@@ -825,7 +825,7 @@
       }
 
       //paginacao bancoBM
-      function Paginacao($pg){
+      function Paginacao($pg,$pgCli){
           //chamando o banco de dados  
           require_once("conectBM.php");
 
@@ -911,7 +911,7 @@
                 //button anterior
                 if($pg_after != 0):
                     echo'<li class="page-item">
-                    <a class="page-link" href="userSocio.php?pg='.$pg_after.'" tabindex="-1" aria-disabled="true" id="paginacao">Previous</a>
+                    <a class="page-link" href="userSocio.php?pg='.$pg_after.'&pgCli='.$pgCli.'" tabindex="-1" aria-disabled="true" id="paginacao">Previous</a>
                     </li>';
                 else:
                     echo'<li class="page-item disabled">
@@ -922,14 +922,14 @@
                 
                 //loop das page-itens
                 for($i = 1; $i < $numeroPgs + 1; $i++):
-                    echo'<li class="page-item"><a class="page-link" href="userSocio.php?pg='.$i.'" id="paginacao">'. $i .'</a></li>';
+                    echo'<li class="page-item"><a class="page-link" href="userSocio.php?pg='.$i.'&pgCli='.$pgCli.'" id="paginacao">'. $i .'</a></li>';
                 endfor;
                 //fim
                 
                 //button posterior
                 if($pg_before <= $numeroPgs):
                     echo'<li class="page-item">
-                    <a class="page-link" href="userSocio.php?pg='.$pg_before.'" id="paginacao">Next</a>
+                    <a class="page-link" href="userSocio.php?pg='.$pg_before.'&pgCli='.$pgCli.'" id="paginacao">Next</a>
                     </li>';
                 else:
                     echo'<li class="page-item disabled">
