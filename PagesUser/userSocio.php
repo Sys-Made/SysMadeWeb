@@ -268,25 +268,6 @@
                             <iframe id="tabelaCliente" src="./Bsc/buscaPedido.php" class="buscaSearch"></iframe>
                         </div>
                         <!-- fimResultados -->
-
-                        <!-- paginacao 
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                         fimPaginacao -->
                     </div>
 
                     <!-- PedidosUpdate -->
@@ -307,118 +288,12 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <table class="table">
-                                <thead class="#" style="background-color: #43528A; color: white;">
-                                    <tr>
-                                        <th scope="col">Projeto</th>
-                                        <th scope="col">Data entrega</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="textColorPadrao">
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
+                        <!-- resultados-->
+                            <div class="listaProjeto my-4 text-center">
+                                <iframe id="tabelaCliente" src="./Bsc/alterarProjeto.php" class="buscaSearch"></iframe>
+                            </div>
                         <!-- fimResultados -->
-
-                        <!-- paginacao -->
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!-- fimPaginacao -->
-                    </div>
+                        </div>
 
                 </div>
                 <!-- fimTablist -->

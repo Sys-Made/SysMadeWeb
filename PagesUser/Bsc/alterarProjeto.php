@@ -15,24 +15,24 @@
 </head>
 <?php
  //chamando o banco do cliente
- require_once('../../Php/conect.php');
+ require_once('../../Php/conectBM.php');
 
  //valor da pagina
- if(!isset($_GET['pgCli'])){
+ if(!isset($_GET['pgUpd'])){
 
-   $_GET['pgCli'] = 1;
+   $_GET['pgUpd'] = 1;
 
-   $pagina = $_GET['pgCli'];
+   $pagina = $_GET['pgUpd'];
 
   }else{
 
-       $pagina = $_GET['pgCli'];
+       $pagina = $_GET['pgUpd'];
 
   }
  //fim
 
  //CMD SQL
- $sqlSlect = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO";
+ $sqlSlect = "SELECT * FROM Projeto";
  $sqlExecut = $conn->query($sqlSlect);
  $numberRowPg = $sqlExecut->num_rows;
  
@@ -50,12 +50,12 @@
  $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
 
  //selecionando o que apresentar
- $sqlSlctItens = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO LIMIT $inicio, $qtdItensPg";
+ $sqlSlctItens = "SELECT * FROM Projeto LIMIT $inicio, $qtdItensPg";
  $sqlExecut = $conn->query($sqlSlctItens);
  $totalItens = $sqlExecut->num_rows;
 
  if($totalItens > 0){
-   echo'<table class="table text-center">
+   echo'<table class="table">
    <thead class="#" style="background-color: #43528A; color: white;">
        <tr>
            <th scope="col">Projeto</th>
@@ -67,24 +67,24 @@
 
    while($result = $sqlExecut->fetch_assoc()){
        
-       if($result['DATAREALIZADO'] == null){
+    if($result["statusProjeto"] == null){
 
-           $result['DATAREALIZADO'] = "20-11-10";
+        $result["statusProjeto"] = "Em Desenvolvimento";
 
-       }
+    }
 
        echo'<tr>
-       <td>' . $result['NOMEDOPEDIDO'] . '</td>
-       <td>Data entrega: ' . $result['DATAREALIZADO'] . '</td>
+       <td>'.$result['nomeDoProjeto'].'</td>
+       <td>Data entrega:'.$result['dataDeTermino'].'</td>
        <td>
            <button type="submit"
                class="btn btn-light border textColorPadrao">Detalhes</button>
+           <button type="submit" class="btn btn-light border textColorPadrao"
+               data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
            <button type="submit"
-               class="btn btn-light border textColorPadrao">Aceitar</button>
-           <button type="submit"
-               class="btn btn-light border textColorPadrao">Recusar</button>
+               class="btn btn-light border textColorPadrao">Deletar</button>
        </td>
-       </tr>';
+   </tr>';
    }
 
    echo '</tbody>
@@ -100,7 +100,7 @@
    //button anterior
    if($pg_after != 0):
        echo'<li class="page-item">
-       <a class="page-link" href="buscaPedido.php?pgCli='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
+       <a class="page-link" href="alterarProjeto.php?pgUpd='.$pg_after.'" tabindex="-1" aria-disabled="true">Previous</a>
        </li>';
    else:
        echo'<li class="page-item disabled">
@@ -111,14 +111,14 @@
 
    //loop das page-itens
    for($i = 1; $i < $numeroPgs + 1; $i++):
-       echo'<li class="page-item"><a class="page-link" href="buscaPedido.php?pgCli='.$i.'">'. $i .'</a></li>';
+       echo'<li class="page-item"><a class="page-link" href="alterarProjeto.php?pgUpd='.$i.'">'. $i .'</a></li>';
    endfor;
    //fim
 
    //button posterior
    if($pg_before <= $numeroPgs):
        echo'<li class="page-item">
-       <a class="page-link" href="buscaPedido.php?pgCli='.$pg_before.'">Next</a>
+       <a class="page-link" href="alterarProjeto.php?pgUpd='.$pg_before.'">Next</a>
        </li>';
    else:
        echo'<li class="page-item disabled">
