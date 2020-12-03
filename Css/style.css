@@ -448,3 +448,12 @@
 }
 /*fimSocioDados*/
 
+/*iframe Busca*/
+.buscaSearch{
+    border: none;
+    max-width: 1250px;
+    max-height: 750px;
+    width: 100%;
+    height: 100vh;
+}
+

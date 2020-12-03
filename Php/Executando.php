@@ -46,22 +46,11 @@
         //executa funcao
         SerachPj($_POST['searchPj']);
 
-    }elseif(isset($_GET['pg']) || isset($_GET['pgCli'])){
-
-        //executa funcao
-        Paginacao($_GET['pg'], $_GET['pgCli']);
-
     }elseif(isset($_POST['searchCliPd'])){
 
         //executando funcao
         SearchPdCli($_POST['searchCliPd']);
 
-    }elseif(isset($_GET['pg']) || isset($_GET['pgCli'])){
-
-        //executando funcao
-        PaginacaoCli($_GET['pgCli'], $_GET['pg']);
-
     }
-
 
 ?>

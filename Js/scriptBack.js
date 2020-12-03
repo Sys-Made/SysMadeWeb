@@ -613,7 +613,7 @@ function testePg(numPg, teste) {
         if (this.readyState == 4 && this.status == 200) {
 
             //resposta do php
-            //alert(this.responseText);
+            
             document.getElementById('tabelaResult').innerHTML = this.responseText;
 
 
