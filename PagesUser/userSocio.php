@@ -233,7 +233,7 @@
                                     <input type="text" class="form-control" id="buscaFinal" placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="testePg(<?php echo $_GET['pg'];?>)">Push All</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
                                 </div>
                             </div>
                         </form>
@@ -241,7 +241,9 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <iframe id="tabelaResult" src="./Bsc/buscaProjeto.php" class="buscaSearch"></iframe>
+                            <iframe src="./Bsc/buscaProjeto.php" class="buscaSearch"></iframe>
+
+                            <div id="tabelaResult"></div>
                         </div>
                         <!--Fimresultado-->
 
@@ -265,28 +267,11 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <iframe id="tabelaCliente" src="./Bsc/buscaPedido.php" class="buscaSearch"></iframe>
+                            <iframe src="./Bsc/buscaPedido.php" class="buscaSearch"></iframe>
                         </div>
+
+                        <div id="tabelaCliente"></div>
                         <!-- fimResultados -->
-
-                        <!-- paginacao 
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                         fimPaginacao -->
                     </div>
 
                     <!-- PedidosUpdate -->
@@ -296,10 +281,10 @@
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" placeholder="Faça sua busca aqui....">
+                                    <input type="text" class="form-control" id="buscaAltera" placeholder="Faça sua busca aqui...." onkeyup="buscaUpdate()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="submit" class="btn btn-light border textColorPadrao">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
                                 </div>
                             </div>
                         </form>
@@ -307,118 +292,14 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <table class="table">
-                                <thead class="#" style="background-color: #43528A; color: white;">
-                                    <tr>
-                                        <th scope="col">Projeto</th>
-                                        <th scope="col">Data entrega</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="textColorPadrao">
+                        <!-- resultados-->
+                            <div class="listaProjeto my-4 text-center">
+                                <iframe id="tabelaCliente" src="./Bsc/alterarProjeto.php" class="buscaSearch"></iframe>
+                            </div>
 
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>Data entrega: 10/11/20</td>
-                                        <td>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button>
-                                            <button type="submit" class="btn btn-light border textColorPadrao"
-                                                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
-                                            <button type="submit"
-                                                class="btn btn-light border textColorPadrao">Deletar</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
+                            <div id="tabelaUpdate"></div>
                         <!-- fimResultados -->
-
-                        <!-- paginacao -->
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!-- fimPaginacao -->
-                    </div>
+                        </div>
 
                 </div>
                 <!-- fimTablist -->

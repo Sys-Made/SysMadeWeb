@@ -569,7 +569,7 @@ function RegistraProjeto() {
 
 }
 
-//busca BM
+//busca Bm
 function testeInstantaneo() {
     var search;
 
@@ -585,15 +585,14 @@ function testeInstantaneo() {
         if (this.readyState == 4 && this.status == 200) {
 
             //resposta do php
-            //alert(this.responseText);
             document.getElementById('tabelaResult').innerHTML = this.responseText;
-
+            document.getElementsByClassName('buscaSearch')[0].classList.add("noVisive");
 
         }
 
     };
 
-    serverHttp.open("POST", "../Php/Executando.php", true);
+    serverHttp.open("POST", "../PagesUser/Bsc/buscaProjeto.php", true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -601,31 +600,6 @@ function testeInstantaneo() {
 
 
 
-}
-//paginacao BM
-function testePg(numPg, teste) {
-
-    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
-
-    serverHttp.onreadystatechange = function () {
-
-        //verificando o status e se esta pronto para responder
-        if (this.readyState == 4 && this.status == 200) {
-
-            //resposta do php
-            
-            document.getElementById('tabelaResult').innerHTML = this.responseText;
-
-
-        }
-
-    };
-
-    serverHttp.open("GET", "../Php/Executando.php?pg=" + numPg + "&pgCli=" + teste, true);
-
-    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    serverHttp.send();
 }
 
 //busca Bs
@@ -645,41 +619,49 @@ function buscaBdSt() {
 
             //resposta do php
             document.getElementById('tabelaCliente').innerHTML = this.responseText;
+            document.getElementsByClassName('buscaSearch')[1].classList.add("noVisive");
 
 
         }
 
     };
 
-    serverHttp.open("POST", "../Php/Executando.php", true);
+    serverHttp.open("POST", "../PagesUser/Bsc/buscaPedido.php", true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     serverHttp.send("searchCliPd=" + search);
 }
 
-//paginacao BS
-function pgCli(numPg, teste) {
+//busca updateProj
+function buscaUpdate() {
+    var search;
 
+    //guardando e tratando
+    search = document.getElementById('buscaAltera').value;
+    search = search.toLowerCase();
+
+    //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
     serverHttp.onreadystatechange = function () {
-
         //verificando o status e se esta pronto para responder
         if (this.readyState == 4 && this.status == 200) {
 
             //resposta do php
-            //alert(this.responseText);
-            document.getElementById('tabelaCliente').innerHTML = this.responseText;
-
+            document.getElementById('tabelaUpdate').innerHTML = this.responseText;
+            document.getElementsByClassName('buscaSearch')[2].classList.add("noVisive");
 
         }
 
     };
 
-    serverHttp.open("GET", "../Php/Executando.php?pg=" + numPg + "&pgCli=" + teste, true);
+    serverHttp.open("POST", "../PagesUser/Bsc/alterarProjeto.php", true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    serverHttp.send();
+    serverHttp.send("searchUpd=" + search);
+
+
+
 }
