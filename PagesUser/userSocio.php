@@ -13,13 +13,7 @@
         header("Location: ../Pages/Login.html");        //Header com location direciona a pagina
         
         exit;   //Ele pode enviar mensagem e terminar o script
-    }
-    
-    if(!isset($_GET['pg'])){    
-
-        $_GET['pg'] = 1;
-
-    }
+    }    
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +32,7 @@
     <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
 </head>
 
-<body class="bg-light" onload="testePg(<?php echo $_GET['pg'];?>)">
+<body class="bg-light">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
         <div class="row justify-content-end">
@@ -247,7 +241,7 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <div id="tabelaResult" class="projetoConCan">Digite no campo o clica no "PUSH DATA"</div>
+                            <iframe id="tabelaResult" src="./Bsc/buscaProjeto.php" class="buscaSearch"></iframe>
                         </div>
                         <!--Fimresultado-->
 
@@ -263,7 +257,7 @@
                                     <input type="text" class="form-control" id="buscaPedido" placeholder="Faça sua busca aqui...." onkeyup="buscaBdSt()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao">Push All</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="pgCli(<?php echo $_GET['pg'];?>, <?php echo $_GET['pgCli']; ?>)">Push All</button>
                                 </div>
                             </div>
                         </form>
@@ -271,7 +265,7 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <div id="tabelaCliente"></div>
+                            <iframe id="tabelaCliente" src="./Bsc/buscaPedido.php" class="buscaSearch"></iframe>
                         </div>
                         <!-- fimResultados -->
 
