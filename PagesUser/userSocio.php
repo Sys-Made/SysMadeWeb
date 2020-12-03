@@ -233,7 +233,7 @@
                                     <input type="text" class="form-control" id="buscaFinal" placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="testePg(<?php echo $_GET['pg'];?>)">Push All</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
                                 </div>
                             </div>
                         </form>
@@ -241,7 +241,9 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <iframe id="tabelaResult" src="./Bsc/buscaProjeto.php" class="buscaSearch"></iframe>
+                            <iframe src="./Bsc/buscaProjeto.php" class="buscaSearch"></iframe>
+
+                            <div id="tabelaResult"></div>
                         </div>
                         <!--Fimresultado-->
 
@@ -265,8 +267,10 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                            <iframe id="tabelaCliente" src="./Bsc/buscaPedido.php" class="buscaSearch"></iframe>
+                            <iframe src="./Bsc/buscaPedido.php" class="buscaSearch"></iframe>
                         </div>
+
+                        <div id="tabelaCliente"></div>
                         <!-- fimResultados -->
                     </div>
 

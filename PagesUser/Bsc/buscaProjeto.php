@@ -17,6 +17,22 @@
 <?php
      //chamando o banco de dados  
      require_once "../../Php/conectBM.php";
+     
+     //guardando a valor do ajax
+     
+     if(!isset($_POST['searchPj'])):
+        
+        $_POST['searchPj'] = "";
+
+        $search = $_POST['searchPj'];
+
+     else:
+
+        $search = $_POST['searchPj'];
+     
+     endif;
+     
+     //fim
 
      //valor da pagina
      if(!isset($_GET['pg'])){
@@ -32,6 +48,8 @@
      }
      //fim
 
+
+if($search == "" || $search == null):
      //Executando comandos
      $sqlpg = "SELECT nomeDoProjeto, statusProjeto FROM Projeto";    //chamando tudo que tem no banco
      $sqlExcutPg = $conn->query($sqlpg);     //para o sistema de paginacao
@@ -132,6 +150,60 @@
      }else{
          echo "Nenhum Resultado 0";
      }
+else:
+
+    //cmd sql
+    $sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
+            
+            
+    //Executando comandos
+        
+    $sqlExcut = $conn->query($sqlSlctPj);   //busca especifico
+    $numberRow = $sqlExcut->num_rows;
+
+    //verificando se vem algo
+    if($numberRow > 0):
+
+            //colocando table no php
+            echo '<table class="table">
+            <thead class="#" style="background-color: #43528A; color: white;">
+                <tr>
+                    <th scope="col">Projeto</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="textColorPadrao">';
+    
+            //echo '<tbody class="textColorPadrao">';
+    
+            while($result = $sqlExcut->fetch_assoc()): 
+    
+                if($result["statusProjeto"] == null){
+    
+                    $result["statusProjeto"] = "Em Desenvolvimento";
+    
+                }
+    
+                echo'<tr>
+                <td>' . $result["nomeDoProjeto"] . '</td>
+                <td class="text-success">' . $result["statusProjeto"] .' '. $result["dataDeTermino"] .' </td>
+                <td><button type="submit"
+                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                </tr>';
+
+            endwhile; 
+            
+            echo "</tbody>";
+            echo "</table>";   
+
+        else:
+
+            echo"Nenhum resultado";
+
+        endif;
+
+endif;
 
      $conn->close();
 

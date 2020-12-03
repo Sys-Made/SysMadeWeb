@@ -17,6 +17,22 @@
  //chamando o banco do cliente
  require_once('../../Php/conect.php');
 
+ //guardando a valor do ajax
+     
+if(!isset($_POST['searchCliPd'])):
+        
+    $_POST['searchCliPd'] = "";
+
+    $search = $_POST['searchCliPd'];
+
+ else:
+
+    $search = $_POST['searchCliPd'];
+ 
+ endif;
+ 
+ //fim
+
  //valor da pagina
  if(!isset($_GET['pgCli'])){
 
@@ -31,6 +47,7 @@
   }
  //fim
 
+if($search == "" || $search == null): 
  //CMD SQL
  $sqlSlect = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO";
  $sqlExecut = $conn->query($sqlSlect);
@@ -135,6 +152,63 @@
    echo "Nenhum Resultado";
 
  }
+
+else:
+
+    //CMD SQL
+    $sqlSlctPd = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO WHERE NOMEDOPEDIDO LIKE '%$search%'";
+          
+    //executando
+    $sqlExcut = $conn->query($sqlSlctPd);   //busca especifico
+    $numberRow = $sqlExcut->num_rows;
+
+    //verificando se há registro
+    if($numberRow > 0):
+      
+      echo'<table class="table">
+      <thead class="#" style="background-color: #43528A; color: white;">
+          <tr>
+              <th scope="col">Projeto</th>
+              <th scope="col">Data entrega</th>
+              <th scope="col">Ações</th>
+          </tr>
+      </thead>
+      <tbody class="textColorPadrao">';
+      
+      while($result = $sqlExcut->fetch_assoc()){
+
+          if($result['DATAREALIZADO'] == null){
+
+              $result['DATAREALIZADO'] = "20-11-10";
+
+          }
+
+          echo'<tr>
+          <td>' . $result['NOMEDOPEDIDO'] . '</td>
+          <td>Data entrega: ' . $result['DATAREALIZADO'] . '</td>
+          <td>
+              <button type="submit"
+                  class="btn btn-light border textColorPadrao">Detalhes</button>
+              <button type="submit"
+                  class="btn btn-light border textColorPadrao">Aceitar</button>
+              <button type="submit"
+                  class="btn btn-light border textColorPadrao">Recusar</button>
+          </td>
+      </tr>';
+
+      }
+
+      echo '</tbody>
+      </table>';
+      
+    else:
+      
+      echo"Nenhum resultado";
+
+    endif;
+
+    
+endif;    
 
  $conn->close();
 
