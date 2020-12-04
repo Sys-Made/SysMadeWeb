@@ -243,7 +243,7 @@
                         <div class="listaProjeto my-4 text-center">
                             <iframe src="./Bsc/buscaProjeto.php" class="buscaSearch"></iframe>
 
-                            <div id="tabelaResult"></div>
+                            <div id="tabelaResult" class="text-center"></div>
                         </div>
                         <!--Fimresultado-->
 

@@ -577,6 +577,18 @@ function testeInstantaneo() {
     search = document.getElementById('buscaFinal').value;
     search = search.toLowerCase();
 
+    if(search == "" || search == null){
+
+        document.getElementsByClassName('buscaSearch')[0].classList.remove("noVisive");
+        document.getElementById('tabelaResult').classList.add("noVisive");
+
+    }else{
+
+        document.getElementsByClassName('buscaSearch')[0].classList.add("noVisive");
+        document.getElementById('tabelaResult').classList.remove("noVisive");
+
+    }
+
     //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
@@ -586,7 +598,6 @@ function testeInstantaneo() {
 
             //resposta do php
             document.getElementById('tabelaResult').innerHTML = this.responseText;
-            document.getElementsByClassName('buscaSearch')[0].classList.add("noVisive");
 
         }
 
