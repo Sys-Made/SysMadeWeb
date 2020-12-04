@@ -738,6 +738,8 @@ function pegarValor(codCli, codPj){
 function updtPj(value){
     var codCli, codPj, nomePj, statusPj, datePj, horasPj, descricaoPj;
 
+    value = parseInt(value);
+
     codCli = document.getElementById('codigoCli').value;
     codPj  = document.getElementById('codigoPj').value;
     nomePj = document.getElementById('nomePj').value;
