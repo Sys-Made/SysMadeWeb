@@ -735,12 +735,47 @@ function pegarValor(codCli, codPj){
 
 }
 
-function updtPj(){
+function updtPj(value){
+    var codCli, codPj, nomePj, statusPj, datePj, horasPj, descricaoPj;
 
     codCli = document.getElementById('codigoCli').value;
     codPj  = document.getElementById('codigoPj').value;
+    nomePj = document.getElementById('nomePj').value;
+    statusPj = document.getElementById('statusPj').value;
+    datePj = document.getElementById('diaPj').value;
+    horasPj = document.getElementById('horasPj').value;
+    descricaoPj = document.getElementById('descricaoPj').value;
 
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
-    alert("Codigo Cliente: " + codCli + " Codigo Projeto: " + codPj);
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            alert(this.responseText);
+            //document.getElementById('modalResult').innerHTML = this.responseText;
+
+        }
+
+    };
+
+    if(value == 1){
+
+        caminho = "../../Php/Executando.php";
+
+    }else{
+
+        caminho = "../Php/Executando.php";
+
+    }
+
+    serverHttp.open("POST", caminho , true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("codpj=" + codPj + "&codcli=" + codCli + "&nomePj=" + nomePj + "&statusPj=" + statusPj + "&datePj=" + datePj + "&horasPj=" + horasPj + "&descriPj=" + descricaoPj);
+
 
 }
