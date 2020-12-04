@@ -96,8 +96,8 @@ if(!isset($_POST['searchUpd'])):
         <td>
         <button type="button"
         class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto" onclick="detalhes('.$result['codigoProjeto'].', '.$result['codigoFKCliente'].', 1);" >Detalhes</button>
-            <button type="submit" class="btn btn-light border textColorPadrao"
-                data-toggle="modal" data-target="#alterarProjeto">Alterar</button>
+        <button type="button"
+        class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#AlterarProjeto" onclick="pegarValor('.$result['codigoFKCliente'].', '.$result['codigoProjeto'].')">Alterar</button>
             <button type="submit"
                 class="btn btn-light border textColorPadrao">Deletar</button>
         </td>
@@ -123,6 +123,64 @@ if(!isset($_POST['searchUpd'])):
                 </div>
               </div>
             </div>';
+    
+            echo'<!-- Modal update -->
+            <div class="modal fade" id="AlterarProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Projeto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body text-left">
+                    <div id="modalAlter">
+
+                    <input type="hidden" id="codigoCli" value="">
+                    <input type="hidden" id="codigoPj" value="">
+
+                    <form>
+                        <div class="row">
+                        <div class="col">
+                            <label>Nome do projeto:</label>
+                            <input type="text" class="form-control" id="nomePj" placeholder="Nome do projeto: ">
+                        </div>
+                        <div class="col">
+                            <label>Status do Projeto:</label>
+                            <input type="text" class="form-control" id="statusPj" placeholder="Status do Projeto: ">
+                        </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="col">
+                            <label>Data Entrega: </label>
+                            <input type="date" class="form-control" id="diaPj">
+                        </div>
+                        <div class="col">
+                            <label>Horas estimadas: </label>
+                            <input type="text" id="horasPj" class="form-control" placeholder="1478.00">
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <label>Descrição</label>
+                                <textarea class="form-control" id="descricaoPj" rows="5"></textarea>
+                            </div>    
+                        </div>
+                    </form>
+
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light border" data-dismiss="modal" onclick="updtPj(1)">Registrar</button>
+                  </div>
+                </div>
+              </div>
+            </div>';        
+
 
     echo '</tbody>
     </table>';
