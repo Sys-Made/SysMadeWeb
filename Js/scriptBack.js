@@ -652,6 +652,18 @@ function buscaUpdate() {
     search = document.getElementById('buscaAltera').value;
     search = search.toLowerCase();
 
+    if(search == "" || search == null){
+
+        document.getElementsByClassName('buscaSearch')[2].classList.remove("noVisive");
+        document.getElementById('tabelaUpdate').classList.add("noVisive");
+
+    }else{
+
+        document.getElementsByClassName('buscaSearch')[2].classList.add("noVisive");
+        document.getElementById('tabelaUpdate').classList.remove("noVisive");
+
+    }
+
     //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
@@ -661,7 +673,6 @@ function buscaUpdate() {
 
             //resposta do php
             document.getElementById('tabelaUpdate').innerHTML = this.responseText;
-            document.getElementsByClassName('buscaSearch')[2].classList.add("noVisive");
 
         }
 
@@ -711,4 +722,25 @@ function detalhes(codPj, codCli, value){
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     serverHttp.send("codPj=" + codPj + "&codCli=" + codCli);
+}
+
+//update
+function pegarValor(codCli, codPj){
+
+    codPj = parseInt(codPj);
+    codCli = parseInt(codCli);
+
+    document.getElementById('codigoCli').value = codCli;
+    document.getElementById('codigoPj').value = codPj;
+
+}
+
+function updtPj(){
+
+    codCli = document.getElementById('codigoCli').value;
+    codPj  = document.getElementById('codigoPj').value;
+
+
+    alert("Codigo Cliente: " + codCli + " Codigo Projeto: " + codPj);
+
 }
