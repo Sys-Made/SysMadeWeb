@@ -51,7 +51,7 @@
 
 if($search == "" || $search == null):
      //Executando comandos
-     $sqlpg = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente , dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Projeto.codigoFKCliente = Cliente.codigoCliente";    //chamando tudo que tem no banco
+     $sqlpg = "SELECT codigoProjeto, nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente FROM Projeto";    //chamando tudo que tem no banco
      $sqlExcutPg = $conn->query($sqlpg);     //para o sistema de paginacao
      $numberRowPg = $sqlExcutPg->num_rows;   //total de registros no banco
 
@@ -69,7 +69,7 @@ if($search == "" || $search == null):
      $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
 
      //selecionando o que apresentar
-     $sqlSlctItens = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente , dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Projeto.codigoFKCliente = Cliente.codigoCliente LIMIT $inicio, $qtdItensPg";
+     $sqlSlctItens = "SELECT codigoProjeto, nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente FROM Projeto LIMIT $inicio, $qtdItensPg";
      $sqlExecutPg = $conn->query($sqlSlctItens);
      $totalItens = $sqlExecutPg->num_rows;
 
@@ -100,31 +100,30 @@ if($search == "" || $search == null):
              <td>' . $resultado["nomeDoProjeto"] . '</td>
              <td class="text-success">' . $resultado["statusProjeto"] .' '. $resultado["dataDeTermino"] .' </td>
              <td><button type="button"
-                     class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto"">Detalhes</button></td>
+             class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto" onclick="detalhes('.$resultado['codigoProjeto'].', '.$resultado['codigoFKCliente'].', 1);" >Detalhes</button>
              </tr>';
 
-             echo'<!-- Modal detalhes -->
-                <div class="modal fade" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        ...
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>';
+         endwhile;
 
-         endwhile; 
+         echo'<!-- Modal detalhes -->
+            <div class="modal fade" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Projeto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body text-left">
+                    <div id="modalResult"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>';
          
          echo "</tbody>";
          echo "</table>";

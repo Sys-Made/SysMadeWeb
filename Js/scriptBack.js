@@ -667,7 +667,10 @@ function buscaUpdate() {
 }
 
 //detalhes
-function detalhes(codPj, codCli){
+function detalhes(codPj, codCli, value){
+    var caminho;
+    value = parseInt(value);
+
     //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
@@ -682,7 +685,17 @@ function detalhes(codPj, codCli){
 
     };
 
-    serverHttp.open("POST", "../Php/Executando.php", true);
+    if(value == 1){
+
+        caminho = "../../Php/Executando.php";
+
+    }else{
+
+        caminho = "../Php/Executando.php";
+
+    }
+
+    serverHttp.open("POST", caminho , true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
