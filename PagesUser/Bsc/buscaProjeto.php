@@ -51,7 +51,7 @@
 
 if($search == "" || $search == null):
      //Executando comandos
-     $sqlpg = "SELECT nomeDoProjeto, statusProjeto FROM Projeto";    //chamando tudo que tem no banco
+     $sqlpg = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente , dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Projeto.codigoFKCliente = Cliente.codigoCliente";    //chamando tudo que tem no banco
      $sqlExcutPg = $conn->query($sqlpg);     //para o sistema de paginacao
      $numberRowPg = $sqlExcutPg->num_rows;   //total de registros no banco
 
@@ -69,7 +69,7 @@ if($search == "" || $search == null):
      $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
 
      //selecionando o que apresentar
-     $sqlSlctItens = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto LIMIT $inicio, $qtdItensPg";
+     $sqlSlctItens = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente , dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Projeto.codigoFKCliente = Cliente.codigoCliente LIMIT $inicio, $qtdItensPg";
      $sqlExecutPg = $conn->query($sqlSlctItens);
      $totalItens = $sqlExecutPg->num_rows;
 
@@ -99,9 +99,30 @@ if($search == "" || $search == null):
              echo'<tr>
              <td>' . $resultado["nomeDoProjeto"] . '</td>
              <td class="text-success">' . $resultado["statusProjeto"] .' '. $resultado["dataDeTermino"] .' </td>
-             <td><button type="submit"
-                     class="btn btn-light border textColorPadrao">Detalhes</button></td>
+             <td><button type="button"
+                     class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto"">Detalhes</button></td>
              </tr>';
+
+             echo'<!-- Modal detalhes -->
+                <div class="modal fade" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        ...
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
 
          endwhile; 
          
@@ -153,8 +174,8 @@ if($search == "" || $search == null):
 else:
 
     //cmd sql
-    $sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
-            
+    //$sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
+    $sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente , dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Projeto.codigoFKCliente = Cliente.codigoCliente WHERE nomeDoProjeto LIKE '%$search%'";       
             
     //Executando comandos
         
@@ -188,9 +209,37 @@ else:
                 echo'<tr>
                 <td>' . $result["nomeDoProjeto"] . '</td>
                 <td class="text-success">' . $result["statusProjeto"] .' '. $result["dataDeTermino"] .' </td>
-                <td><button type="submit"
-                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                <td><button type="button"
+                class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto"">Detalhes</button>
                 </tr>';
+
+                echo'<!-- Modal detalhes -->
+                <div class="modal fade" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">'.$result['nomeDoProjeto'].'</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <h3>Nome Do Cliente: </h3>
+                          <p>'.$result['nomeDoCliente'].'</p>
+                          
+                          <h3>Cpf do Cliente: </h3>
+                          <p>'.$result['cpfCliente'].'</p>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
+
+
 
             endwhile; 
             
@@ -210,5 +259,8 @@ endif;
 ?>
 
 <script type="text/javascript" src="../../Js/scriptBack.js"></script>
+<script type="text/javascript" src="../../Js/bootstrap.js"></script>
+<script type="text/javascript" src="../../Js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../Js/jquery-3.5.1.min.js"></script>
 
 </html>
