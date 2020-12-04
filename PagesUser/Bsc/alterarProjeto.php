@@ -72,7 +72,7 @@ if(!isset($_POST['searchUpd'])):
     $totalItens = $sqlExecut->num_rows;
 
     if($totalItens > 0){
-    echo'<table class="table">
+    echo'<table class="table text-center">
     <thead class="#" style="background-color: #43528A; color: white;">
         <tr>
             <th scope="col">Projeto</th>
@@ -164,7 +164,7 @@ else:
     //verificando se há registro
     if($numberRow > 0):
       
-      echo'<table class="table">
+      echo'<table class="table text-center">
       <thead class="#" style="background-color: #43528A; color: white;">
           <tr>
               <th scope="col">Projeto</th>

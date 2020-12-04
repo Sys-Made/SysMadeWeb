@@ -165,7 +165,7 @@ else:
     if($numberRow > 0):
 
             //colocando table no php
-            echo '<table class="table">
+            echo '<table class="table text-center">
             <thead class="#" style="background-color: #43528A; color: white;">
                 <tr>
                     <th scope="col">Projeto</th>
@@ -195,7 +195,7 @@ else:
             endwhile; 
             
             echo "</tbody>";
-            echo "</table>";   
+            echo "</table>";
 
         else:
 
