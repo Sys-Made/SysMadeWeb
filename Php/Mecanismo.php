@@ -612,7 +612,77 @@
                 endwhile;   
            }
 
+           $conn->close();
 
+      }
+
+      //aletrar dados
+      function AlteraData($codpj, $codcli, $nomepj, $statuspj, $datapj, $horaspj, $descripj){
+
+        require_once "conectBM.php";
+
+        //meta charset
+        $conn->set_charset("utf-8");
+
+        $pj = intval($codpj);
+        $cli = intval($codcli);
+
+        //cmd sql
+        $sqlSlect = 'SELECT nomeDoProjeto, statusProjeto, dataDeTermino, horarioEstimadoDoProjeto, descricaoDoProjeto FROM Projeto INNER JOIN Cliente ON codigoFKCliente = codigoCliente WHERE codigoProjeto ='.$pj.' AND codigoCliente ='.$cli.'';
+        //$sqlSlect = "Select * from Projeto";
+        $sqlExecut = $conn->query($sqlSlect);
+        $numberLinhas = $sqlExecut->num_rows;
+
+        if($numberLinhas > 0){
+
+            while($result = $sqlExecut->fetch_assoc()):
+
+                if($nomepj == "" || $nomepj == null){
+
+                    $nomepj = $result['nomeDoProjeto'];
+
+                }
+                
+                if($statuspj == "" || $statuspj == null){
+
+                    $statuspj = 0;
+
+                }
+                
+                if($datapj == "" || $datapj == null){
+
+                    $datapj = $result['dataDeTermino'];
+
+                }
+                
+                if($horaspj == "" || $horaspj == null){
+
+                    $horaspj = $result['horarioEstimadoDoProjeto'];
+
+                }
+            
+            endwhile;
+
+        }
+
+        //limpando a variavel
+        $sqlExecut->free_result();
+        $sqlExecut = "";
+
+        $sqlUpdt = 'UPDATE Projeto SET nomeDoProjeto = "'.$nomepj.'", statusProjeto ="'.$statuspj.'", dataDeTermino ="'.$datapj.'", horarioEstimadoDoProjeto ="'.$horaspj.'" WHERE codigoProjeto = '.$pj.' AND codigoFKCliente ='.$cli.'';
+        $sqlExecut = $conn->query($sqlUpdt);
+
+        if ($sqlExecut === TRUE) {
+            
+            echo "Atualizado com sucesso!!";
+        
+        } else {
+            
+            echo "Error updating record: " . $conn->error;
+          
+        }
+          
+          $conn->close();
       }
 
 

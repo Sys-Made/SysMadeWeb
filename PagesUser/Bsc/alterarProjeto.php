@@ -257,29 +257,29 @@ else:
                         <div class="row">
                         <div class="col">
                             <label>Nome do projeto:</label>
-                            <input type="text" class="form-control" placeholder="Nome do projeto: ">
+                            <input type="text" class="form-control" id="nomePj" placeholder="Nome do projeto: ">
                         </div>
                         <div class="col">
                             <label>Status do Projeto:</label>
-                            <input type="text" class="form-control" placeholder="Status do Projeto: ">
+                            <input type="text" class="form-control" id="statusPj" placeholder="Status do Projeto: ">
                         </div>
                         </div>
 
                         <div class="row">
                         <div class="col">
                             <label>Data Entrega: </label>
-                            <input type="date" class="form-control">
+                            <input type="date" class="form-control" id="diaPj">
                         </div>
                         <div class="col">
                             <label>Horas estimadas: </label>
-                            <input type="text" class="form-control" placeholder="1478.00">
+                            <input type="text" id="horasPj" class="form-control" placeholder="1478.00">
                         </div>
                         </div>
 
                         <div class="row">
                             <div class="col">
                                 <label>Descrição</label>
-                                <textarea class="form-control" id="descricaoProjeto" rows="5"></textarea>
+                                <textarea class="form-control" id="descricaoPj" rows="5"></textarea>
                             </div>    
                         </div>
                     </form>
@@ -287,8 +287,8 @@ else:
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-light" data-dismiss="modal" onclick="updtPj()">Registrar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light border" data-dismiss="modal" onclick="updtPj()">Registrar</button>
                   </div>
                 </div>
               </div>

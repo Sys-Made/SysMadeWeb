@@ -44,6 +44,10 @@
         //executando funcao
         Detalhes($_POST['codPj'], $_POST['codCli']);
 
+    }elseif(isset($_POST['codpj']) || isset($_POST['codcli']) || isset($_POST['nomePj']) || isset($_POST['statusPj']) || isset($_POST['datePj']) || isset($_POST['horasPj']) || isset($_POST['descriPj'])){
+
+        //executando funcao
+        AlteraData($_POST['codpj'], $_POST['codcli'], $_POST['nomePj'], $_POST['statusPj'], $_POST['datePj'], $_POST['horasPj'], $_POST['descriPj']);
     }   
 
 ?>
