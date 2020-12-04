@@ -591,16 +591,23 @@
           $numberRow = $sqlExect->num_rows;     //se der erro é o comando sql ou banco
 
           if($numberRow > 0){
+
                 while($result = $sqlExect->fetch_assoc()):
 
-                    echo $result['nomeDoProjeto'] . "<br />";
-                    echo $result['statusProjeto'] . "<br />";
-                    echo $result['dataDeTermino'] . "<br />";
-                    echo $result['dataDeInicio'] . "<br />";
-                    echo $result['horarioEstimadoDoProjeto'] . "<br />";
-                    echo $result['descricaoDoProjeto'] . "<br />";
-                    echo $result['nomeDoCliente'] . "<br />";
-                    echo $result['cpfCliente'] . "<br />";
+                    if($result['statusProjeto'] == "" || $result['statusProjeto'] == null){
+
+                        $result['statusProjeto'] = "Em desenvolvimento.";
+
+                    }
+
+                    echo "<h5>Nome do cliente: </h5>" . $result['nomeDoCliente'];
+                    echo "<h5>Cpf do Cliente: </h5>" . $result['cpfCliente'];
+                    echo "<h5>Nome Do Projeto: </h5>" . $result['nomeDoProjeto'];
+                    echo "<h5>Status: </h5>" . $result['statusProjeto'];
+                    echo "<h5>Data De Entrega: </h5>" . $result['dataDeTermino'];
+                    echo "<h5>Data De Inicio: </h5>" . $result['dataDeInicio'];
+                    echo "<h5>Horas Estimadas: </h5>" . $result['horarioEstimadoDoProjeto'];
+                    echo "<h5>Descrição Do Projeto: </h5>" .$result['descricaoDoProjeto'];
                     
                 endwhile;   
            }
