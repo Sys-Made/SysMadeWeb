@@ -665,3 +665,26 @@ function buscaUpdate() {
 
 
 }
+
+//detalhes
+function detalhes(codPj, codCli){
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            document.getElementById('modalResult').innerHTML = this.responseText;
+
+        }
+
+    };
+
+    serverHttp.open("POST", "../Php/Executando.php", true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("codPj=" + codPj + "&codCli=" + codCli);
+}

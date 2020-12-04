@@ -574,5 +574,39 @@
 
       }
 
+      //puxando dados especifico
+      function Detalhes($codPj, $codCli){
+          require_once "conectBM.php";  //chamando a conexão
+
+          //meta charset no banco
+          $conn->set_charset("utf8");
+          
+          //convertendo os valores
+          $codPj = intval($codPj);
+          $codCli = intval($codCli);
+          
+          //comando sql
+          $sqlSlct = 'SELECT nomeDoProjeto, dataDeTermino, statusProjeto, dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Cliente.codigoCliente ='.$codCli.' WHERE Projeto.codigoProjeto =' . $codPj; 
+          $sqlExect = $conn->query($sqlSlct);
+          $numberRow = $sqlExect->num_rows;     //se der erro é o comando sql ou banco
+
+          if($numberRow > 0){
+                while($result = $sqlExect->fetch_assoc()):
+
+                    echo $result['nomeDoProjeto'] . "<br />";
+                    echo $result['statusProjeto'] . "<br />";
+                    echo $result['dataDeTermino'] . "<br />";
+                    echo $result['dataDeInicio'] . "<br />";
+                    echo $result['horarioEstimadoDoProjeto'] . "<br />";
+                    echo $result['descricaoDoProjeto'] . "<br />";
+                    echo $result['nomeDoCliente'] . "<br />";
+                    echo $result['cpfCliente'] . "<br />";
+                    
+                endwhile;   
+           }
+
+
+      }
+
 
 ?>

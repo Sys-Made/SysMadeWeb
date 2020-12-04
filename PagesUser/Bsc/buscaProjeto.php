@@ -175,7 +175,7 @@ else:
 
     //cmd sql
     //$sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto FROM Projeto WHERE nomeDoProjeto LIKE '%$search%' ";
-    $sqlSlctPj = "SELECT nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente , dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Projeto.codigoFKCliente = Cliente.codigoCliente WHERE nomeDoProjeto LIKE '%$search%'";       
+    $sqlSlctPj = "SELECT codigoProjeto, nomeDoProjeto, dataDeTermino, statusProjeto, codigoFKCliente FROM Projeto WHERE nomeDoProjeto LIKE '%$search%'";       
             
     //Executando comandos
         
@@ -210,38 +210,30 @@ else:
                 <td>' . $result["nomeDoProjeto"] . '</td>
                 <td class="text-success">' . $result["statusProjeto"] .' '. $result["dataDeTermino"] .' </td>
                 <td><button type="button"
-                class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto"">Detalhes</button>
+                class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto" onclick="detalhes('.$result['codigoProjeto'].', '.$result['codigoFKCliente'].');" >Detalhes</button>
                 </tr>';
 
-                echo'<!-- Modal detalhes -->
-                <div class="modal fade" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">'.$result['nomeDoProjeto'].'</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                          <h3>Nome Do Cliente: </h3>
-                          <p>'.$result['nomeDoCliente'].'</p>
-                          
-                          <h3>Cpf do Cliente: </h3>
-                          <p>'.$result['cpfCliente'].'</p>
+            endwhile;
 
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
-                    </div>
+            echo'<!-- Modal detalhes -->
+            <div class="modal fade" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Projeto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
-                </div>';
-
-
-
-            endwhile; 
+                  <div class="modal-body">
+                    <div id="modalResult"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>';
             
             echo "</tbody>";
             echo "</table>";

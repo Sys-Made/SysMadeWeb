@@ -8,8 +8,6 @@
         //Executando a função
         SessaoLogar($_POST['loginCpf'], $_POST['loginSenha']);
 
-
-
     }elseif(isset($_POST['loginSC']) && isset($_POST['senhaSC'])){
 
         //executando a funcao
@@ -41,16 +39,11 @@
         //executando funcao
         CadastrarProjeto($_POST['projNameSc'],$_POST['projDateSc'],$_POST['projHourSc'], $_POST['projCliSc'], $_POST['projCpfCli'], $_POST['projDescSc']);
 
-    }elseif(isset($_POST['searchPj'])){
-
-        //executa funcao
-        SerachPj($_POST['searchPj']);
-
-    }elseif(isset($_POST['searchCliPd'])){
+    }elseif(isset($_POST['codPj']) || isset($_POST['codCli'])){
 
         //executando funcao
-        SearchPdCli($_POST['searchCliPd']);
+        Detalhes($_POST['codPj'], $_POST['codCli']);
 
-    }
+    }   
 
 ?>
