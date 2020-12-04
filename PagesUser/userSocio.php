@@ -297,7 +297,7 @@
                                 <iframe id="tabelaCliente" src="./Bsc/alterarProjeto.php" class="buscaSearch"></iframe>
                             </div>
 
-                            <div id="tabelaUpdate"></div>
+                            <div id="tabelaUpdate" class="text-center"></div>
                         <!-- fimResultados -->
                         </div>
 
