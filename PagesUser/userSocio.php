@@ -81,7 +81,7 @@
 
             <div class="col-6">
                 <article class="dadosProjeto border shadow">
-                    <h2 class="text-center textColorPadrao">Projetos Em Andamento</h2>
+                    <h2 class="text-center textColorPadrao">Projetos Recentes</h2>
 
                     <div class="listaProjeto my-4 text-center">
                         <table class="table">
