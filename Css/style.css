@@ -367,11 +367,12 @@
 
 .bg-gradiente {
     background-image: linear-gradient(#0776be, #4b9cd1);
+    background-size: 100vw 120vh;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .loginPage {
-    max-width: 280px;
-    max-height: 339px;
     width: 100%;
     height: 100%;
     color: #fff;
@@ -382,9 +383,19 @@
     max-width: 180px;
     max-height: 200px;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
+.inputLogin{
+    max-width: 450px;
+    width: 23vw;
+}
+
+.fixedBottom{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
 /*fim*/
 
 /*cabecarioUsuarioCliente*/
