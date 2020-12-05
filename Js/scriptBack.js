@@ -620,6 +620,18 @@ function buscaBdSt() {
 
     //guardando e tratando
     search = document.getElementById('buscaPedido').value;
+
+    if(search == "" || search == null){
+
+        document.getElementsByClassName('buscaSearch')[1].classList.remove("noVisive");
+        document.getElementById('tabelaCliente').classList.add("noVisive");
+
+    }else{
+
+        document.getElementsByClassName('buscaSearch')[1].classList.add("noVisive");
+        document.getElementById('tabelaCliente').classList.remove("noVisive");
+
+    }
     //search = search.toLowerCase();
 
     //desenvolvendo ajax
@@ -631,7 +643,6 @@ function buscaBdSt() {
 
             //resposta do php
             document.getElementById('tabelaCliente').innerHTML = this.responseText;
-            document.getElementsByClassName('buscaSearch')[1].classList.add("noVisive");
 
 
         }
@@ -820,6 +831,7 @@ function apagarProjeto(codCli, codPj, value){
 
 }
 
+//detalhes BS
 function detalhesPd(codPd, codCli, value){
     var caminho;
     value = parseInt(value);
@@ -853,5 +865,23 @@ function detalhesPd(codPd, codCli, value){
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     serverHttp.send("codPd=" + codPd + "&clientCod=" + codCli);
+
+}
+
+function acRec(value){
+
+    value = parseInt(value);
+
+    if( value == 1 ){
+
+        alert("Em breve! Aceitar Pedido");
+
+
+    }else{
+
+        alert("Em breve! Aceitar Pedido");
+
+    }
+
 
 }

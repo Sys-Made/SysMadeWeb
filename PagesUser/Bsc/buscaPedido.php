@@ -209,10 +209,10 @@ else:
           <td>
           <button type="button"
           class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesPedido" onclick="detalhesPd('.$result['CODIGOPEDIDO'].', '.$result['CODIGOFKSCLIENTE'].');" >Detalhes</button>
-              <button type="submit"
-                  class="btn btn-light border textColorPadrao">Aceitar</button>
-              <button type="submit"
-                  class="btn btn-light border textColorPadrao">Recusar</button>
+              <button type="button"
+                  class="btn btn-light border textColorPadrao" onclick="acRec(1)">Aceitar</button>
+              <button type="button"
+                  class="btn btn-light border textColorPadrao" onclick="acRec(0)">Recusar</button>
           </td>
       </tr>';
 
