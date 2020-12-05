@@ -1,4 +1,4 @@
-@media (max-width: 990px) {
+@media only screen and (max-width: 990px) {
 
     /*index.html*/
     .icone{
@@ -9,7 +9,7 @@
     /*fim*/
 }
 
-@media (max-width: 1024px){
+@media only screen and (max-width: 1024px){
 
     .cardEw{
         width: 100%;
@@ -20,15 +20,27 @@
 
 }
 
-@media (max-width: 770px){
+@media only screen and (max-width: 770px){
     /*ProtFolio/equipe*/
     .cardWh{
         width: 100%;
     }
     /*fim*/
+
+    /*login*/
+    .fixedBottom{
+        position: static;
+        left: 0;
+        bottom: 0;
+    }
+
+    .inputLogin{
+        max-width: 450px;
+        width: 100%;
+    }
 }
 
-@media (max-width: 340px){
+@media only screen and (max-width: 340px){
 
     /*index.html*/
     .icone{
