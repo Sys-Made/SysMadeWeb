@@ -101,7 +101,7 @@
 }
 
 .infoWork {
-    max-height: 400px;
+    max-height: 430px;
     width: 80%;
     height: 100vh;
     margin-left: auto;
@@ -227,11 +227,24 @@
 }
 /*fim*/
 
-/*projetoFeito*/
+/*projetoFeito/Equipe*/
 .cardShadow {
     box-shadow: 2px 2px 8px #333;
 }
-
+.cardWh{
+    width: 80%;
+    max-width: 500px;
+}
+.cardEw{
+    width: 90%;
+    height: 100vh;
+    max-height: 450px;
+    max-width: 350px;
+}
+.exemploWork img{
+    max-height: 220px ;
+    height: 100vh ;
+}
 /*fim*/
 
 /*sustentabilidade*/
