@@ -26,39 +26,39 @@
     <section class="container-fluid my-2">
         <div class="row justify-content-center my-4">
             <div class="col-6 my-3 bg-colorTransparent">
-                <div class="p-2 float-left text-center loginPage border-right">
+                <div class="row">
+                    <div class="p-2 col-8 col-sm-10 col-md-4 col-lg col-xl mx-auto text-center loginPage">
 
-                    <img src="../Img/Icones/Login.jpg" alt="simbolo_de_login" class="iconeLogin">
+                        <img src="../Img/Icones/login.png" alt="simbolo_de_login" class="iconeLogin">
 
-                </div>
+                    </div>
 
-                <div class="float-left p-3 loginPage border-left">
+                    <div class="p-3 col-4 col-sm-10 col-md-4 col-lg col-xl mx-auto loginPage">
 
-                    <!--<h3 class="text-center">Login Membro</h3>-->
+                        <form method="POST" class="#">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">CPF:</label>
+                                <input type="text" id="LoginCpf" pattern="(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)"
+                                    class="form-control inputLogin" title="Coloque um cpf nesse formato: 000.000.000-00"
+                                    placeholder="Exemplo: 159.951.789-00" aria-describedby="emailHelp" autofocus
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Senha:</label>
+                                <input type="password" class="form-control inputLogin" id="LoginSenha" required>
+                            </div>
+                            <div class="form-group form-check">
+                                <a href="#">Esqueci a senha!</a>
 
-                    <form method="POST" class="#">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">CPF:</label>
-                            <input type="text" id="LoginCpf" pattern="(^\d{3}\x2E\d{3}\x2E\d{3}\x2D\d{2}$)"
-                                class="form-control" title="Coloque um cpf nesse formato: 000.000.000-00"
-                                placeholder="Exemplo: 159.951.789-00" aria-describedby="emailHelp" autofocus required>
-                            <!--<input type="text" class="form-control" aria-describedby="emailHelp" id="LoginCpf">-->
+                                <br><br>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Senha:</label>
-                            <input type="password" class="form-control" id="LoginSenha" required>
-                        </div>
-                        <div class="form-group form-check">
-                            <a href="#">Esqueci a senha!</a>
+                                <a href="#" data-toggle="modal" data-target="#exampleModal">Criar uma conta -></a>
+                            </div>
+                            <button type="button" class="btn btn-outline-secondary buton"
+                                onclick="Login();">Entrar</button>
+                        </form>
 
-                            <br><br>
-
-                            <a href="#" data-toggle="modal" data-target="#exampleModal">Criar uma conta -></a>
-                        </div>
-                        <button type="button" class="btn btn-outline-secondary buton" onclick="Login();">Entrar</button>
-                    </form>
-
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
     <!-- fimLogin -->
 
     <!--rodapé-->
-    <footer class="container-fluid fixed-bottom bg-light">
+    <footer class="container-fluid bg-light fixedBottom">
         <div class="row justify-content-center">
             <div class="col-6 text-center">
                 <img class="#" src="../Img/logo/LogotipoNew.png" alt="logo_da_empresa" width="150" height="100">
@@ -158,13 +158,13 @@
 
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Senha:</label>
-                            <input type="text" class="form-control" id="senhaUser"
+                            <input type="password" class="form-control" id="senhaUser"
                                 placeholder="Another input placeholder">
                         </div>
 
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Repetir senha:</label>
-                            <input type="text" class="form-control" id="senhaRepeat"
+                            <input type="password" class="form-control" id="senhaRepeat"
                                 placeholder="Another input placeholder">
                         </div>
 
@@ -179,7 +179,8 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-outline-secondary" onclick="registrarUser()">Cadastrar</button>
+                            <button type="button" class="btn btn-outline-secondary"
+                                onclick="registrarUser()">Cadastrar</button>
                         </div>
                     </form>
                 </div>
@@ -188,32 +189,8 @@
     </div>
     <!--fimModalCadastro-->
 
-    <!-- modalDostermos -->
-    <!--<div class="modal fade modal-dialog modal-dialog-scrollable" id="termos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-              <div class="modal-body">
-                ...
-              </div>
-
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-        </div>
-    </div>-->
-    <!--fimModal-->
-
     <!-- version do sistema -->
-    <div class="versao">
+    <div class="versao fixed-top mt-2 ml-1">
         <p><b>ALPHA</b>V0.2.1</p>
     </div>
     <!-- fim -->
