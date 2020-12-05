@@ -367,11 +367,15 @@
 
 .bg-gradiente {
     background-image: linear-gradient(#0776be, #4b9cd1);
-    background-size: 100vw 120vh;
+    background-size: 100vw 200vh;
     background-repeat: no-repeat;
     background-position: center;
 }
+.bdLeftop{
 
+    border-left: 1px solid #fff;
+
+}
 .loginPage {
     width: 100%;
     height: 100%;
@@ -423,12 +427,12 @@
 /*fim*/
 
 /*userDados*/
-.dataUsuario {
+/*.dataUsuario {
     max-width: 648px;
     max-height: 350px;
     height: 100%;
     width: 100%;
-}
+}*/
 
 .textColorPadrao {
     color: #43528A;
@@ -436,8 +440,11 @@
 
 .fotoUser {
     width: 100%;
-    height: 50%;
-    background-color: #62b0fe;
+    height: 70%;
+    background-image: url(../Img/imagens/paisagem.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .fotoUser img {
@@ -445,20 +452,20 @@
     height: 130px;
 }
 
-.dadosUser {
+/*.dadosUser {
     height: 50%;
     width: 100%;
-}
+}*/
 
 /*fimUserDados*/
 
 /*dadosPedido*/
-.dadosPedidos {
+/*.dadosPedidos {
     max-width: 648px;
     max-height: 350px;
     height: 100%;
     width: 100%;
-}
+}*/
 
 .listaPedidos img {
     width: 150px;
@@ -478,7 +485,7 @@
 .fotoUserSocio{
     height: 300px;
     width: 100%;
-    background-image: url(../Img/portfolio/patric.jpeg);
+    background-image: url(../Img/imagens/userSocio.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
