@@ -1,0 +1,25 @@
+@media only screen and (max-width: 990px) {
+
+    .icone{
+        height: 80%;
+        width: 80%;
+
+    }
+
+}
+
+@media only screen and (max-width: 340px){
+
+    .icone{
+        height: 35%;
+        width: 70%;
+    }
+
+    .infoWork{
+        
+        width: 95%;
+
+    }
+
+
+}
