@@ -61,14 +61,14 @@
 
     <!-- userDados -->
     <section class="container-fluid my-4">
-        <div class="row my-3">
-            <div class="col-6">
-                <article class="dataUsuario p-0 shadow">
-                    <div class="fotoUser p-2 text-center border">
-                        <img class="bg-light rounded-circle" src="../Img/portfolio/patric.jpeg" alt="fotoUsuario">
+        <div class="row justify-content-center my-3">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 py-2">
+                <article class="dataUsuario row mx-1 p-0 shadow">
+                    <div class="fotoUser col-12 p-2 text-center border">
+                        <img class="bg-light rounded-circle border" src="../Img/Icones/profileUser.png" alt="fotoUsuario">
                     </div>
 
-                    <div class="dadosUser p-3 border textColorPadrao">
+                    <div class="dadosUser col-12 p-3 border textColorPadrao">
                         <h6><?php echo $_SESSION['DataUser'][2];?></h6> <!-- nome do cliente -->
 
                         <h6><?php echo $_SESSION['DataUser'][3];?></h6> <!-- email do cliente -->
@@ -78,11 +78,11 @@
                 </article>
             </div>
 
-            <div class="col-6">
-                <article class="dadosPedidos border shadow">
+            <div class="col-11 col-sm-11 col-md-11 col-lg-6 col-xl-6 py-2">
+                <article class="dadosPedidos row border shadow">
+                    
+                    <div class="listaPedidos col-12 text-center">
                     <h2 class="text-center textColorPadrao">Pedidos em Desenvolvimento</h2>
-
-                    <div class="listaPedidos my-4 text-center">
                         <img src="../Img/Icones/web-development.png" alt="emDesenvolvimento">
                         <h1 class="text-center textColorPadrao">Em Desenvolvimento</h1>
                     </div>
