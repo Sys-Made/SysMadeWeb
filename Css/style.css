@@ -33,7 +33,7 @@
 .menuNavegacao {
     width: 100%;
     max-width: 700px;
-    margin-left: 8%;
+    margin-left: 2%;
 }
 
 .menuNavegacao ul {
@@ -77,9 +77,10 @@
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
-    min-height: 120px;
-    max-height: 200px;
-    height: 100%;
+    max-width: 100%;
+    max-height: 320px;
+    height: 100vh;
+    width: 100vw;
 }
 
 .testeFundo {
@@ -100,8 +101,9 @@
 }
 
 .infoWork {
-    height: 370px;
-    width: 280px;
+    max-height: 430px;
+    width: 80%;
+    height: 100vh;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 2px 2px 6px #333;
@@ -109,8 +111,10 @@
 }
 
 .icone {
-    height: 100px;
-    width: 100px;
+    max-height: 180px;
+    max-width: 180px;
+    height: 48%;
+    width: 80%;
     border: 1px solid #ddd;
     margin-left: auto;
     margin-right: auto;
@@ -133,17 +137,23 @@
 
 /*Contato*/
 .localidadeIframe {
-    max-height: 300px;
+    max-height: 340px;
     max-width: 450px;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     box-shadow: 2px 2px 6px #333;
 }
+.localidadeIframe iframe{
+
+    height: 100%;
+    width: 100%;
+
+}
 
 .fundoContato {
-    max-height: 400px;
+    max-height: 340px;
     max-width: 450px;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     box-shadow: 2px 2px 6px #333;
     background-color: white;
@@ -165,11 +175,21 @@
     color: white;
     background-color: rgba(2, 127, 214, 0.5);
     box-shadow: 2px 2px 6px #333;
+    width: 90%;
 }
 
 /*fimContatoLocalização*/
 
 /*rodape*/
+.conteudo{
+    width: 85%;
+}
+.logo{
+    width: 80vw;
+    height: 100vh;
+    max-height: 250px;
+    max-width: 280px;
+}
 .membros .membrosLista {
     list-style: none;
     display: inline-block;
@@ -207,11 +227,24 @@
 }
 /*fim*/
 
-/*projetoFeito*/
+/*projetoFeito/Equipe*/
 .cardShadow {
     box-shadow: 2px 2px 8px #333;
 }
-
+.cardWh{
+    width: 80%;
+    max-width: 500px;
+}
+.cardEw{
+    width: 90%;
+    height: 100vh;
+    max-height: 450px;
+    max-width: 350px;
+}
+.exemploWork img{
+    max-height: 220px ;
+    height: 100vh ;
+}
 /*fim*/
 
 /*sustentabilidade*/
