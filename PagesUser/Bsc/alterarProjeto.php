@@ -98,8 +98,8 @@ if(!isset($_POST['searchUpd'])):
         class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto" onclick="detalhes('.$result['codigoProjeto'].', '.$result['codigoFKCliente'].', 1);" >Detalhes</button>
         <button type="button"
         class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#AlterarProjeto" onclick="pegarValor('.$result['codigoFKCliente'].', '.$result['codigoProjeto'].')">Alterar</button>
-            <button type="submit"
-                class="btn btn-light border textColorPadrao">Deletar</button>
+        <button type="button"
+                  class="btn btn-light border textColorPadrao" onclick="apagarProjeto('.$result['codigoFKCliente'].', '.$result['codigoProjeto'].', 1)">Deletar</button>
         </td>
     </tr>';
     }
@@ -268,8 +268,8 @@ else:
           class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto" onclick="detalhes('.$result['codigoProjeto'].', '.$result['codigoFKCliente'].');" >Detalhes</button>
               <button type="button"
               class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#AlterarProjeto" onclick="pegarValor('.$result['codigoFKCliente'].', '.$result['codigoProjeto'].')">Alterar</button>
-              <button type="submit"
-                  class="btn btn-light border textColorPadrao">Recusar</button>
+              <button type="button"
+                  class="btn btn-light border textColorPadrao" onclick="apagarProjeto('.$result['codigoFKCliente'].', '.$result['codigoProjeto'].')">Deletar</button>
           </td>
       </tr>';
 
