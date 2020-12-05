@@ -49,7 +49,7 @@ if(!isset($_POST['searchCliPd'])):
 
 if($search == "" || $search == null): 
  //CMD SQL
- $sqlSlect = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO";
+ $sqlSlect = "SELECT CODIGOPEDIDO, CODIGOFKSCLIENTE, NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO";
  $sqlExecut = $conn->query($sqlSlect);
  $numberRowPg = $sqlExecut->num_rows;
  
@@ -67,7 +67,7 @@ if($search == "" || $search == null):
  $inicio = ($qtdItensPg * $pagina) - $qtdItensPg;
 
  //selecionando o que apresentar
- $sqlSlctItens = "SELECT NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO LIMIT $inicio, $qtdItensPg";
+ $sqlSlctItens = "SELECT CODIGOPEDIDO, CODIGOFKSCLIENTE, NOMEDOPEDIDO, DATAREALIZADO FROM PEDIDO LIMIT $inicio, $qtdItensPg";
  $sqlExecut = $conn->query($sqlSlctItens);
  $totalItens = $sqlExecut->num_rows;
 
@@ -94,8 +94,8 @@ if($search == "" || $search == null):
        <td>' . $result['NOMEDOPEDIDO'] . '</td>
        <td>Data entrega: ' . $result['DATAREALIZADO'] . '</td>
        <td>
-           <button type="submit"
-               class="btn btn-light border textColorPadrao">Detalhes</button>
+       <button type="button"
+       class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesPedido" onclick="detalhesPd('.$result['CODIGOPEDIDO'].', '.$result['CODIGOFKSCLIENTE'].', 1);" >Detalhes</button>
            <button type="submit"
                class="btn btn-light border textColorPadrao">Aceitar</button>
            <button type="submit"
@@ -103,6 +103,26 @@ if($search == "" || $search == null):
        </td>
        </tr>';
    }
+
+   echo'<!-- Modal detalhes -->
+      <div class="modal fade" id="DetalhesPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Pedido</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-left">
+              <div id="modalResultPedido"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>';
 
    echo '</tbody>
    </table>';
