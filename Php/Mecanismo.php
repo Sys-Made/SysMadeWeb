@@ -616,6 +616,42 @@
 
       }
 
+      //puxando os pedidos no banco do site
+      function DetalhesPd($codpd, $codcli){
+        require_once "conect.php";  //chamando a conexão
+
+        //meta charset no banco
+        $conn->set_charset("utf8");
+
+        //cmd sql
+        $sqlSlct = 'SELECT NOMECLIENTE, CPFCLIENTE, NOMEDOPEDIDO, RESPOSTADOPEDIDO, DESCRICAOPEDIDO, DATAREALIZADO FROM PEDIDO INNER JOIN CLIENTE ON PEDIDO.CODIGOFKSCLIENTE = CLIENTE.CODIGOCLIENTE WHERE CLIENTE.CODIGOCLIENTE ='.$codcli. ' AND PEDIDO.CODIGOPEDIDO ='.$codpd.''; 
+        $sqlExect = $conn->query($sqlSlct);
+        $numberRow = $sqlExect->num_rows;     //se der erro é o comando sql ou banco
+
+        if($numberRow > 0):
+
+            while($result = $sqlExect->fetch_assoc()):
+
+                    if($result['DATAREALIZADO'] == "" || $result['DATAREALIZADO'] == null){
+
+                        $result['DATAREALIZADO'] = "2020-10-11";
+
+                    }
+
+
+                    echo "<h5>Nome do cliente: </h5>" . $result['NOMECLIENTE'];
+                    echo "<h5>Cpf do Cliente: </h5>" . $result['CPFCLIENTE'];
+                    echo "<h5>Nome Do Pedido: </h5>" . $result['NOMEDOPEDIDO'];
+                    echo "<h5>Status de Resposta: </h5>" . $result['RESPOSTADOPEDIDO'];
+                    echo "<h5>Dia solicitado: </h5>" . $result['DATAREALIZADO'];
+                    echo "<h5>Descrição Do Pedido: </h5>" .$result['DESCRICAOPEDIDO'];
+
+            endwhile;    
+
+        endif;
+
+      }
+
       //aletrar dados
       function AlteraData($codpj, $codcli, $nomepj, $statuspj, $datapj, $horaspj, $descripj){
 
@@ -683,6 +719,13 @@
         }
           
           $conn->close();
+      }
+
+      //deletar dados
+      function ApagarData($codpj, $codcli){
+        
+        echo"Em breve Deletar aqui!!!";
+
       }
 
 

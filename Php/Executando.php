@@ -48,6 +48,16 @@
 
         //executando funcao
         AlteraData($_POST['codpj'], $_POST['codcli'], $_POST['nomePj'], $_POST['statusPj'], $_POST['datePj'], $_POST['horasPj'], $_POST['descriPj']);
-    }   
+    
+    }elseif(isset($_POST['pjCod']) || isset($_POST['cliCod'])){
+
+        //executando funcao
+        ApagarData($_POST['pjCod'], $_POST['cliCod']);
+
+    }elseif(isset($_POST['codPd']) || isset($_POST['clientCod'])){
+
+        //executando funcao
+        DetalhesPd($_POST['codPd'],$_POST['clientCod']);
+    } 
 
 ?>

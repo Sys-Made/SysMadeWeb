@@ -475,6 +475,7 @@ function RealizaPedido(idCLi) {
     //alert("Teste nome projeto: " + nomeProj + " descricao projeto: " + descricaoProj);
 
 }
+
 /*fim*/
 
 /**
@@ -619,6 +620,18 @@ function buscaBdSt() {
 
     //guardando e tratando
     search = document.getElementById('buscaPedido').value;
+
+    if(search == "" || search == null){
+
+        document.getElementsByClassName('buscaSearch')[1].classList.remove("noVisive");
+        document.getElementById('tabelaCliente').classList.add("noVisive");
+
+    }else{
+
+        document.getElementsByClassName('buscaSearch')[1].classList.add("noVisive");
+        document.getElementById('tabelaCliente').classList.remove("noVisive");
+
+    }
     //search = search.toLowerCase();
 
     //desenvolvendo ajax
@@ -630,7 +643,6 @@ function buscaBdSt() {
 
             //resposta do php
             document.getElementById('tabelaCliente').innerHTML = this.responseText;
-            document.getElementsByClassName('buscaSearch')[1].classList.add("noVisive");
 
 
         }
@@ -643,6 +655,8 @@ function buscaBdSt() {
 
     serverHttp.send("searchCliPd=" + search);
 }
+
+//detalhes bs
 
 //busca updateProj
 function buscaUpdate() {
@@ -688,7 +702,7 @@ function buscaUpdate() {
 
 }
 
-//detalhes
+//detalhes BM
 function detalhes(codPj, codCli, value){
     var caminho;
     value = parseInt(value);
@@ -724,7 +738,7 @@ function detalhes(codPj, codCli, value){
     serverHttp.send("codPj=" + codPj + "&codCli=" + codCli);
 }
 
-//update
+//update BM
 function pegarValor(codCli, codPj){
 
     codPj = parseInt(codPj);
@@ -778,6 +792,96 @@ function updtPj(value){
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     serverHttp.send("codpj=" + codPj + "&codcli=" + codCli + "&nomePj=" + nomePj + "&statusPj=" + statusPj + "&datePj=" + datePj + "&horasPj=" + horasPj + "&descriPj=" + descricaoPj);
+
+
+}
+
+//delete BM
+function apagarProjeto(codCli, codPj, value){
+
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            alert(this.responseText);
+
+        }
+
+    };
+
+    if(value == 1){
+
+        caminho = "../../Php/Executando.php";
+
+    }else{
+
+        caminho = "../Php/Executando.php";
+
+    }
+
+    serverHttp.open("POST", caminho , true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("pjCod=" + codPj + "&cliCod=" + codCli);
+
+}
+
+//detalhes BS
+function detalhesPd(codPd, codCli, value){
+    var caminho;
+    value = parseInt(value);
+
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            document.getElementById('modalResultPedido').innerHTML = this.responseText;
+
+        }
+
+    };
+
+    if(value == 1){
+
+        caminho = "../../Php/Executando.php";
+
+    }else{
+
+        caminho = "../Php/Executando.php";
+
+    }
+
+    serverHttp.open("POST", caminho , true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("codPd=" + codPd + "&clientCod=" + codCli);
+
+}
+
+function acRec(value){
+
+    value = parseInt(value);
+
+    if( value == 1 ){
+
+        alert("Em breve! Aceitar Pedido");
+
+
+    }else{
+
+        alert("Em breve! Aceitar Pedido");
+
+    }
 
 
 }
