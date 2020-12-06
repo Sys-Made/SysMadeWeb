@@ -10,16 +10,16 @@
   <link rel="stylesheet" href="./Css/styleResponsive.css">
 </head>
 
-<body class="iconesPg" onload="iconesAndParallax();">
+<body class="iconesPg mnResponsivo" onload="iconesAndParallax();">
   <!-- cabecario -->
   <header class="container-fluid cabecario">
 
-    <div class="logoTipo d-inline-block my-3 p-3 rounded">
+    <div class="logoTipo noMarPad d-inline-block my-3 p-3 rounded">
       <img class="#" src="./Img/logo/LogotipoNew.png" alt="logoTipo Empresa">
     </div>
 
-    <nav class="menuNavegacao d-inline-block my-3 align-self-center">
-      <ul>
+    <nav class="menuNavegacao navResponse d-inline-block my-3 align-self-center">
+      <ul id="linksMenu">
         <a href="#" class="btn btn-outline-secondary buton">
           <li>Home</li>
         </a>
@@ -35,12 +35,15 @@
         <a href="./Pages/Sobre.html" class="btn btn-outline-secondary buton">
           <li>Sobre</li>
         </a>
+        <a class="list-unstyled btn btn-outline-secondary buton noItens" href="./Pages/Login.html">Logar</a>
       </ul>
     </nav>
 
     <div class="login d-inline-block">
       <a class="list-unstyled buton" href="./Pages/Login.html"><button type="button" class="btn btn-outline-secondary buton">Logar</button></a>
     </div>
+
+    <div class="menuRespBtn menuPso rounded noItens" onclick="menuResponsivo()"></div>
 
 
     <!--<div class="teste d-inline-block">

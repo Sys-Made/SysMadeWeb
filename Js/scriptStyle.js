@@ -85,7 +85,26 @@ function iconesAndParallax(){
 
 }
 
-//adicionando o evento onload
-//document.getElementsByClassName("iconesPg")[0].addEventListener("load", iconesAndParallax());
-
 /*fimTrocaDeIconesAndOfParallax*/
+
+/*Menu Responsivo*/
+function menuResponsivo() {
+    var x = document.getElementById("linksMenu");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+      x.style.visibility = "hidden";
+
+    } else {
+      x.style.display = "block";
+      x.style.visibility = "visible";
+      document.getElementsByClassName('menuRespBtn')[0].style.zIndex = "-1";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == x) {
+          x.style.display = "none";
+          document.getElementsByClassName('menuRespBtn')[0].style.zIndex = "1";
+        }
+    }
+}
+/*fim*/
