@@ -7,6 +7,9 @@
 }
 
 /*menu responsivo*/
+/*#linksMenu{
+    visibility: visible;
+}*/
 .menuRespBtn{
     max-height: 55px;
     max-width: 55px;
@@ -18,19 +21,24 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    display: none;
+    visibility: hidden;
 }
 .menuRespBtn:hover{
     background-color: #999;
 }
 .menuPso{
     position: absolute;
-    /*top: 10px;*/
     top: 1.5%;
     right: 10%; 
 }
+.yesItens{
+    display: block;
+    visibility: visible;
+}
 .noItens{
-    display: none;
-    visibility: hidden; 
+    display: block;
+    visibility: visible; 
 }
 /*fim*/
 
@@ -73,6 +81,10 @@
     top: 1.5%;
     right: 1.6%;
     /*right: 8px;*/
+}
+
+.loginRespon{
+    visibility: hidden;
 }
 
 .buton {

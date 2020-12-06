@@ -88,6 +88,10 @@
     }
 
     /*menu responsivo*/
+    .menuRespBtn{    
+        display: block;
+        visibility: visible;
+    }    
     .navResponse {
         overflow: hidden;
         background-color: rgba(51,51,51,0.5);
@@ -98,10 +102,15 @@
 
     }
 
-    #linksMenu {
+    .noItens{
+        display: none;
+        visibility: hidden; 
+    }
+
+    /*#linksMenu {
         display: none;
         visibility: hidden;
-    }
+    }*/
 
     .navResponse a {
         padding: 8px 10px;
@@ -111,13 +120,12 @@
         display: block;
     }
 
-    .noItens {
-        display: block;
-        visibility: visible;
-    }
-
     .login {
         visibility: hidden;
+    }
+
+    .loginRespon{
+        visibility: visible;
     }
 
     .menuPso {

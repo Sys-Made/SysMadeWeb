@@ -88,7 +88,7 @@ function iconesAndParallax(){
 /*fimTrocaDeIconesAndOfParallax*/
 
 /*Menu Responsivo*/
-function menuResponsivo() {
+/*function menuResponsivo() {
     var x = document.getElementById("linksMenu");
     if (x.style.display === "block") {
       x.style.display = "none";
@@ -104,6 +104,40 @@ function menuResponsivo() {
         if (event.target == x) {
           x.style.display = "none";
           document.getElementsByClassName('menuRespBtn')[0].style.zIndex = "1";
+        }
+    }
+}*/
+function menuResponsivo(value, preguica, preguica2){
+    var itensLinks, btnRespon, janela, noItensClass;
+
+    //guardando o valor
+    itensLinks = document.getElementById('linksMenu');
+    btnRespon = document.getElementsByClassName('menuRespBtn')[0];
+    janela = value;
+    noItensClass = document.getElementsByClassName('noItens')[0];
+
+    if(noItensClass.style.display === "none" || noItensClass.style.visibility === "hidden"){
+
+        //alert("foi!!");
+        itensLinks.classList.remove("yesItens");
+        itensLinks.classList.add("noItens");
+
+    }else {
+
+        //alert("não foi");
+        itensLinks.classList.add("yesItens");
+        itensLinks.classList.remove("noItens");
+        btnRespon.style.zIndex = "-1";
+
+        
+    }
+
+    window.onclick = function(event) {
+        if (event.target == janela || event.target == itensLinks || event.target == preguica || event.target == preguica2) {
+          //alert(value);
+          itensLinks.classList.add("noItens");
+          itensLinks.classList.remove("yesItens");
+          btnRespon.style.zIndex = "1";
         }
     }
 }
