@@ -20,12 +20,13 @@
 <html>
 
 <head>
-    <title>User Socio</title>
+    <title>User Cliente</title>
     <meta charset="utf-8">
     <!--<meta name="viewport" content="width=device-width, intial-scale=1.0">-->
     <link rel="stylesheet" href="../Css/bootstrap.css">
     <link rel="stylesheet" href="../Css/style.css">
     <link rel="stylesheet" href="../Css/bootstrap.css.map">
+    <link rel="stylesheet" href="../Css/styleResponsive.css">
     <script type="text/javascript" src="../Js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../Js/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="../Js/bootstrap.js"></script>
@@ -35,28 +36,40 @@
 <body class="bg-light">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
-        <div class="row justify-content-end">
+        <div class="row">
             <div class="col-8 text-left">
                 <div class="#">
                     <img class="#" src="../Img/logo/LogotipoNew.png" alt="logo_da_empresa" width="180" height="110">
                 </div>
             </div>
 
-            <div class="col">
-                <div class="float-left p-3">
-                    <img class="d-inline-block shadow rounded-circle" src="../Img/Icones/user.png" alt="foto_usuario"
-                        width="80" height="80">
+            <div class="col-4 userNavegacaoRespon userNav noItensUser" id="usuarioMenu">
+                <div class="py-2 aqui">
 
-                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['userSC'][1];?></h6>
-                    <!-- nome do login -->
-
-                    <div class="btnSair d-inline-block shadow" style="cursor: pointer;" onclick="sairLogin();">
-                        <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario">
+                    <div class="itenMenu mx-1 py-2">
+                        <img class="iconeFoto shadow rounded-circle teste" src="../Img/Icones/user.png"
+                            alt="foto_usuario">
                     </div>
-                </div>
 
+                    <div class="itenMenu mx-1 py-2">
+                        <h6 class="textColorPadrao"><?php echo $_SESSION['userSC'][1];?>
+                        </h6>
+                    </div>
+
+                    <div class="itenMenu mx-1 py-2" style="cursor: pointer;" onclick="sairLogin();">
+
+                        <img class="btnSair" src="../Img/Icones/sair.png" alt="foto_usuario">
+
+                    </div>
+
+                </div>
             </div>
+
         </div>
+        </div>
+
+        <div class="menuUser"
+            onclick="menuResponsivoUser(document.getElementsByTagName('img')[0],document.getElementsByTagName('div')[2],document.getElementsByTagName('BODY')[0])"></div>
     </header>
     <!-- fimCabecario -->
 
@@ -383,6 +396,7 @@
     <!-- fimRodapé -->
 
     <script type="text/javascript" src="../Js/scriptBack.js"></script>
+    <script type="text/javascript" src="../Js/scriptStyle.js"></script>
 
     <!-- version do sistema -->
     <div class="versao">

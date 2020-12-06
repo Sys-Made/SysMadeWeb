@@ -88,25 +88,40 @@ function iconesAndParallax(){
 /*fimTrocaDeIconesAndOfParallax*/
 
 /*Menu Responsivo*/
-/*function menuResponsivo() {
-    var x = document.getElementById("linksMenu");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-      x.style.visibility = "hidden";
+function menuResponsivoUser(value,preguica2,preguica){
+    var itensLinks, btnRespon, janela, noItensClass;
 
-    } else {
-      x.style.display = "block";
-      x.style.visibility = "visible";
-      document.getElementsByClassName('menuRespBtn')[0].style.zIndex = "-1";
+    //guardando o valor
+    itensLinks = document.getElementById('usuarioMenu');
+    btnRespon = document.getElementsByClassName('menuUser')[0];
+    noItensClass = document.getElementsByClassName('noItensUser')[0];
+    janela = value;
+
+    if(noItensClass.style.visibility === "hidden"){
+
+        itensLinks.classList.remove("yesItensUser");
+        itensLinks.classList.add("noItensUser");
+
+
+
+    }else {
+
+        btnRespon.style.zIndex = "-1";
+        itensLinks.classList.add("yesItensUser");
+        itensLinks.classList.remove("noItensUser");
+
+        
     }
 
     window.onclick = function(event) {
-        if (event.target == x) {
-          x.style.display = "none";
-          document.getElementsByClassName('menuRespBtn')[0].style.zIndex = "1";
+        if (event.target == janela || event.target == preguica2 || event.target == preguica) {
+          alert(value);
+          itensLinks.classList.add("noItensUser");
+          btnRespon.style.zIndex = "1";
         }
     }
-}*/
+}
+
 function menuResponsivo(value, preguica, preguica2){
     var itensLinks, btnRespon, janela, noItensClass;
 
