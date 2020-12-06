@@ -6,13 +6,48 @@
     border: 1px solid #000;
 }
 
+/*menu responsivo*/
+/*#linksMenu{
+    visibility: visible;
+}*/
+.menuRespBtn{
+    max-height: 55px;
+    max-width: 55px;
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../Img/Icones/menu.png);
+    background-color: #fff;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    display: none;
+    visibility: hidden;
+}
+.menuRespBtn:hover{
+    background-color: #999;
+}
+.menuPso{
+    position: absolute;
+    top: 1.5%;
+    right: 10%; 
+}
+.yesItens{
+    display: block;
+    visibility: visible;
+}
+.noItens{
+    display: block;
+    visibility: visible; 
+}
+/*fim*/
+
 /*cabecario*/
 .cabecario {
     max-height: 400px;
     min-height: 140px;
     height: 100%;
     padding: 5%;
-    /*background-color: #dad5de;*/
     background-image: url(../Img/imagens/cabecario.jpg);
     background-position: center;
     background-size: 100% 100%;
@@ -46,6 +81,10 @@
     top: 1.5%;
     right: 1.6%;
     /*right: 8px;*/
+}
+
+.loginRespon{
+    visibility: hidden;
 }
 
 .buton {

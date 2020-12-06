@@ -14,16 +14,16 @@
     <!-- cabecario -->
     <header class="container-fluid cabecario">
 
-        <div class="logoTipo d-inline-block my-3 p-3 rounded">
+        <div class="logoTipo noMarPad d-inline-block my-3 p-3 rounded">
             <img class="#" src="../Img/logo/LogotipoNew.png" alt="logoTipo Empresa">
         </div>
 
-        <nav class="menuNavegacao d-inline-block my-3 align-self-center">
-            <ul>
+        <nav class="menuNavegacao navResponse d-inline-block my-3 align-self-center">
+            <ul id="linksMenu" class="noItens">
                 <a href="../index.html" class="btn btn-outline-secondary buton">
                     <li>Home</li>
                 </a>
-                <a href="#" class="btn btn-outline-secondary buton">
+                <a href="#!" class="btn btn-outline-secondary buton">
                     <li>Portfolio/Equipe</li>
                 </a>
                 <a href="../Pages/SAC.html" class="btn btn-outline-secondary buton">
@@ -35,11 +35,17 @@
                 <a href="../Pages/Sobre.html" class="btn btn-outline-secondary buton">
                     <li>Sobre</li>
                 </a>
+                <a class="list-unstyled btn btn-outline-secondary buton loginRespon" href="../Pages/Login.html">Logar</a>
             </ul>
         </nav>
 
         <div class="login d-inline-block">
-            <a class="list-unstyled buton" href="../Pages/Login.html"><button type="button" class="btn btn-outline-secondary buton">Logar</button></a>
+            <a class="list-unstyled buton" href="./Pages/Login.html"><button type="button"
+                    class="btn btn-outline-secondary buton">Logar</button></a>
+        </div>
+
+        <div class="menuRespBtn menuPso rounded"
+            onclick="menuResponsivo(document.getElementsByTagName('header')[0], document.getElementsByTagName('div')[3], document.getElementsByTagName('img')[0])">
         </div>
 
 
@@ -47,12 +53,15 @@
                 <div class="lenguagem"></div>
             </div>-->
     </header>
+    <!--cabecarioFim-->
 
     <!-- navegacaoPortfolio -->
     <nav class="navbar navbar-dark justify-content-center">
         <form class="form-inline p-1">
-            <button class="btn btn-outline-secondary buton mx-2 btn-lg butonActvie botaoOne" type="button" onclick="navegacaoInfo(0);">Projeto</button>
-            <button class="btn btn-outline-secondary buton mx-2 btn-lg botaoOne" type="button" onclick="navegacaoInfo(1);">Equipe</button>
+            <button class="btn btn-outline-secondary buton mx-2 btn-lg butonActvie botaoOne" type="button"
+                onclick="navegacaoInfo(0);">Projeto</button>
+            <button class="btn btn-outline-secondary buton mx-2 btn-lg botaoOne" type="button"
+                onclick="navegacaoInfo(1);">Equipe</button>
         </form>
     </nav>
     <!--fimNavegacaoPortfolio-->
@@ -77,7 +86,8 @@
                             filtros só a beleza natural trazida para o mundo.
                         </p>
 
-                        <button type="button" href="#" class="btn btn-secondary" onclick="EmDesenvolvimento();">VER >>>></button>
+                        <button type="button" href="#" class="btn btn-secondary" onclick="EmDesenvolvimento();">VER
+                            >>>></button>
                     </div>
 
                 </article>
@@ -98,7 +108,8 @@
                             japonesas, noticias sobre grandes obras no mundo otaku e sempre dão dicas de sites para
                             poder assistir seus animes. Fora que os usarios pode deixa seus comentarios e likes.
                         </p>
-                        <button type="button" href="#" class="btn btn-secondary" onclick="EmDesenvolvimento();">VER >>>></button>
+                        <button type="button" href="#" class="btn btn-secondary" onclick="EmDesenvolvimento();">VER
+                            >>>></button>
                     </div>
 
                 </article>
@@ -120,7 +131,8 @@
                             semana fala de 4 artistas de cada gênero musical, explicando sobre a história de origem, os
                             clipes, musicas compostas e notícias aleatórias sobre o mundo da música.
                         </p>
-                        <button type="button" href="#" class="btn btn-secondary" onclick="EmDesenvolvimento();">VER >>>></button>
+                        <button type="button" href="#" class="btn btn-secondary" onclick="EmDesenvolvimento();">VER
+                            >>>></button>
                     </div>
 
                 </article>
@@ -254,47 +266,47 @@
     </section>
     <!-- Fim -->
 
- <!-- rodape -->
- <footer class="conteiner bg-light">
+    <!-- rodape -->
+    <footer class="conteiner bg-light">
 
-    <div class="my-4 justify-content-center">
+        <div class="my-4 justify-content-center">
 
-      <div class="mx-auto conteudo">
-        <!-- logo empresa -->
-        <div class="logoFooter text-center">
-          <img src="../Img/logo/LogotipoNew.png" class="logo" alt="empresa_logo_transparente">
+            <div class="mx-auto conteudo">
+                <!-- logo empresa -->
+                <div class="logoFooter text-center">
+                    <img src="../Img/logo/LogotipoNew.png" class="logo" alt="empresa_logo_transparente">
+                </div>
+                <!-- fim -->
+            </div>
         </div>
-        <!-- fim -->
-      </div>
-    </div>
 
-    <div class="justify-content-center">
-      <div class="mx-auto conteudo">
-        <!-- membros da equipe -->
-        <div class="membros text-center">
-          <p class="#">
-            <span class="mt-3">&copy;Equipe SysMade:</span>
-          <ul class="membrosLista text-center">
-            <li class="d-inline-block teste">Patric</li>
-            <li class="d-inline-block teste">Igor</li>
-            <li class="d-inline-block teste">Amanda</li>
-            <li class="d-inline-block teste">Giovana</li>
-            <li class="d-inline-block teste">Izaias</li>
-            <li class="d-inline-block teste">Henry</li>
-            <li class="d-inline-block teste">Samuel</li>
-          </ul>
-          </p>
+        <div class="justify-content-center">
+            <div class="mx-auto conteudo">
+                <!-- membros da equipe -->
+                <div class="membros text-center">
+                    <p class="#">
+                        <span class="mt-3">&copy;Equipe SysMade:</span>
+                    <ul class="membrosLista text-center">
+                        <li class="d-inline-block teste">Patric</li>
+                        <li class="d-inline-block teste">Igor</li>
+                        <li class="d-inline-block teste">Amanda</li>
+                        <li class="d-inline-block teste">Giovana</li>
+                        <li class="d-inline-block teste">Izaias</li>
+                        <li class="d-inline-block teste">Henry</li>
+                        <li class="d-inline-block teste">Samuel</li>
+                    </ul>
+                    </p>
+                </div>
+                <!-- fim -->
+            </div>
         </div>
-        <!-- fim -->
-      </div>
+    </footer>
+
+    <!-- version do sistema -->
+    <div class="versao">
+        <p><b>ALPHA</b>V0.2.1</p>
     </div>
-  </footer>
-  
-  <!-- version do sistema -->
-  <div class="versao">
-    <p><b>ALPHA</b>V0.2.1</p>
-  </div>
-  <!-- fim -->
+    <!-- fim -->
 </body>
 
 <!-- Script bootstrap and Jquery -->
