@@ -115,7 +115,6 @@ function menuResponsivoUser(value,preguica2,preguica){
 
     window.onclick = function(event) {
         if (event.target == janela || event.target == preguica2 || event.target == preguica) {
-          alert(value);
           itensLinks.classList.add("noItensUser");
           btnRespon.style.zIndex = "1";
         }
