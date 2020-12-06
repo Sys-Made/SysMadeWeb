@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="../Css/bootstrap.css">
     <link rel="stylesheet" href="../Css/style.css">
     <link rel="stylesheet" href="../Css/bootstrap.css.map">
+    <link rel="stylesheet" href="../Css/styleResponsive.css">
     <script type="text/javascript" src="../Js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../Js/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="../Js/bootstrap.js"></script>
@@ -35,27 +36,40 @@
 <body class="bg-light">
     <!--cabecarioUsuarioCliente-->
     <header class="container-fluid bg-light userBoxShadow">
-        <div class="row justify-content-end">
+        <div class="row">
             <div class="col-8 text-left">
                 <div class="#">
                     <img class="#" src="../Img/logo/LogotipoNew.png" alt="logo_da_empresa" width="180" height="110">
                 </div>
             </div>
 
-            <div class="col">
-                <div class="float-left p-3">
-                    <img class="d-inline-block shadow rounded-circle" src="../Img/Icones/user.png" alt="foto_usuario"
-                        width="80" height="80">
+            <div class="col-4 userNavegacaoRespon userNav noItensUser" id="usuarioMenu">
+                <div class="py-2 aqui">
 
-                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['DataUser'][1];?></h6>
-
-                    <div class="btnSair d-inline-block shadow teste" style="cursor: pointer;" onclick="sairLogin();">
-                        <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario">
+                    <div class="itenMenu mx-1 py-2">
+                        <img class="iconeFoto shadow rounded-circle teste" src="../Img/Icones/user.png"
+                            alt="foto_usuario">
                     </div>
-                </div>
 
+                    <div class="itenMenu mx-1 py-2">
+                        <h6 class="textColorPadrao"><?php echo $_SESSION['DataUser'][1];?>
+                        </h6>
+                    </div>
+
+                    <div class="itenMenu mx-1 py-2" style="cursor: pointer;" onclick="sairLogin();">
+
+                        <img class="btnSair" src="../Img/Icones/sair.png" alt="foto_usuario">
+
+                    </div>
+
+                </div>
             </div>
+
         </div>
+        </div>
+
+        <div class="menuUser teste"
+            onclick="menuResponsivoUser(document.getElementsByClassName('aqui')[0])"></div>
     </header>
     <!-- fimCabecario -->
 
@@ -65,7 +79,8 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 py-2">
                 <article class="dataUsuario row mx-1 p-0 shadow">
                     <div class="fotoUser col-12 p-2 text-center border">
-                        <img class="bg-light rounded-circle border" src="../Img/Icones/profileUser.png" alt="fotoUsuario">
+                        <img class="bg-light rounded-circle border" src="../Img/Icones/profileUser.png"
+                            alt="fotoUsuario">
                     </div>
 
                     <div class="dadosUser col-12 p-3 border textColorPadrao">
@@ -80,9 +95,9 @@
 
             <div class="col-11 col-sm-11 col-md-11 col-lg-6 col-xl-6 py-2">
                 <article class="dadosPedidos row border shadow">
-                    
+
                     <div class="listaPedidos col-12 text-center">
-                    <h2 class="text-center textColorPadrao">Pedidos em Desenvolvimento</h2>
+                        <h2 class="text-center textColorPadrao">Pedidos em Desenvolvimento</h2>
                         <img src="../Img/Icones/web-development.png" alt="emDesenvolvimento">
                         <h1 class="text-center textColorPadrao">Em Desenvolvimento</h1>
                     </div>
@@ -117,8 +132,7 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nome Do Projeto: </label>
-                        <input type="text" class="form-control" id="nomeProjeto"
-                            placeholder="Nome do projeto....">
+                        <input type="text" class="form-control" id="nomeProjeto" placeholder="Nome do projeto....">
                     </div>
 
                     <div class="form-group">
@@ -126,7 +140,8 @@
                         <textarea class="form-control" id="descricaoProjeto" rows="3"></textarea>
                     </div>
 
-                    <button type="button" class="btn btn-light border textColorPadrao" onclick="RealizaPedido(<?php echo $_SESSION['DataUser'][0]; ?>)">Realizar</button>
+                    <button type="button" class="btn btn-light border textColorPadrao"
+                        onclick="RealizaPedido(<?php echo $_SESSION['DataUser'][0]; ?>)">Realizar</button>
 
                 </form>
             </div>
@@ -160,6 +175,7 @@
     <!-- fim -->
 
     <script type="text/javascript" src="../Js/scriptBack.js"></script>
+    <script type="text/javascript" src="../Js/scriptStyle.js"></script>
 </body>
 
 </html>

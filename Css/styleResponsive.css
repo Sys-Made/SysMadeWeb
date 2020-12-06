@@ -19,6 +19,44 @@
         max-width: 400px;
     }
 
+    /*PageUserCliente*/
+
+    /*menuResponsivo*/
+    .menuUser{
+        visibility: visible;
+    }
+    .userNav{
+        width: 100%;
+        max-width: 320px;
+        margin-left: 0;
+    }
+    .userNav .itenMenu{
+        display: block;
+        max-width: 290px;
+        width: 90vw;
+        border-radius: 4px;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        background-color: white;
+    }
+    .noItensUser{
+        visibility: hidden;
+    }
+    .userNavegacaoRespon{
+        overflow: hidden;
+        background-color: rgba(71,71,71,0.6);
+        border: 1px solid  #43528A;
+        position: absolute;
+        top: 1.5%;
+        right: 0%;
+        border-radius: 4px;
+        z-index: 1 !important;
+    }
+
+    /*fim*/
 }
 
 @media only screen and (max-width: 772px) {
