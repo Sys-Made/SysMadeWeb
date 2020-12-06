@@ -56,9 +56,9 @@
                         </h6>
                     </div>
 
-                    <div class="itenMenu mx-1 py-2" style="cursor: pointer;" onclick="sairLogin();">
+                    <div class="itenMenu mx-1 py-2">
 
-                        <img class="btnSair" src="../Img/Icones/sair.png" alt="foto_usuario">
+                        <img class="btnSair" src="../Img/Icones/sair.png" alt="foto_usuario" onclick="sairLogin();">
 
                     </div>
 
@@ -68,8 +68,8 @@
         </div>
         </div>
 
-        <div class="menuUser teste"
-            onclick="menuResponsivoUser(document.getElementsByClassName('aqui')[0])"></div>
+        <div class="menuUser"
+            onclick="menuResponsivoUser(document.getElementsByTagName('img')[0],document.getElementsByTagName('div')[2],document.getElementsByTagName('BODY')[0])"></div>
     </header>
     <!-- fimCabecario -->
 

@@ -56,9 +56,9 @@
                         </h6>
                     </div>
 
-                    <div class="itenMenu mx-1 py-2" style="cursor: pointer;" onclick="sairLogin();">
+                    <div class="itenMenu mx-1 py-2">
 
-                        <img class="btnSair" src="../Img/Icones/sair.png" alt="foto_usuario">
+                        <img class="btnSair" src="../Img/Icones/sair.png" alt="foto_usuario" onclick="sairLogin();">
 
                     </div>
 
