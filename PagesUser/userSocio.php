@@ -47,7 +47,8 @@
                     <img class="d-inline-block shadow rounded-circle" src="../Img/Icones/user.png" alt="foto_usuario"
                         width="80" height="80">
 
-                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['userSC'][1];?></h6> <!-- nome do login -->
+                    <h6 class="d-inline-block mx-5 textColorPadrao"><?php echo $_SESSION['userSC'][1];?></h6>
+                    <!-- nome do login -->
 
                     <div class="btnSair d-inline-block shadow" style="cursor: pointer;" onclick="sairLogin();">
                         <img class="d-inline-block" src="../Img/Icones/sair.png" alt="foto_usuario">
@@ -61,9 +62,10 @@
 
     <!-- socioDados -->
     <section class="container-fluid my-4">
-        <div class="row">
-            <div class="col-6">
-                <article class="dataSocio border shadow">
+
+        <div class="row justify-content-center mx-1 my-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-lx-6 my-2">
+                <article class="dataSocio mx-auto border shadow">
 
                     <div class="fotoUserSocio text-center"></div>
 
@@ -79,64 +81,66 @@
                 </article>
             </div>
 
-            <div class="col-6">
-                <article class="dadosProjeto border shadow">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-lx-6 my-2">
+                <article class="border shadow">
                     <h2 class="text-center textColorPadrao">Projetos Recentes</h2>
 
-                    <div class="listaProjeto my-4 text-center">
-                        <table class="table">
-                            <thead class="#" style="background-color: #43528A; color: white;">
-                                <tr>
-                                    <th scope="col">Projeto</th>
-                                    <th scope="col">Data entrega</th>
-                                    <th scope="col">Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody class="textColorPadrao">
+                    <div class="row justify-content-center">
+                        <div class="col-10 mx-auto table-responsive-sm">
+                            <table class="table text-center">
+                                <thead class="tHeadBg">
+                                    <tr>
+                                        <th scope="col">Projeto</th>
+                                        <th scope="col">Data entrega</th>
+                                        <th scope="col">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="textColorPadrao">
 
-                                <tr>
-                                    <td>Projeto Nome</td>
-                                    <td>10/08/20</td>
-                                    <td><button type="submit"
-                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                </tr>
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>10/08/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Projeto Nome</td>
-                                    <td>10/08/20</td>
-                                    <td><button type="submit"
-                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                </tr>
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>10/08/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Projeto Nome</td>
-                                    <td>10/08/20</td>
-                                    <td><button type="submit"
-                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                </tr>
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>10/08/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Projeto Nome</td>
-                                    <td>10/08/20</td>
-                                    <td><button type="submit"
-                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                </tr>
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>10/08/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Projeto Nome</td>
-                                    <td>10/08/20</td>
-                                    <td><button type="submit"
-                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                </tr>
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>10/08/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>Projeto Nome</td>
-                                    <td>10/08/20</td>
-                                    <td><button type="submit"
-                                            class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    <tr>
+                                        <td>Projeto Nome</td>
+                                        <td>10/08/20</td>
+                                        <td><button type="submit"
+                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                 </article>
@@ -218,19 +222,21 @@
 
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-1">
-                                    <button type="button"
-                                        class="btn btn-light border textColorPadrao" onclick="RegistraProjeto();">Registrar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao"
+                                        onclick="RegistraProjeto();">Registrar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
 
                     <!-- ProjetoCompleto e cancelado-->
-                    <div class="tab-pane fade show active p-3" id="complProjeto" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade show active p-3" id="complProjeto" role="tabpanel"
+                        aria-labelledby="profile-tab">
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="buscaFinal" placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
+                                    <input type="text" class="form-control" id="buscaFinal"
+                                        placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
                                     <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
@@ -247,19 +253,22 @@
                         </div>
                         <!--Fimresultado-->
 
-            
+
                     </div>
-                    
+
                     <!-- PedidosEmEspera -->
                     <div class="tab-pane p-3" id="esperaPedido" role="tabpanel" aria-labelledby="contact-tab">
                         <!-- buscaProjeto -->
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="buscaPedido" placeholder="Faça sua busca aqui...." onkeyup="buscaBdSt()">
+                                    <input type="text" class="form-control" id="buscaPedido"
+                                        placeholder="Faça sua busca aqui...." onkeyup="buscaBdSt()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="pgCli(<?php echo $_GET['pg'];?>, <?php echo $_GET['pgCli']; ?>)">Push All</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao"
+                                        onclick="pgCli(<?php echo $_GET['pg'];?>, <?php echo $_GET['pgCli']; ?>)">Push
+                                        All</button>
                                 </div>
                             </div>
                         </form>
@@ -275,13 +284,13 @@
                     </div>
 
                     <!-- PedidosUpdate -->
-                    <div class="tab-pane p-3" id="updateProjeto" role="tabpanel"
-                        aria-labelledby="contact-tab">
+                    <div class="tab-pane p-3" id="updateProjeto" role="tabpanel" aria-labelledby="contact-tab">
                         <!-- buscaProjeto -->
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="buscaAltera" placeholder="Faça sua busca aqui...." onkeyup="buscaUpdate()">
+                                    <input type="text" class="form-control" id="buscaAltera"
+                                        placeholder="Faça sua busca aqui...." onkeyup="buscaUpdate()">
                                 </div>
                                 <div class="col-1">
                                     <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
@@ -292,24 +301,25 @@
 
                         <!-- resultados-->
                         <div class="listaProjeto my-4 text-center">
-                        <!-- resultados-->
+                            <!-- resultados-->
                             <div class="listaProjeto my-4 text-center">
                                 <iframe id="tabelaCliente" src="./Bsc/alterarProjeto.php" class="buscaSearch"></iframe>
                             </div>
 
                             <div id="tabelaUpdate" class="text-center"></div>
-                        <!-- fimResultados -->
+                            <!-- fimResultados -->
                         </div>
 
+                    </div>
+                    <!-- fimTablist -->
                 </div>
-                <!-- fimTablist -->
             </div>
-        </div>
     </section>
     <!-- fimFuncaoUsuario -->
 
     <!--Modal-->
-    <div class="modal fade textColorPadrao" id="alterarProjeto" tabindex="-1" aria-labelledby="alterarProjeto" aria-hidden="true">
+    <div class="modal fade textColorPadrao" id="alterarProjeto" tabindex="-1" aria-labelledby="alterarProjeto"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
