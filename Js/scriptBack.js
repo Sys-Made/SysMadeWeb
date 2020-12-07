@@ -398,9 +398,9 @@ function registrarUser() {
         senhaOne = igualSenha(senhaOne, senhaTwo);
 
         if (senhaOne === 0) {
-            alert("senhas diferentes");
+            alert("senhas não estão iguais!");
         } else if (senhaOne === 1) {
-            alert("suas senha não estao no padrao");
+            alert("sua senha não deve se menor que 6 ou maior que 15!!");
         } else {
 
             //Desenvolvendo o ajax
