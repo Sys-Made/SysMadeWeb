@@ -75,10 +75,8 @@
 
 .login {
     position: absolute;
-    /*top: 10px;*/
     top: 1.5%;
     right: 1.6%;
-    /*right: 8px;*/
 }
 
 .loginRespon{
@@ -105,6 +103,17 @@
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    box-shadow: 4px 4px 8px #000;
+}
+.posiLangue{
+    position: absolute;
+    top: 13.5%;
+    right: 1.6%;
+}
+
+.lenguagem:hover{
+    background-image: url(../Img/Icones/brasil.jpg);
+    box-shadow: 1px 1px 8px #fff;
 }
 
 /*fimCabecario/

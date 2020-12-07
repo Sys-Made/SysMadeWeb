@@ -16,6 +16,7 @@ function tradutor(value,value2) {
     //guardando valores
     titulo = document.getElementsByClassName('tituloEnglish');
     texto = document.getElementsByClassName('textEng');
+    tradUlT = document.getElementsByClassName('txEng');
 
     //guardando Texto
     index = new Array(
@@ -34,7 +35,10 @@ function tradutor(value,value2) {
         'Member Login',
         'Password:',
         'I forgot the password!',
-        'Log in'
+        'Log in',
+        'No Discount',
+        'Close Business'
+
     );
 
     portfolio = new Array(
@@ -109,6 +113,27 @@ function tradutor(value,value2) {
                 texto[4].innerHTML = index[9];
                 texto[5].innerHTML = index[10];
                 texto[6].innerHTML = index[11];
+
+                tradUlT[0].innerHTML = index[16];
+                tradUlT[1].innerHTML = index[16];
+                tradUlT[2].innerHTML = index[16];
+                tradUlT[3].innerHTML = index[17];
+                tradUlT[4].innerHTML = index[17];
+                tradUlT[5].innerHTML = index[17];
+
+                tradUlT[6].innerHTML = index[16];
+                tradUlT[7].innerHTML = index[16];
+                tradUlT[8].innerHTML = index[16];
+                tradUlT[9].innerHTML = index[17];
+                tradUlT[10].innerHTML = index[17];
+                tradUlT[11].innerHTML = index[17];
+
+                tradUlT[12].innerHTML = index[16];
+                tradUlT[13].innerHTML = index[16];
+                tradUlT[14].innerHTML = index[16];
+                tradUlT[15].innerHTML = index[17];
+                tradUlT[16].innerHTML = index[17];
+                tradUlT[17].innerHTML = index[17];
 
                 //localizacaoContatoLogin
                 titulo[5].innerHTML = index[12];
