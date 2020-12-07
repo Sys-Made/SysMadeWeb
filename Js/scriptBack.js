@@ -4,6 +4,39 @@
  * 
  **/
 
+/*validando Horas*/
+function validaHoras(horas){
+    var issoNumber;
+
+    if(horas.length <= 7){
+
+        horas = parseFloat(horas);
+
+        issoNumber = isNaN(horas);
+
+        if(issoNumber === false){
+
+            //horas = parseFloat(horas);
+            horas = false;
+
+        }else{
+
+            horas = true;    //pois é string
+
+        }
+
+
+        
+
+    }else{
+        horas = true;
+    }
+
+    return horas;
+
+}
+/*fim*/
+
 /*validando o cnpj*/
 function validaCnpj(cnpj) {
     var valido;
@@ -486,7 +519,7 @@ function RealizaPedido(idCLi) {
  * 
  */
 function RegistraProjeto() {
-    var projName, projDate, projHour, projNameCli, descrProj, issoNumber;
+    var projName, projDate, projHour, projNameCli, descrProj, issoNumber, horasConv;
 
     projName = document.getElementById('nomeProjeto').value;
     projDate = document.getElementById('dateEntrega').value;
@@ -513,14 +546,17 @@ function RegistraProjeto() {
         if (projName.length <= 110 && projName.length >= 5) {
 
             //guardando o valor pra ver se é numero e convertendo
-            projHour = parseFloat(projHour);
+            horasConv = validaHoras(projHour);
+            /*projHour = parseFloat(projHour);
 
-            issoNumber = isNaN(projHour);
+            issoNumber = isNaN(projHour);*/
 
 
-            if (issoNumber === false) {
+            if (horasConv === false) {
 
                 if (projNameCli.length <= 110 && projNameCli.length >= 3) {
+
+                    projHour = parseFloat(projHour);
 
                     if (descrProj.length <= 600 && descrProj.length >= 80) {
 
@@ -559,7 +595,7 @@ function RegistraProjeto() {
                 }
 
             } else {
-                alert("Nada de letras aqui!!!");
+                alert("Horas esta em um formato invalido!!!");
             }
 
         } else {
