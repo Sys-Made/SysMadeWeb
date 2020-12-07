@@ -7,9 +7,7 @@
 }
 
 /*menu responsivo*/
-/*#linksMenu{
-    visibility: visible;
-}*/
+
 .menuRespBtn{
     max-height: 55px;
     max-width: 55px;
@@ -99,7 +97,7 @@
     background-color: #6c757d;
 }
 
-.cabecario .lenguagem {
+.lenguagem {
     height: 40px;
     width: 55px;
     background-image: url(../Img/Icones/alterandoALinguagem.png);

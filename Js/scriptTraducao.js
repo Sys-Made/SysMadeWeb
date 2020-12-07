@@ -1,6 +1,18 @@
-function tradutor(value) {
+function tradutor(value,value2) {
     var index, portfolio, sac, sobre, susten;
 
+    value2 = parseInt(value2);
+
+    if(value2 == 1){
+
+        caminho = "./";
+
+    }else{
+        caminho = "../";
+    }
+
+    document.getElementsByClassName('lenguagem')[0].style.backgroundImage = 'url("'+ caminho +'Img/Icones/brasil.jpg")';
+    
     //guardando valores
     titulo = document.getElementsByClassName('tituloEnglish');
     texto = document.getElementsByClassName('textEng');
@@ -222,20 +234,5 @@ function tradutor(value) {
             location.reload();
         break;
     }
-    /*if(value == 1){
-        
-        titulo = document.getElementsByClassName('tituloEnglish');
-        texto = document.getElementsByClassName('textEng');
-
-        //o texto
-        titulo;
-
-
-
-    }*/
-    //alert(index.unshift());
-
-    //location.reload(); 
-
 
 }
