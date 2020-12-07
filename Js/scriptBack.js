@@ -798,6 +798,8 @@ function updtPj(value){
     horasPj = document.getElementById('horasPj').value;
     descricaoPj = document.getElementById('descricaoPj').value;
 
+    //alert(statusPj);
+
     //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
 
@@ -828,7 +830,6 @@ function updtPj(value){
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     serverHttp.send("codpj=" + codPj + "&codcli=" + codCli + "&nomePj=" + nomePj + "&statusPj=" + statusPj + "&datePj=" + datePj + "&horasPj=" + horasPj + "&descriPj=" + descricaoPj);
-
 
 }
 

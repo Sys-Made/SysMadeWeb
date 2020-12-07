@@ -631,7 +631,26 @@
 
                     if($result['statusProjeto'] == "" || $result['statusProjeto'] == null){
 
-                        $result['statusProjeto'] = "Em desenvolvimento.";
+                        $result['statusProjeto'] = "<p class='text-info'>Em Análise</p>";
+
+                    }elseif($result['statusProjeto'] == 0){
+
+                        $result['statusProjeto'] = "<p class='text-danger'>Cancelado</p>";
+                        $result['dataDeTermino'] = "<p class='text-danger'>Não Tem Data!</p>";
+                        $result['dataDeInicio'] = "<p class='text-danger'>Não Tem Data!</p>";
+                        $result['horarioEstimadoDoProjeto'] = "<p class='text-danger'>Não Existe Hora Para finalizar!</p>";
+
+                    }elseif($result['statusProjeto'] == 1){
+
+                        $result['statusProjeto'] = "<p class='text-primary'>Em Desenvolvimento</p>";
+
+                    }elseif($result['statusProjeto'] == 2){
+
+                        $result['statusProjeto'] = "<p class='text-info'>Em Análise</p>";
+
+                    }elseif($result['statusProjeto'] == 3){
+
+                        $result['statusProjeto'] = "<p class='text-success'>Finalizado</p>";
 
                     }
 
@@ -700,7 +719,6 @@
 
         //cmd sql
         $sqlSlect = 'SELECT nomeDoProjeto, statusProjeto, dataDeTermino, horarioEstimadoDoProjeto, descricaoDoProjeto FROM Projeto INNER JOIN Cliente ON codigoFKCliente = codigoCliente WHERE codigoProjeto ='.$pj.' AND codigoCliente ='.$cli.'';
-        //$sqlSlect = "Select * from Projeto";
         $sqlExecut = $conn->query($sqlSlect);
         $numberLinhas = $sqlExecut->num_rows;
 

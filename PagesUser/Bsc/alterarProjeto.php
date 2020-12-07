@@ -142,14 +142,20 @@ if(!isset($_POST['searchUpd'])):
 
                     <form>
                         <div class="row">
-                        <div class="col">
-                            <label>Nome do projeto:</label>
-                            <input type="text" class="form-control" id="nomePj" placeholder="Nome do projeto: ">
-                        </div>
-                        <div class="col">
-                            <label>Status do Projeto:</label>
-                            <input type="text" class="form-control" id="statusPj" placeholder="Status do Projeto: ">
-                        </div>
+                          <div class="col">
+                              <label>Nome do projeto:</label>
+                              <input type="text" class="form-control" id="nomePj" placeholder="Nome do projeto: ">
+                          </div>
+                          <div class="col my-1">
+                            <label class="mr-sm-2" for="inlineFormCustomSelect">Status Do Projeto: </label>
+                            <select class="custom-select mr-sm-2" id="statusPj">
+                              <option selected value="2">Estado</option>
+                              <option value="0">Cancelado</option>
+                              <option value="1">Desenvolvimento</option>
+                              <option value="2">Em Analise</option>
+                              <option value="3">Finalizado</option>
+                            </select>
+                          </div>
                         </div>
 
                         <div class="row">
@@ -179,7 +185,7 @@ if(!isset($_POST['searchUpd'])):
                   </div>
                 </div>
               </div>
-            </div>';        
+            </div>';         
 
 
     echo '</tbody>
@@ -313,14 +319,20 @@ else:
 
                     <form>
                         <div class="row">
-                        <div class="col">
-                            <label>Nome do projeto:</label>
-                            <input type="text" class="form-control" id="nomePj" placeholder="Nome do projeto: ">
-                        </div>
-                        <div class="col">
-                            <label>Status do Projeto:</label>
-                            <input type="text" class="form-control" id="statusPj" placeholder="Status do Projeto: ">
-                        </div>
+                          <div class="col">
+                              <label>Nome do projeto:</label>
+                              <input type="text" class="form-control" id="nomePj" placeholder="Nome do projeto: ">
+                          </div>
+                          <div class="col my-1">
+                            <label class="mr-sm-2" for="inlineFormCustomSelect">Status Do Projeto: </label>
+                            <select class="custom-select mr-sm-2" id="statusPj">
+                              <option selected value="2">Estado</option>
+                              <option value="0">Cancelado</option>
+                              <option value="1">Desenvolvimento</option>
+                              <option value="2">Em Analise</option>
+                              <option value="3">Finalizado</option>
+                            </select>
+                          </div>
                         </div>
 
                         <div class="row">
