@@ -90,15 +90,36 @@ if($search == "" || $search == null):
 
          while($resultado = $sqlExecutPg->fetch_assoc()):
 
-             if($resultado["statusProjeto"] == null){
+          if($resultado['statusProjeto'] == "" || $resultado['statusProjeto'] == null){
 
-                 $resultado["statusProjeto"] = "Em Desenvolvimento";
+            $resultado['statusProjeto'] = "Em Análise";
+            $corText = "text-info";
 
-             }
+          }elseif($resultado['statusProjeto'] == 0){
+
+            $resultado['statusProjeto'] = "Cancelado";
+            $corText = "text-danger";
+
+          }elseif($resultado['statusProjeto'] == 1){
+
+            $resultado['statusProjeto'] = "Em Desenvolvimento";
+            $corText = "text-primary";
+
+          }elseif($resultado['statusProjeto'] == 2){
+
+            $resultado['statusProjeto'] = "Em Análise";
+            $corText = "text-info";
+
+          }elseif($resultado['statusProjeto'] == 3){
+
+            $resultado['statusProjeto'] = "Finalizado";
+            $corText = "text-success";
+
+          }
 
              echo'<tr>
              <td>' . $resultado["nomeDoProjeto"] . '</td>
-             <td class="text-success">' . $resultado["statusProjeto"] .' '. $resultado["dataDeTermino"] .' </td>
+             <td class="'.$corText.'">' . $resultado["statusProjeto"] .' '. $resultado["dataDeTermino"] .'</td>
              <td><button type="button"
              class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto" onclick="detalhes('.$resultado['codigoProjeto'].', '.$resultado['codigoFKCliente'].', 1);" >Detalhes</button>
              </tr>';
@@ -207,7 +228,7 @@ else:
     
                 echo'<tr>
                 <td>' . $result["nomeDoProjeto"] . '</td>
-                <td class="text-success">' . $result["statusProjeto"] .' '. $result["dataDeTermino"] .' </td>
+                <td class="'.$corText.'">' . $result["statusProjeto"] .' '. $result["dataDeTermino"] .' </td>
                 <td><button type="button"
                 class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesProjeto" onclick="detalhes('.$result['codigoProjeto'].', '.$result['codigoFKCliente'].');" >Detalhes</button>
                 </tr>';
