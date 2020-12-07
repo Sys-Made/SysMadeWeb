@@ -37,7 +37,8 @@ function tradutor(value,value2) {
         'I forgot the password!',
         'Log in',
         'No Discount',
-        'Close Business'
+        'Close Business',
+        'Go to the login page and create an account!'
 
     );
 
@@ -140,6 +141,7 @@ function tradutor(value,value2) {
                 texto[7].innerHTML = index[13];
                 texto[8].innerHTML = index[14];
                 texto[9].innerHTML = index[15];
+                tradUlT[18].innerHTML = index[18];
 
 
 

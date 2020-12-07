@@ -279,10 +279,11 @@
     }
 
     //funcao logarUser
-    function SessaoLogar($loginValue, $senhaValue){
+    function SessaoLogar($loginValue, $senhaValue, $pgLoc){
         //variaveis locais
         $login = $loginValue;
         $senha = $senhaValue;
+        $pgLoc = intval($pgLoc);
 
         //validando o cpf segunda vez
         if (validaCpf($login) === true):
@@ -313,7 +314,13 @@
                     //criando a session,
                     $_SESSION["DataUser"] = $testeValor;
 
-                    echo "../PagesUser/userCliente.php";        //enviando ao ajax pra ele poder mudar de pagina
+                    if($pgLoc === 1){
+                        
+                        echo "./PagesUser/userCliente.php";     //enviando ao ajax pra ele poder mudar de pagina
+
+                    }else{
+                        echo "../PagesUser/userCliente.php";    //enviando ao ajax pra ele poder mudar de pagina
+                    }        
                 }
 
             }else{
@@ -329,8 +336,9 @@
     }
 
     //funcao logarSC
-    function SocioLg($loginSc, $senhaSc){
+    function SocioLg($loginSc, $senhaSc, $pgLoc){
         $valorSc = "";
+        $pgLoc = intval($pgLoc);
 
         //guardando o valor da busca
         $valorSc = BuscaSc($loginSc, $senhaSc);
@@ -345,7 +353,19 @@
             //criando session
             $_SESSION['userSC'] = $valorSc;
 
-            echo "../PagesUser/userSocio.php";
+            if($pgLoc === 1){
+
+                echo "./PagesUser/userSocio.php";
+
+                exit();
+
+            }else{
+
+                echo "../PagesUser/userSocio.php";
+
+                exit();
+
+            }
 
         }
 
@@ -402,7 +422,75 @@
       * 
       *funcao Sc
       *
-      */     
+      */
+      
+      //Projetos recem colocados
+      function UltimosProjetos(){
+        require_once "conectBM.php";
+
+        //meta charset no banco
+        $conn->set_charset("utf8");
+
+        //buscando
+        $sqlUltimos = "SELECT codigoProjeto, nomeDoProjeto, codigoFKCliente,dataDeInicio, dataDeTermino FROM Projeto ORDER BY dataDeInicio DESC LIMIT 0,6";
+        $sqlExecutar = $conn->query($sqlUltimos);
+        $linhas = $sqlExecutar->num_rows;
+
+        if($linhas > 0){
+
+            echo'<table class="table text-center">
+            <thead class="tHeadBg">
+                <tr>
+                    <th scope="col">Projeto</th>
+                    <th scope="col">Data entrega</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody class="textColorPadrao">';
+
+            while($rst = $sqlExecutar->fetch_assoc()):
+              echo'<tr>
+              <td>'.$rst['nomeDoProjeto'].'</td>
+              <td>'.$rst['dataDeInicio'].'</td>
+              <td><button type="button"
+                      class="btn btn-light border textColorPadrao" data-toggle="modal" data-target="#DetalhesPjt" onclick="detalhesUlt('.$rst['codigoProjeto'].', '.$rst['codigoFKCliente'].')">Detalhes</button></td>
+              </tr>';  
+
+
+            endwhile;
+
+            echo'<!-- Modal detalhes -->
+            <div class="modal fade textColorPadrao" id="DetalhesPjt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Projeto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body text-left">
+                    <div id="modalUltResult"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>';
+            
+            echo "</tbody>";
+            echo "</table>";
+            //echo"Foi cara!!!";
+
+        }else{
+
+            echo"Não foi!!!";
+
+        }
+
+      } 
+
 
       //cadastrando projeto
       function CadastrarProjeto($nomeProjSc, $dateProjSc, $hourProjSc, $cliProjSc, $cpfProjSc, $descProjSc){
@@ -669,6 +757,67 @@
            $conn->close();
 
       }
+
+      //fazendo redundancia
+      function DetalhesUlt($codPj, $codCli){
+        require_once "conectBM.php";  //chamando a conexão
+
+        //meta charset no banco
+        $conn->set_charset("utf8");
+        
+        //convertendo os valores
+        $codPj = intval($codPj);
+        $codCli = intval($codCli);
+        
+        //comando sql
+        $sqlSlct = 'SELECT nomeDoProjeto, dataDeTermino, statusProjeto, dataDetermino, dataDeInicio, horarioEstimadoDoProjeto, descricaoDoProjeto, Cliente.nomeDoCliente, Cliente.cpfCliente FROM Projeto INNER JOIN Cliente ON Cliente.codigoCliente ='.$codCli.' WHERE Projeto.codigoProjeto =' . $codPj; 
+        $sqlExect = $conn->query($sqlSlct);
+        $numberRow = $sqlExect->num_rows;     //se der erro é o comando sql ou banco
+
+        if($numberRow > 0){
+
+              while($result = $sqlExect->fetch_assoc()):
+
+                  if($result['statusProjeto'] == "" || $result['statusProjeto'] == null){
+
+                      $result['statusProjeto'] = "<p class='text-info'>Em Análise</p>";
+
+                  }elseif($result['statusProjeto'] == 0){
+
+                      $result['statusProjeto'] = "<p class='text-danger'>Cancelado</p>";
+                      $result['dataDeTermino'] = "<p class='text-danger'>Não Tem Data!</p>";
+                      $result['dataDeInicio'] = "<p class='text-danger'>Não Tem Data!</p>";
+                      $result['horarioEstimadoDoProjeto'] = "<p class='text-danger'>Não Existe Hora Para finalizar!</p>";
+
+                  }elseif($result['statusProjeto'] == 1){
+
+                      $result['statusProjeto'] = "<p class='text-primary'>Em Desenvolvimento</p>";
+
+                  }elseif($result['statusProjeto'] == 2){
+
+                      $result['statusProjeto'] = "<p class='text-info'>Em Análise</p>";
+
+                  }elseif($result['statusProjeto'] == 3){
+
+                      $result['statusProjeto'] = "<p class='text-success'>Finalizado</p>";
+
+                  }
+
+                  echo "<h5>Nome do cliente: </h5>" . $result['nomeDoCliente'];
+                  echo "<h5>Cpf do Cliente: </h5>" . $result['cpfCliente'];
+                  echo "<h5>Nome Do Projeto: </h5>" . $result['nomeDoProjeto'];
+                  echo "<h5>Status: </h5>" . $result['statusProjeto'];
+                  echo "<h5>Data De Entrega: </h5>" . $result['dataDeTermino'];
+                  echo "<h5>Data De Inicio: </h5>" . $result['dataDeInicio'];
+                  echo "<h5>Horas Estimadas: </h5>" . $result['horarioEstimadoDoProjeto'];
+                  echo "<h5>Descrição Do Projeto: </h5>" .$result['descricaoDoProjeto'];
+                  
+              endwhile;   
+         }
+
+         $conn->close();
+
+    }
 
       //puxando os pedidos no banco do site
       function DetalhesPd($codpd, $codcli){

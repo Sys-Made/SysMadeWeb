@@ -86,8 +86,6 @@ if($search == "" || $search == null):
          </thead>
          <tbody class="textColorPadrao">';
 
-         echo '<tbody class="textColorPadrao">';
-
          while($resultado = $sqlExecutPg->fetch_assoc()):
 
           if($resultado['statusProjeto'] == "" || $resultado['statusProjeto'] == null){
@@ -127,7 +125,7 @@ if($search == "" || $search == null):
          endwhile;
 
          echo'<!-- Modal detalhes -->
-            <div class="modal fade" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade textColorPadrao" id="DetalhesProjeto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -220,11 +218,32 @@ else:
     
             while($result = $sqlExcut->fetch_assoc()): 
     
-                if($result["statusProjeto"] == null){
+              if($result['statusProjeto'] == "" || $result['statusProjeto'] == null){
+
+                $result['statusProjeto'] = "Em Análise";
+                $corText = "text-info";
     
-                    $result["statusProjeto"] = "Em Desenvolvimento";
+              }elseif($result['statusProjeto'] == 0){
     
-                }
+                $result['statusProjeto'] = "Cancelado";
+                $corText = "text-danger";
+    
+              }elseif($result['statusProjeto'] == 1){
+    
+                $result['statusProjeto'] = "Em Desenvolvimento";
+                $corText = "text-primary";
+    
+              }elseif($result['statusProjeto'] == 2){
+    
+                $result['statusProjeto'] = "Em Análise";
+                $corText = "text-info";
+    
+              }elseif($result['statusProjeto'] == 3){
+    
+                $result['statusProjeto'] = "Finalizado";
+                $corText = "text-success";
+    
+              }
     
                 echo'<tr>
                 <td>' . $result["nomeDoProjeto"] . '</td>

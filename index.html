@@ -20,7 +20,7 @@
 
     <nav class="menuNavegacao navResponse d-inline-block my-3 align-self-center">
       <ul id="linksMenu" class="noItens">
-        <a href="#" class="btn btn-outline-secondary buton">
+        <a href="#!" class="btn btn-outline-secondary buton">
           <li>Home</li>
         </a>
         <a href="./Pages/Portfolio_Equipe.html" class="btn btn-outline-secondary buton">
@@ -142,9 +142,9 @@
                 <td class="txEng">Não há desconto</td>
               </tr>
               <tr>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()"">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
               </tr>
             </tbody>
 
@@ -179,9 +179,9 @@
                 <td class="txEng">Não há desconto</td>
               </tr>
               <tr>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
               </tr>
             </tbody>
 
@@ -215,9 +215,9 @@
                 <td class="txEng">Não há desconto</td>
               </tr>
               <tr>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
-                <td><button type="button" class="btn btn-outline-secondary txEng">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
+                <td><button type="button" class="btn btn-outline-secondary txEng" onclick="EmDesenvolvimento()">Contratar</button></td>
               </tr>
             </tbody>
 
@@ -285,18 +285,21 @@
         <form class="#">
           <div class="form-group">
             <label for="exampleInputEmail1">CPF:</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <input type="email" class="form-control" id="LoginCpf" aria-describedby="emailHelp"
               placeholder="Exemplo: 159.951.789-00">
             <!--<small id="emailHelp" class="form-text text-muted" style="color: white;">We'll never share your email with anyone else.</small>-->
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1" class="textEng">Senha:</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" id="LoginSenha">
           </div>
           <div class="form-group">
-            <a href="#" style="text-shadow: 1px 1px 3px #fff;" class="textEng">Esqueci a senha!</a>
+            <a href="#!" style="text-shadow: 1px 1px 3px #fff;" class="textEng" onclick="EmDesenvolvimento()">Esqueci a senha!</a>
           </div>
-          <button type="button" onclick="EmDesenvolvimento();" class="btn btn-outline-secondary buton textEng">Entrar</button>
+          <div class="form-group">
+            <a href="./Pages/Login.html" style="text-shadow: 1px 1px 3px #fff;" class="txEng">Ir na pagina login e criar conta!</a>
+          </div>
+          <button type="button" onclick="Login(1);" class="btn btn-outline-secondary buton textEng">Entrar</button>
         </form>
 
       </div>

@@ -6,12 +6,12 @@
     if(isset($_POST['loginSenha']) && isset($_POST['loginCpf'])){
 
         //Executando a função
-        SessaoLogar($_POST['loginCpf'], $_POST['loginSenha']);
+        SessaoLogar($_POST['loginCpf'], $_POST['loginSenha'], $_POST['pgLoc']);
 
     }elseif(isset($_POST['loginSC']) && isset($_POST['senhaSC'])){
 
         //executando a funcao
-        SocioLg($_POST['loginSC'], $_POST['senhaSC']);
+        SocioLg($_POST['loginSC'], $_POST['senhaSC'], $_POST['pgLoc']);
 
     }elseif(isset($_POST['outSign'])){
         
@@ -22,6 +22,11 @@
 
         //Executando a função
         ExisteSesson($_POST['activeSession']);
+
+    }elseif(isset($_POST['ult'])){
+
+        //Executando funcao
+        UltimosProjetos();
 
     }elseif(isset($_POST['dataUserCad']) && isset($_POST['senhaCad']) && isset($_POST['loginCad'])){
 
@@ -43,6 +48,10 @@
 
         //executando funcao
         Detalhes($_POST['codPj'], $_POST['codCli']);
+
+    }elseif(isset($_POST['codpjUlt']) || isset($_POST['codcliUlt'])){
+
+        DetalhesUlt($_POST['codpjUlt'],$_POST['codcliUlt']);
 
     }elseif(isset($_POST['codpj']) || isset($_POST['codcli']) || isset($_POST['nomePj']) || isset($_POST['statusPj']) || isset($_POST['datePj']) || isset($_POST['horasPj']) || isset($_POST['descriPj'])){
 
