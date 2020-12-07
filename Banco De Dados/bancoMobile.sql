@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 02-Dez-2020 às 17:04
+-- Generation Time: 07-Dez-2020 às 20:01
 -- Versão do servidor: 5.7.32-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
@@ -81,7 +81,13 @@ CREATE TABLE `Cliente` (
 
 INSERT INTO `Cliente` (`codigoCliente`, `nomeDoCliente`, `cpfCliente`, `cnpjCliente`, `emailCliente`, `nomeDaEmpresaCliente`, `codigoFKTelefone`, `codigoFKEndereco`) VALUES
 (1, 'Carlos Santana', '234.567.890-11', '12.456.789/4561-00', 'CARLOS@CARLOS.COM', 'Microsolft', 1, 1),
-(2, 'Ana juliana', '456.789.123-00', '12.456.789/4561-00', 'anaoffice@gmail.com', 'Ubsolft', 2, 2);
+(2, 'Ana juliana', '456.789.123-00', '12.456.789/4561-00', 'anaoffice@gmail.com', 'Ubsolft', 2, 2),
+(3, 'Ana Clara', '111.256.789-85', NULL, NULL, NULL, NULL, NULL),
+(4, 'luans Santana', '111.555.656-88', NULL, NULL, NULL, NULL, NULL),
+(5, 'Luisa Sonsa', '758.582.656-88', NULL, NULL, NULL, NULL, NULL),
+(6, 'Luiza Santana', '111.222.333-99', NULL, NULL, NULL, NULL, NULL),
+(7, 'Ana juliana', '456.258.753-89', NULL, NULL, NULL, NULL, NULL),
+(8, 'Julio Costa', '123.666.789-00', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -148,13 +154,25 @@ CREATE TABLE `Projeto` (
 --
 
 INSERT INTO `Projeto` (`codigoProjeto`, `nomeDoProjeto`, `codigoFKCliente`, `dataDeTermino`, `dataDeInicio`, `horarioEstimadoDoProjeto`, `descricaoDoProjeto`, `statusProjeto`) VALUES
-(1, 'Patric Alison', 2, '2020-12-16', '2020-12-01', '1231.00', 'O Lorem Ipsum Ã© um texto modelo da indÃºstria tipogrÃ¡fica e de impressÃ£o. O Lorem Ipsum tem vindo a ser o texto padrÃ£o usado por estas indÃºstrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espÃ©cime de livro. Este texto nÃ£o sÃ³ sobreviveu 5 sÃ©culos, mas tambÃ©m o salto para a tipografia electrÃ³nica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilizaÃ§Ã£o das folhas de Letraset.', NULL),
+(1, 'Romeu e julieta', 2, '2020-12-16', '2020-12-01', '1231.00', 'O Lorem Ipsum Ã© um texto modelo da indÃºstria tipogrÃ¡fica e de impressÃ£o. O Lorem Ipsum tem vindo a ser o texto padrÃ£o usado por estas indÃºstrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espÃ©cime de livro. Este texto nÃ£o sÃ³ sobreviveu 5 sÃ©culos, mas tambÃ©m o salto para a tipografia electrÃ³nica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilizaÃ§Ã£o das folhas de Letraset.', 2),
 (2, 'Site biologia', 2, '2020-12-13', '2020-12-02', '1231.00', 'hadknkchwyhuidnkajdhnksajdbhcsad bkhdbkajsdbhkans khbdaxnkdjsandj asdsahndksanhdxkjsadmhajsdmsakjbdhakj kahbdkjsanxsakdhn', NULL),
 (3, 'site centro de tudo', 2, '2020-12-22', '2020-12-02', '1465.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum', NULL),
 (4, 'mobile rede social', 2, '2020-12-23', '2020-12-02', '2000.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', NULL),
 (5, 'Windows form controle de vendas', 2, '2020-12-23', '2020-12-02', '2000.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', NULL),
 (6, 'Linux java GAME', 1, '2020-12-23', '2020-12-02', '2000.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', NULL),
-(7, 'Linux java planilhas', 1, '2020-12-23', '2020-12-02', '2000.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', NULL);
+(7, 'Linux java planilhas', 1, '2020-12-23', '2020-12-02', '2000.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', NULL),
+(8, 'Teste Refrash', 2, '2020-12-15', '2020-12-02', '1751.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', 2),
+(9, 'teste cancelado 2', 2, '2020-12-15', '2020-12-02', '1751.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', NULL),
+(10, 'teste cancelado 3', 2, '2020-12-15', '2020-12-02', '1751.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens', NULL),
+(11, 'castanha', 2, '2020-12-31', '2020-12-04', '1465.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens ', 3),
+(12, 'teste Deletar', 1, '2020-12-21', '2020-12-04', '1751.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens ', NULL),
+(13, 'teste deletar 3', 1, '2020-12-06', '2020-12-04', '2000.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens ', NULL),
+(14, 'Auto center', 2, '2021-01-14', '2020-12-07', '1231.00', 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques', 1),
+(15, 'sdfsdfsdf', 6, '2020-12-13', '2020-12-07', '1245.00', 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques', 0),
+(16, 'Funfou', 2, '2020-12-13', '2020-12-07', '1245.00', 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques', NULL),
+(17, 'Funfou', 2, '2020-12-13', '2020-12-07', '1245.00', 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques', NULL),
+(18, 'Xbox site', 7, '2021-03-10', '2020-12-07', '8956.00', 'Esse projeto vai ser um meio de dar opinião sobre o mundo do console da microsolft.', 1),
+(19, 'casa da barbie', 8, '2021-01-21', '2020-12-07', '1465.00', 'O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens.', 0);
 
 -- --------------------------------------------------------
 
@@ -182,7 +200,19 @@ INSERT INTO `ProjetoSocio` (`codigoProjSoc`, `horasRealizadas`, `valorTotal`, `c
 (4, NULL, NULL, 1, 4, 1),
 (5, NULL, NULL, 1, 5, 1),
 (6, NULL, NULL, 1, 6, 1),
-(7, NULL, NULL, 1, 7, 1);
+(7, NULL, NULL, 1, 7, 1),
+(8, NULL, NULL, 1, 8, 1),
+(9, NULL, NULL, 1, 9, 1),
+(10, NULL, NULL, 1, 10, 1),
+(11, NULL, NULL, 1, 11, 1),
+(12, NULL, NULL, 1, 12, 1),
+(13, NULL, NULL, 1, 13, 1),
+(14, NULL, NULL, 1, 14, 1),
+(15, NULL, NULL, 1, 15, 1),
+(16, NULL, NULL, 1, 16, 1),
+(17, NULL, NULL, 1, 17, 1),
+(18, NULL, NULL, 1, 18, 1),
+(19, NULL, NULL, 1, 19, 1);
 
 -- --------------------------------------------------------
 
