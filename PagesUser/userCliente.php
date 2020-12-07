@@ -22,7 +22,7 @@
 <head>
     <title>User Cliente</title>
     <meta charset="utf-8">
-    <!--<meta name="viewport" content="width=device-width, intial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <link rel="stylesheet" href="../Css/bootstrap.css">
     <link rel="stylesheet" href="../Css/style.css">
     <link rel="stylesheet" href="../Css/bootstrap.css.map">

@@ -20,9 +20,9 @@
 <html>
 
 <head>
-    <title>User Cliente</title>
+    <title>User Socio</title>
     <meta charset="utf-8">
-    <!--<meta name="viewport" content="width=device-width, intial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
     <link rel="stylesheet" href="../Css/bootstrap.css">
     <link rel="stylesheet" href="../Css/style.css">
     <link rel="stylesheet" href="../Css/bootstrap.css.map">
@@ -169,12 +169,12 @@
                 <!-- tablist -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link " id="home-tab" data-toggle="tab" href="#addProjeto" role="tab"
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#addProjeto" role="tab"
                             aria-controls="home" aria-selected="true">Adicionar Projeto</a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#complProjeto" role="tab"
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#complProjeto" role="tab"
                             aria-controls="profile" aria-selected="false">Projetos Concluidos</a>
                     </li>
 
@@ -192,7 +192,7 @@
                 <!-- adicionarProjeto -->
                 <div class="tab-content shadow border-top-0 p-3 textColorPadrao" id="myTabContent">
 
-                    <div class="tab-pane fade" id="addProjeto" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="addProjeto" role="tabpanel" aria-labelledby="home-tab">
                         <form>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -238,12 +238,16 @@
                                     <button type="button" class="btn btn-light border textColorPadrao"
                                         onclick="RegistraProjeto();">Registrar</button>
                                 </div>
+
+                                <div class="form-group col-md-1">
+                                    <button type="reset" class="btn btn-light border textColorPadrao">Limpar</button>
+                                </div>
                             </div>
                         </form>
                     </div>
 
                     <!-- ProjetoCompleto e cancelado-->
-                    <div class="tab-pane fade show active p-3" id="complProjeto" role="tabpanel"
+                    <div class="tab-pane fade p-3" id="complProjeto" role="tabpanel"
                         aria-labelledby="profile-tab">
                         <form>
                             <div class="form-row justify-content-center">
@@ -270,7 +274,7 @@
                     </div>
 
                     <!-- PedidosEmEspera -->
-                    <div class="tab-pane p-3" id="esperaPedido" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade p-3" id="esperaPedido" role="tabpanel" aria-labelledby="contact-tab">
                         <!-- buscaProjeto -->
                         <form>
                             <div class="form-row justify-content-center">
@@ -297,7 +301,7 @@
                     </div>
 
                     <!-- PedidosUpdate -->
-                    <div class="tab-pane p-3" id="updateProjeto" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade p-3" id="updateProjeto" role="tabpanel" aria-labelledby="contact-tab">
                         <!-- buscaProjeto -->
                         <form>
                             <div class="form-row justify-content-center">
