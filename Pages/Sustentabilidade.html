@@ -13,50 +13,50 @@
 </head>
 
 <body class="bg-halfLight">
-    <!-- cabecario -->
-    <header class="container-fluid cabecario">
+<!-- cabecario -->
+<header class="container-fluid cabecario">
 
-        <div class="logoTipo noMarPad d-inline-block my-3 p-3 rounded">
-            <img class="#" src="../Img/logo/LogotipoNew.png" alt="logoTipo Empresa">
-        </div>
+    <div class="logoTipo noMarPad d-inline-block my-3 p-3 rounded">
+        <img class="#" src="../Img/logo/LogotipoNew.png" alt="logoTipo Empresa">
+    </div>
 
-        <nav class="menuNavegacao navResponse d-inline-block my-3 align-self-center">
-            <ul id="linksMenu" class="noItens">
-                <a href="../index.html" class="btn btn-outline-secondary buton">
-                    <li>Home</li>
-                </a>
-                <a href="../Pages/Portfolio_Equipe.html" class="btn btn-outline-secondary buton">
-                    <li>Portfolio/Equipe</li>
-                </a>
-                <a href="../Pages/SAC.html" class="btn btn-outline-secondary buton">
-                    <li>SAC</li>
-                </a>
-                <a href="#!" class="btn btn-outline-secondary buton">
-                    <li>Sustentabilidade</li>
-                </a>
-                <a href="../Pages/Sobre.html" class="btn btn-outline-secondary buton">
-                    <li>Sobre</li>
-                </a>
-                <a class="list-unstyled btn btn-outline-secondary buton loginRespon"
-                    href="../Pages/Login.html">Logar</a>
-            </ul>
-        </nav>
+    <nav class="menuNavegacao navResponse d-inline-block my-3 align-self-center">
+        <ul id="linksMenu" class="noItens">
+            <a href="../index.html" class="btn btn-outline-secondary buton">
+                <li>Home</li>
+            </a>
+            <a href="../Pages/Portfolio_Equipe.html" class="btn btn-outline-secondary buton">
+                <li>Portfolio/Equipe</li>
+            </a>
+            <a href="../Pages/SAC.html" class="btn btn-outline-secondary buton">
+                <li>SAC</li>
+            </a>
+            <a href="#!" class="btn btn-outline-secondary buton">
+                <li>Sustentabilidade</li>
+            </a>
+            <a href="../Pages/Sobre.html" class="btn btn-outline-secondary buton">
+                <li>Sobre</li>
+            </a>
+            <a class="list-unstyled btn btn-outline-secondary buton loginRespon"
+                href="../Pages/Login.html">Logar</a>
+        </ul>
+    </nav>
 
-        <div class="login d-inline-block">
-            <a class="list-unstyled buton" href="./Pages/Login.html"><button type="button"
-                    class="btn btn-outline-secondary buton">Logar</button></a>
-        </div>
+    <div class="login d-inline-block">
+        <a class="list-unstyled buton" href="./Pages/Login.html"><button type="button"
+                class="btn btn-outline-secondary buton">Logar</button></a>
+    </div>
 
-        <div class="menuRespBtn menuPso rounded"
-            onclick="menuResponsivo(document.getElementsByTagName('header')[0], document.getElementsByTagName('section')[0], document.getElementsByTagName('img')[0])">
-        </div>
+    <div class="menuRespBtn menuPso rounded"
+        onclick="menuResponsivo(document.getElementsByTagName('header')[0], document.getElementsByTagName('div')[3], document.getElementsByTagName('img')[0])">
+    </div>
 
 
-        <!--<div class="teste d-inline-block">
-                <div class="lenguagem"></div>
-            </div>-->
-    </header>
-    <!--cabecarioFim-->
+    <div class="d-inline-block posiLangue" onclick="tradutor(2)">
+        <div class="lenguagem"></div>
+    </div>
+</header>
+<!--cabecarioFim-->
 
     <!-- Sustentabilidade -->
     <section class="container-fluid bg-light my-2">
@@ -72,7 +72,7 @@
                         </figcaption>
                     </figure>
 
-                    <p class="textoEnglish">
+                    <p class="textEng">
                         Somos uma empresa cem por cento preocupada com a preservação do meio ambiente e, por isso
                         adotamos a metodologia da T.I Verde que visa adotar um conjunto de estratégias para diminuir o
                         impacto negativo no meio ambiente. Umas de nossas metas para o próximo ano é obter a
@@ -93,30 +93,30 @@
                         <img src="../Img/imagens/servidor.jpg">
 
                         <figcaption>
-                            <h3 class="tituloEnglish">Estrategia Da Empresa</h3>
+                            <h3 class="tituloEnglish">Estratégia Da Empresa</h3>
                         </figcaption>
                     </figure>
 
                     <ul class="estrategia">
                         <li>
-                            <p class="textoEnglish">Nosso servidor está alocado em um lugar estratégico visando
+                            <p class="textEng">Nosso servidor está alocado em um lugar estratégico visando
                                 economizar espaço físico e energia;</p>
                         </li>
                         <li>
-                            <p class="textoEnglish">Somente utilizamos equipamentos que consomem menos energia e, os
+                            <p class="textEng">Somente utilizamos equipamentos que consomem menos energia e, os
                                 utilizamos de maneira consciente evitando mantê-los ligados sem necessidade;</p>
                         </li>
                         <li>
-                            <p class="textoEnglish">Orientamos nossa equipe a reduzir sempre que possível o uso
+                            <p class="textEng">Orientamos nossa equipe a reduzir sempre que possível o uso
                                 desnecessário de papel substituindo seu uso. Para trocar informações por exemplo,
                                 utilizamos aplicações como e-mail, Skype, WhatsApp etc;</p>
                         </li>
                         <li>
-                            <p class="textoEnglish">Utilizamos serviços em nuvem sempre que possível, evitando assim a
+                            <p class="textEng">Utilizamos serviços em nuvem sempre que possível, evitando assim a
                                 compra desnecessária de equipamentos e o desperdício de recursos;</p>
                         </li>
                         <li>
-                            <p class="textoEnglish">Utilizamos uma intranet intuitiva que reduz, drasticamente, os
+                            <p class="textEng">Utilizamos uma intranet intuitiva que reduz, drasticamente, os
                                 recursos e gastos com impressões, salvando várias árvores.</p>
                         </li>
                     </ul>
@@ -172,6 +172,7 @@
 </body>
 
 <!-- Script bootstrap and Jquery -->
+<script type="text/javascript" src="../Js/scriptTraducao.js"></script>
 <script type="text/javascript" src="../Js/scriptStyle.js"></script>
 <script type="text/javascript" src="../Js/bootstrap.js"></script>
 <script type="text/javascript" src="../Js/bootstrap.min.js"></script>
