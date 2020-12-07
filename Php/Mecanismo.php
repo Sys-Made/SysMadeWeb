@@ -700,7 +700,6 @@
 
         //cmd sql
         $sqlSlect = 'SELECT nomeDoProjeto, statusProjeto, dataDeTermino, horarioEstimadoDoProjeto, descricaoDoProjeto FROM Projeto INNER JOIN Cliente ON codigoFKCliente = codigoCliente WHERE codigoProjeto ='.$pj.' AND codigoCliente ='.$cli.'';
-        //$sqlSlect = "Select * from Projeto";
         $sqlExecut = $conn->query($sqlSlect);
         $numberLinhas = $sqlExecut->num_rows;
 
