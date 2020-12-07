@@ -528,8 +528,13 @@ function RealizaPedido(idCLi) {
  * 
  * 
  */
+function atualizarDados(){
+
+    document.location.reload();
+
+}
 function RegistraProjeto() {
-    var projName, projDate, projHour, projNameCli, descrProj, issoNumber, horasConv;
+    var projName, projDate, projHour, projNameCli, descrProj, horasConv;
 
     projName = document.getElementById('nomeProjeto').value;
     projDate = document.getElementById('dateEntrega').value;
@@ -859,7 +864,18 @@ function updtPj(value) {
     horasPj = document.getElementById('horasPj').value;
     descricaoPj = document.getElementById('descricaoPj').value;
 
-    //alert(statusPj);
+    horasConv = validaHoras(horasPj);
+
+    if (horasConv === false) {
+
+        horasPj = parseFloat(horasPj);
+
+    } 
+    
+    if(horasPj == "" || horasPj == null){
+
+        horasPj = "";
+    }
 
     //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
@@ -870,7 +886,6 @@ function updtPj(value) {
 
             //resposta do php
             alert(this.responseText);
-            //document.getElementById('modalResult').innerHTML = this.responseText;
 
         }
 

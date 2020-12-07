@@ -218,11 +218,32 @@ else:
     
             while($result = $sqlExcut->fetch_assoc()): 
     
-                if($result["statusProjeto"] == null){
+              if($result['statusProjeto'] == "" || $result['statusProjeto'] == null){
+
+                $result['statusProjeto'] = "Em Análise";
+                $corText = "text-info";
     
-                    $result["statusProjeto"] = "Em Desenvolvimento";
+              }elseif($result['statusProjeto'] == 0){
     
-                }
+                $result['statusProjeto'] = "Cancelado";
+                $corText = "text-danger";
+    
+              }elseif($result['statusProjeto'] == 1){
+    
+                $result['statusProjeto'] = "Em Desenvolvimento";
+                $corText = "text-primary";
+    
+              }elseif($result['statusProjeto'] == 2){
+    
+                $result['statusProjeto'] = "Em Análise";
+                $corText = "text-info";
+    
+              }elseif($result['statusProjeto'] == 3){
+    
+                $result['statusProjeto'] = "Finalizado";
+                $corText = "text-success";
+    
+              }
     
                 echo'<tr>
                 <td>' . $result["nomeDoProjeto"] . '</td>

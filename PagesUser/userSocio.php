@@ -207,7 +207,7 @@
                                         placeholder="Faça sua busca aqui...." onkeyup="testeInstantaneo()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="atualizarDados()">Refresh</button>
                                 </div>
                             </div>
                         </form>
@@ -235,8 +235,7 @@
                                 </div>
                                 <div class="col-1">
                                     <button type="button" class="btn btn-light border textColorPadrao"
-                                        onclick="pgCli(<?php echo $_GET['pg'];?>, <?php echo $_GET['pgCli']; ?>)">Push
-                                        All</button>
+                                        onclick="atualizarDados()">Refrash</button>
                                 </div>
                             </div>
                         </form>
@@ -261,7 +260,7 @@
                                         placeholder="Faça sua busca aqui...." onkeyup="buscaUpdate()">
                                 </div>
                                 <div class="col-1">
-                                    <button type="button" class="btn btn-light border textColorPadrao">Buscar</button>
+                                    <button type="button" class="btn btn-light border textColorPadrao" onclick="atualizarDados()">Refrash</button>
                                 </div>
                             </div>
                         </form>
