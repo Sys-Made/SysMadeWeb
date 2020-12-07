@@ -274,7 +274,7 @@
 
         $conn->close();
 
-        return $respostaCadastro;
+        echo $respostaCadastro;
         
     }
 
@@ -629,7 +629,7 @@
         //verificando se foi cadastrado
         if ($conn->query($sqlIsertPj) === TRUE) {
 
-            echo "Projeto cadastro na tabela Projeto ";
+            //echo "Projeto cadastro na tabela Projeto ";
 
             /**
              * GAMBIRRA DE NOVO EU NÃO AGUENTO MAIS, PORÉM O TEMPO ESTA CURTO
@@ -677,7 +677,7 @@
 
             if($conn->query($sqlInsertPjS) === true):
 
-                echo "Registrado no ProjetoSocio";
+                echo "Registrado Com Sucesso o Projeto";
 
             else:
 
