@@ -153,6 +153,7 @@ if(!isset($_POST['searchUpd'])):
                               <option value="0">Cancelado</option>
                               <option value="1">Desenvolvimento</option>
                               <option value="2">Em Analise</option>
+                              <option value="3">Finalizado</option>
                             </select>
                           </div>
                         </div>
@@ -329,6 +330,7 @@ else:
                               <option value="0">Cancelado</option>
                               <option value="1">Desenvolvimento</option>
                               <option value="2">Em Analise</option>
+                              <option value="3">Finalizado</option>
                             </select>
                           </div>
                         </div>
