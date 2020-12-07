@@ -100,59 +100,10 @@
 
                     <div class="row justify-content-center">
                         <div class="col-10 mx-auto table-responsive-sm">
-                            <table class="table text-center">
-                                <thead class="tHeadBg">
-                                    <tr>
-                                        <th scope="col">Projeto</th>
-                                        <th scope="col">Data entrega</th>
-                                        <th scope="col">Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="textColorPadrao">
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>10/08/20</td>
-                                        <td><button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>10/08/20</td>
-                                        <td><button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>10/08/20</td>
-                                        <td><button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>10/08/20</td>
-                                        <td><button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>10/08/20</td>
-                                        <td><button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Projeto Nome</td>
-                                        <td>10/08/20</td>
-                                        <td><button type="submit"
-                                                class="btn btn-light border textColorPadrao">Detalhes</button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <!-- Gambiarra--->
+                        <iframe src="#" title="#" class="noVisive" onload="ProjetoRecentes()"></iframe> 
+                        <div id="projetoUlt" class="text-center loadding"></div>
+                        <h4 class="text-center" id="avisoLodg">Aguarde...</h4>
                         </div>
                     </div>
 

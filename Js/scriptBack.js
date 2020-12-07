@@ -5,30 +5,30 @@
  **/
 
 /*validando Horas*/
-function validaHoras(horas){
+function validaHoras(horas) {
     var issoNumber;
 
-    if(horas.length <= 7){
+    if (horas.length <= 7) {
 
         horas = parseFloat(horas);
 
         issoNumber = isNaN(horas);
 
-        if(issoNumber === false){
+        if (issoNumber === false) {
 
             //horas = parseFloat(horas);
             horas = false;
 
-        }else{
+        } else {
 
-            horas = true;    //pois é string
+            horas = true; //pois é string
 
         }
 
 
-        
 
-    }else{
+
+    } else {
         horas = true;
     }
 
@@ -170,12 +170,22 @@ function igualSenha(senha1, senha2) {
 /*fim*/
 
 /*funcãoDeLogin*/
-function Login() {
+function Login(value) {
     //declarando variaveis locais
-    var login, senha, serverHttp;
+    var login, senha, serverHttp, path;
+
+    value = parseInt(value);
 
     login = document.getElementById("LoginCpf").value;
     senha = document.getElementById("LoginSenha").value;
+
+    if (value === 1) {
+
+        path = "./Php/Executando.php";
+
+    } else {
+        path = "../Php/Executando.php";
+    }
 
     //verificando os valores
     if (login == "" || login == null || senha == "" || senha == null) { //se o valores estiverem vazio
@@ -210,11 +220,11 @@ function Login() {
 
                 };
 
-                serverHttp.open("POST", "../Php/Executando.php", true);
+                serverHttp.open("POST", path, true);
 
                 serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-                serverHttp.send("loginCpf=" + login + "&loginSenha=" + senha);
+                serverHttp.send("loginCpf=" + login + "&loginSenha=" + senha + "&pgLoc=" + value);
 
 
 
@@ -250,11 +260,11 @@ function Login() {
 
             };
 
-            serverHttp.open("POST", "../Php/Executando.php", true);
+            serverHttp.open("POST", path, true);
 
             serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-            serverHttp.send("loginSC=" + login + "&senhaSC=" + senha);
+            serverHttp.send("loginSC=" + login + "&senhaSC=" + senha + "&pgLoc=" + value);
 
         }
 
@@ -451,7 +461,7 @@ function sairLogin() {
 
 /* funcao */
 function EmDesenvolvimento() {
-    alert("Está em desenvolvimento!!! E não desliga caixa de alerta !!!");
+    alert("Em Breve!!!");
 }
 
 
@@ -606,6 +616,34 @@ function RegistraProjeto() {
 
 }
 
+function ProjetoRecentes() {
+
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            document.getElementById('projetoUlt').innerHTML = this.responseText;
+            document.getElementById('projetoUlt').classList.remove("loadding");
+            document.getElementById('avisoLodg').classList.add("noVisive");
+
+
+        }
+
+    };
+
+    serverHttp.open("POST", "../Php/Executando.php", true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("ult=" + 1);
+
+    //document.getElementById('projetoRecente').innerHTML = "Funfou";
+}
+
 //busca Bm
 function testeInstantaneo() {
     var search;
@@ -614,12 +652,12 @@ function testeInstantaneo() {
     search = document.getElementById('buscaFinal').value;
     search = search.toLowerCase();
 
-    if(search == "" || search == null){
+    if (search == "" || search == null) {
 
         document.getElementsByClassName('buscaSearch')[0].classList.remove("noVisive");
         document.getElementById('tabelaResult').classList.add("noVisive");
 
-    }else{
+    } else {
 
         document.getElementsByClassName('buscaSearch')[0].classList.add("noVisive");
         document.getElementById('tabelaResult').classList.remove("noVisive");
@@ -657,12 +695,12 @@ function buscaBdSt() {
     //guardando e tratando
     search = document.getElementById('buscaPedido').value;
 
-    if(search == "" || search == null){
+    if (search == "" || search == null) {
 
         document.getElementsByClassName('buscaSearch')[1].classList.remove("noVisive");
         document.getElementById('tabelaCliente').classList.add("noVisive");
 
-    }else{
+    } else {
 
         document.getElementsByClassName('buscaSearch')[1].classList.add("noVisive");
         document.getElementById('tabelaCliente').classList.remove("noVisive");
@@ -702,12 +740,12 @@ function buscaUpdate() {
     search = document.getElementById('buscaAltera').value;
     search = search.toLowerCase();
 
-    if(search == "" || search == null){
+    if (search == "" || search == null) {
 
         document.getElementsByClassName('buscaSearch')[2].classList.remove("noVisive");
         document.getElementById('tabelaUpdate').classList.add("noVisive");
 
-    }else{
+    } else {
 
         document.getElementsByClassName('buscaSearch')[2].classList.add("noVisive");
         document.getElementById('tabelaUpdate').classList.remove("noVisive");
@@ -739,7 +777,7 @@ function buscaUpdate() {
 }
 
 //detalhes BM
-function detalhes(codPj, codCli, value){
+function detalhes(codPj, codCli, value) {
     var caminho;
     value = parseInt(value);
 
@@ -757,25 +795,48 @@ function detalhes(codPj, codCli, value){
 
     };
 
-    if(value == 1){
+    if (value == 1) {
 
         caminho = "../../Php/Executando.php";
 
-    }else{
+    } else {
 
         caminho = "../Php/Executando.php";
 
     }
 
-    serverHttp.open("POST", caminho , true);
+    serverHttp.open("POST", caminho, true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
     serverHttp.send("codPj=" + codPj + "&codCli=" + codCli);
 }
+//teste
+function detalhesUlt(codPj, codCli) {
+    //desenvolvendo ajax
+    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+    serverHttp.onreadystatechange = function () {
+        //verificando o status e se esta pronto para responder
+        if (this.readyState == 4 && this.status == 200) {
+
+            //resposta do php
+            document.getElementById('modalUltResult').innerHTML = this.responseText;
+
+        }
+
+    };
+
+
+    serverHttp.open("POST", "../Php/Executando.php", true);
+
+    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    serverHttp.send("codpjUlt=" + codPj + "&codcliUlt=" + codCli);
+}
 
 //update BM
-function pegarValor(codCli, codPj){
+function pegarValor(codCli, codPj) {
 
     codPj = parseInt(codPj);
     codCli = parseInt(codCli);
@@ -785,13 +846,13 @@ function pegarValor(codCli, codPj){
 
 }
 
-function updtPj(value){
+function updtPj(value) {
     var codCli, codPj, nomePj, statusPj, datePj, horasPj, descricaoPj;
 
     value = parseInt(value);
 
     codCli = document.getElementById('codigoCli').value;
-    codPj  = document.getElementById('codigoPj').value;
+    codPj = document.getElementById('codigoPj').value;
     nomePj = document.getElementById('nomePj').value;
     statusPj = document.getElementById('statusPj').value;
     datePj = document.getElementById('diaPj').value;
@@ -815,17 +876,17 @@ function updtPj(value){
 
     };
 
-    if(value == 1){
+    if (value == 1) {
 
         caminho = "../../Php/Executando.php";
 
-    }else{
+    } else {
 
         caminho = "../Php/Executando.php";
 
     }
 
-    serverHttp.open("POST", caminho , true);
+    serverHttp.open("POST", caminho, true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -834,7 +895,7 @@ function updtPj(value){
 }
 
 //delete BM
-function apagarProjeto(codCli, codPj, value){
+function apagarProjeto(codCli, codPj, value) {
 
     //desenvolvendo ajax
     serverHttp = new XMLHttpRequest(); //Criando um objeto xml
@@ -850,17 +911,17 @@ function apagarProjeto(codCli, codPj, value){
 
     };
 
-    if(value == 1){
+    if (value == 1) {
 
         caminho = "../../Php/Executando.php";
 
-    }else{
+    } else {
 
         caminho = "../Php/Executando.php";
 
     }
 
-    serverHttp.open("POST", caminho , true);
+    serverHttp.open("POST", caminho, true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -869,7 +930,7 @@ function apagarProjeto(codCli, codPj, value){
 }
 
 //detalhes BS
-function detalhesPd(codPd, codCli, value){
+function detalhesPd(codPd, codCli, value) {
     var caminho;
     value = parseInt(value);
 
@@ -887,17 +948,17 @@ function detalhesPd(codPd, codCli, value){
 
     };
 
-    if(value == 1){
+    if (value == 1) {
 
         caminho = "../../Php/Executando.php";
 
-    }else{
+    } else {
 
         caminho = "../Php/Executando.php";
 
     }
 
-    serverHttp.open("POST", caminho , true);
+    serverHttp.open("POST", caminho, true);
 
     serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
@@ -905,16 +966,16 @@ function detalhesPd(codPd, codCli, value){
 
 }
 
-function acRec(value){
+function acRec(value) {
 
     value = parseInt(value);
 
-    if( value == 1 ){
+    if (value == 1) {
 
         alert("Em breve! Aceitar Pedido");
 
 
-    }else{
+    } else {
 
         alert("Em breve! Aceitar Pedido");
 
