@@ -414,6 +414,7 @@
 
         //resposta da busca
         $arrayCliente = "";
+        $cdcli = "";
 
         //convertendo as houras
         $hourProjSc = floatval($hourProjSc);
@@ -432,7 +433,7 @@
                 $cpfProjSc = $result['cpfCliente'];
                 $codCliProjSc = $result['codigoCliente'];
                 
-                //se o nome que esta no cpf bate 
+                //se o nome do cpf não batendo 
                 if($result['nomeDoCliente'] != $cliProjSc){
 
                     $cliProjSc = $result['nomeDoCliente'];
@@ -447,20 +448,45 @@
             }
         
         else:
-            
-            $arrayCliente = false;
-        
-        endif; 
-        
-        //guardando o valor se existe o usuario no banco
+            //Se ele não encontrou
+            /**
+             * 
+             * AUTO-INCREMENT BASEADO NA GAMBIARRA
+             * 
+             */
+            $sqlSlectCliente = "SELECT MAX(codigoCliente) FROM Cliente";
+            $sqlExecutar = $conn->query($sqlSlectCliente);
+            $sqlLinhas = $sqlExecutar->num_rows;
 
-        if( $arrayCliente === false):
+            if($sqlLinhas > 0){
 
-            echo "O Cliente não existe, registra ele ou pede pra se cadastrar no site!!";
+                while($sqlRsl = $sqlExecutar->fetch_assoc()):
 
-            exit;
+                    $cdcli = $sqlRsl['MAX(codigoCliente)'];
+
+                    $cdcli = intval($cdcli) + 1;
+
+                endwhile;
+
+            }
+
+            //fazendo o insert
+            $sqlInsertCliente = "INSERT INTO Cliente(codigoCliente, nomeDoCliente, cpfcliente)VALUES( $cdcli, '$cliProjSc', '$cpfProjSc')";
+            $sqlExecutar->free_result();
+            $sqlExecutar = $conn->query($sqlInsertCliente);
+            //$arrayCliente = false;
+
+            if($sqlExecutar === true){
+
+                $arrayCliente = array($cdcli,$cliProjSc, $cpfProjSc);
+
+            }else{
+                echo "Erro no cadastro!!!";
+
+                exit();
+            }
         
-        else:
+        endif;
 
             /**
              * 
@@ -490,9 +516,11 @@
 
                 echo "Nada de registro Erro 404!!!";
 
+                exit();
+
             }
             /*fim*/
-        endif; 
+        //endif; 
 
         //Comando de inserção
         $sqlIsertPj = "INSERT INTO Projeto(
@@ -544,7 +572,10 @@
 
                 echo "Nada de registro Erro 404(PJS)!!!";
 
+                exit();
+
             }
+
             //inserção na tabela socio 
             $sqlInsertPjS = "INSERT INTO ProjetoSocio(
                 codigoProjSoc,
@@ -563,11 +594,15 @@
             else:
 
                 echo "Error: " . $sqlInsertPjS . " " . $conn->error;
+                die();
 
             endif;    
 
           } else {
+            
             echo "Error: " . $sqlIsertPj . " " . $conn->error;
+            die();
+
           }
         
 
