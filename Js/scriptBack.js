@@ -870,43 +870,50 @@ function updtPj(value) {
 
         horasPj = parseFloat(horasPj);
 
-    } 
+    }
     
     if(horasPj == "" || horasPj == null){
 
         horasPj = "";
     }
 
-    //desenvolvendo ajax
-    serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+    if(typeof horasPj == "string"){
 
-    serverHttp.onreadystatechange = function () {
-        //verificando o status e se esta pronto para responder
-        if (this.readyState == 4 && this.status == 200) {
+        alert("aqui não pode letras!");
+        
+        document.getElementById('horasPj').focus();
 
-            //resposta do php
-            alert(this.responseText);
+    }else{
+        //desenvolvendo ajax
+        serverHttp = new XMLHttpRequest(); //Criando um objeto xml
+
+        serverHttp.onreadystatechange = function () {
+            //verificando o status e se esta pronto para responder
+            if (this.readyState == 4 && this.status == 200) {
+
+                //resposta do php
+                alert(this.responseText);
+
+            }
+
+        };
+
+        if (value == 1) {
+
+            caminho = "../../Php/Executando.php";
+
+        } else {
+
+            caminho = "../Php/Executando.php";
 
         }
 
-    };
+        serverHttp.open("POST", caminho, true);
 
-    if (value == 1) {
+        serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-        caminho = "../../Php/Executando.php";
-
-    } else {
-
-        caminho = "../Php/Executando.php";
-
-    }
-
-    serverHttp.open("POST", caminho, true);
-
-    serverHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-    serverHttp.send("codpj=" + codPj + "&codcli=" + codCli + "&nomePj=" + nomePj + "&statusPj=" + statusPj + "&datePj=" + datePj + "&horasPj=" + horasPj + "&descriPj=" + descricaoPj);
-
+        serverHttp.send("codpj=" + codPj + "&codcli=" + codCli + "&nomePj=" + nomePj + "&statusPj=" + statusPj + "&datePj=" + datePj + "&horasPj=" + horasPj + "&descriPj=" + descricaoPj);
+    }    
 }
 
 //delete BM
