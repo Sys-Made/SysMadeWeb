@@ -837,7 +837,13 @@
 
                     if($result['DATAREALIZADO'] == "" || $result['DATAREALIZADO'] == null){
 
-                        $result['DATAREALIZADO'] = "2020-10-11";
+                        $result['DATAREALIZADO'] = date("d/m/Y");
+
+                    }
+
+                    if($result['RESPOSTADOPEDIDO'] == "" || $result['RESPOSTADOPEDIDO'] == null){
+
+                        $result['RESPOSTADOPEDIDO'] = "<p class='text-info'>Em espera de resposta!</p>";
 
                     }
 
