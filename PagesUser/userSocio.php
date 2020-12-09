@@ -246,7 +246,7 @@
                             <iframe src="./Bsc/buscaPedido.php" class="buscaSearch"></iframe>
                         </div>
 
-                        <div id="tabelaCliente"></div>
+                        <div id="tabelaCliente" class="text-center"></div>
                         <!-- fimResultados -->
                     </div>
 
