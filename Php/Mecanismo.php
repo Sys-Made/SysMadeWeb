@@ -904,6 +904,13 @@
                     $horaspj = $result['horarioEstimadoDoProjeto'];
 
                 }
+
+                if($descripj == "" || $descripj == null){
+
+                    $descripj = $result['descricaoDoProjeto'];
+                    $descripj = strval($descripj);
+
+                }
             
             endwhile;
 
@@ -913,7 +920,11 @@
         $sqlExecut->free_result();
         $sqlExecut = "";
 
-        $sqlUpdt = 'UPDATE Projeto SET nomeDoProjeto = "'.$nomepj.'", statusProjeto ="'.$statuspj.'", dataDeTermino ="'.$datapj.'", horarioEstimadoDoProjeto ="'.$horaspj.'" WHERE codigoProjeto = '.$pj.' AND codigoFKCliente ='.$cli.'';
+        $sqlUpdt = 'UPDATE Projeto SET nomeDoProjeto = "'.$nomepj.'", statusProjeto ="'.$statuspj.'", dataDeTermino ="'.$datapj.'", horarioEstimadoDoProjeto ="'.$horaspj.'", descricaoDoProjeto=" '.$descripj.' " WHERE codigoProjeto = '.$pj.' AND codigoFKCliente ='.$cli.'';
+        
+        //meta charset no banco
+        $conn->set_charset("utf8");
+        
         $sqlExecut = $conn->query($sqlUpdt);
 
         if ($sqlExecut === TRUE) {
@@ -922,7 +933,8 @@
         
         } else {
             
-            echo "Error updating record: " . $conn->error;
+            //echo "Error " . $sqlUpdt ." updating record: " . $conn->error;
+            echo "Error ao alterar o projeto: " . $conn->error;
           
         }
           
